@@ -1,0 +1,5 @@
+﻿groups: frame 1
+ingroup_mc: x=466.35 y=203.75 xscale=150 yscale=150 rotation=120
+nested_mc: x=227 y=179 xscale=104.94 yscale=104.94 rotation=17.62
+clip_mc: x=337.05 y=326.35 xscale=80 yscale=80 rotation=10
+inclip_mc: x=-9.65 y=26.1 xscale=100 yscale=100 rotation=30

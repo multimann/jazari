@@ -6,8 +6,8 @@
 //! only while those files are unchanged (or still missing). Class files that
 //! did not exist at compile time are not tracked.
 
-use crate::CompilerOptions;
 use crate::backend::{Compiled, sha256};
+use crate::{CompilerOptions, SceneContext};
 use std::collections::HashMap;
 use std::sync::{Mutex, PoisonError};
 
@@ -22,8 +22,12 @@ pub(crate) struct Cache {
 }
 
 impl Cache {
-    /// The key of `text` compiled with `options`.
-    pub(crate) fn key(options: &CompilerOptions, text: &str) -> [u8; 32] {
+    /// The key of `text` compiled with `options` in `scenes`.
+    pub(crate) fn key(
+        options: &CompilerOptions,
+        text: &str,
+        scenes: Option<&SceneContext>,
+    ) -> [u8; 32] {
         let mut data = Vec::with_capacity(text.len() + 256);
         data.push(options.swf_version);
         let mut push_field = |field: &[u8]| {
@@ -38,6 +42,14 @@ impl Cache {
             push_field(base.as_os_str().as_encoded_bytes());
         }
         push_field(options.legacy_encoding.as_deref().unwrap_or("").as_bytes());
+        if let Some(scenes) = scenes {
+            push_field(&(scenes.current as u64).to_le_bytes());
+            for (name, first) in &scenes.scenes {
+                push_field(name.as_bytes());
+                push_field(&first.to_le_bytes());
+            }
+        }
+        push_field(b"|");
         push_field(text.as_bytes());
         sha256(&data)
     }

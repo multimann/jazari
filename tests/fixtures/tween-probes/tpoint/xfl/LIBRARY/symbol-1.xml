@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<DOMSymbolItem itemID="6ae21683-0000000e" lastModified="1793201795" lastUniqueIdentifier="0" name="Corner" symbolType="movie clip" xmlns="http://ns.adobe.com/xfl/2008/">
+    <timeline>
+        <DOMTimeline currentFrame="0" name="Corner">
+            <layers>
+                <DOMLayer autoNamed="true" color="#4FFF4F" current="true" heightMultiplier="1" isSelected="true" locked="false" name="Layer 1" open="true" outline="false" useOutlineView="false" visible="true">
+                    <frames>
+                        <DOMFrame acceleration="0" duration="1" index="0" keyMode="1536" motionTweenRotate="auto" motionTweenRotateTimes="0" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMShape selected="false">
+                                    <matrix>
+                                        <Matrix a="1" b="0" c="0" d="1" tx="0" ty="0"/>
+                                    </matrix>
+                                    <fills>
+                                        <FillStyle index="1">
+                                            <SolidColor alpha="1" color="#33AA66"/>
+                                        </FillStyle>
+                                        <FillStyle index="2">
+                                            <SolidColor alpha="1" color="#FF0000"/>
+                                        </FillStyle>
+                                    </fills>
+                                    <edges>
+                                        <Edge edges="!1200 100|1400 100" fillStyle0="0" fillStyle1="2" strokeStyle="0"/>
+                                        <Edge edges="!1400 100|1400 300" fillStyle0="0" fillStyle1="2" strokeStyle="0"/>
+                                        <Edge edges="!1400 300|1200 300" fillStyle0="0" fillStyle1="2" strokeStyle="0"/>
+                                        <Edge edges="!1200 300|1200 400" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!1200 400|0 400" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!0 400|0 0" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!0 0|1200 0" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!1200 0|1200 100" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!1200 300|1200 100" fillStyle0="1" fillStyle1="2" strokeStyle="0"/>
+                                    </edges>
+                                </DOMShape>
+                            </elements>
+                        </DOMFrame>
+                    </frames>
+                </DOMLayer>
+            </layers>
+        </DOMTimeline>
+    </timeline>
+</DOMSymbolItem>

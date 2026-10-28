@@ -292,3 +292,95 @@ fn diagnostics_for_missing_files_have_no_span() {
     assert_eq!(diagnostics[0].path.as_deref(), Some("missing.as"));
     assert_eq!(diagnostics[0].span, None);
 }
+
+// ---- 6. scenes
+
+/// The compiled script as PCode text, with the scenes of the scenes fixture
+/// (`Intro` 0-3, `Main` 4-8, `Outro` 9-12) and `current` as its scene.
+fn pcode_in_scene(source: &'static str, current: usize) -> String {
+    let scenes = crate::Scenes::new(
+        vec![
+            ("Intro".to_owned(), 0),
+            ("Main".to_owned(), 4),
+            ("Outro".to_owned(), 9),
+        ],
+        current,
+    );
+    let mut builder = ProgramBuilder::new(OneScript(source)).with_compile_options(
+        CompileOptions::default()
+            .with_swf_version(8)
+            .with_scenes(scenes),
+    );
+    builder.add_script("main.as");
+    let program = builder
+        .build()
+        .unwrap_or_else(|e| panic!("{}", e.to_string_plain()));
+    program
+        .compile()
+        .initializer
+        .map(|actions| without_empty_pool(&actions.to_string()))
+        .unwrap_or_default()
+}
+
+/// `text` without a leading empty constant pool.
+fn without_empty_pool(text: &str) -> String {
+    text.strip_prefix("ConstantPool 
+")
+        .unwrap_or(text)
+        .to_owned()
+}
+
+#[test]
+fn scenes_next_and_prev_go_to_the_first_frame_of_the_scene() {
+    // Flash 8 (scenes fixture): `GotoFrame 4` for both, with no Play.
+    assert_eq!(pcode_in_scene("nextScene();", 0), "GotoFrame 4\n");
+    assert_eq!(pcode_in_scene("prevScene();", 2), "GotoFrame 4\n");
+    // No such scene: the old behaviour.
+    assert_eq!(pcode_in_scene("nextScene();", 2), "GotoFrame 0\n");
+    assert_eq!(pcode_in_scene("prevScene();", 0), "GotoFrame 0\n");
+}
+
+#[test]
+fn scenes_bare_frame_numbers_count_from_the_current_scene() {
+    // Flash 8: `gotoAndPlay(4)` in Main is `GotoFrame 7`, `Play`.
+    assert_eq!(pcode_in_scene("gotoAndPlay(4);", 1), "GotoFrame 7\nPlay\n");
+    assert_eq!(pcode_in_scene("gotoAndStop(2);", 2), "GotoFrame 10\n");
+}
+
+#[test]
+fn scenes_named_scene_frame_numbers_and_labels() {
+    // Flash 8: `gotoAndPlay("Intro", 3)` in Main is `GotoFrame 2`, `Play`;
+    // `gotoAndPlay("Outro", "outro")` drops the scene.
+    assert_eq!(
+        pcode_in_scene("gotoAndPlay(\"Intro\", 3);", 1),
+        "GotoFrame 2\nPlay\n"
+    );
+    assert_eq!(
+        pcode_in_scene("gotoAndPlay(\"Outro\", \"outro\");", 1),
+        "GotoLabel \"outro\"\nPlay\n"
+    );
+    assert_eq!(
+        pcode_in_scene("gotoAndPlay(\"finale\");", 1),
+        "GotoLabel \"finale\"\nPlay\n"
+    );
+    // An unknown scene is ignored: the frame counts from the current scene.
+    assert_eq!(
+        pcode_in_scene("gotoAndStop(\"Nowhere\", 1);", 1),
+        "GotoFrame 4\n"
+    );
+}
+
+#[test]
+fn scenes_computed_frames_carry_the_scene_bias() {
+    let code = pcode_in_scene("gotoAndPlay(n);", 1);
+    assert!(code.ends_with("GotoFrame2 true, true, 4\n"), "{code}");
+}
+
+#[test]
+fn scenes_without_scene_information_are_unchanged() {
+    assert_eq!(without_empty_pool(&pcode("nextScene();")), "GotoFrame 0\n");
+    assert_eq!(
+        without_empty_pool(&pcode("gotoAndPlay(\"Main\", 4);")),
+        "GotoFrame 3\nPlay\n"
+    );
+}

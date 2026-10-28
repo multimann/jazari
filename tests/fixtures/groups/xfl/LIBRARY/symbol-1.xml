@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<DOMSymbolItem itemID="6ae20af7-0000000e" lastModified="1793198840" lastUniqueIdentifier="1" name="GroupClip" symbolType="movie clip" xmlns="http://ns.adobe.com/xfl/2008/">
+    <timeline>
+        <DOMTimeline currentFrame="0" name="GroupClip">
+            <layers>
+                <DOMLayer autoNamed="false" color="#4FFF4F" current="true" heightMultiplier="1" isSelected="true" locked="false" name="art" open="true" outline="false" useOutlineView="false" visible="true">
+                    <frames>
+                        <DOMFrame acceleration="0" duration="1" index="0" keyMode="1536" motionTweenRotate="auto" motionTweenRotateTimes="0" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMGroup selected="true">
+                                    <members>
+                                        <DOMSymbolInstance blendMode="normal" cacheAsBitmap="false" isExtensible="false" libraryItemName="Marker" locked="false" name="inclip_mc" selected="true" symbolType="movie clip">
+                                            <matrix>
+                                                <Matrix a="0.86602783203125" b="0.5" c="-0.5" d="0.86602783203125" tx="-9.65" ty="26.1"/>
+                                            </matrix>
+                                            <transformationPoint>
+                                                <Point x="0" y="0"/>
+                                            </transformationPoint>
+                                        </DOMSymbolInstance>
+                                        <DOMShape selected="true">
+                                            <matrix>
+                                                <Matrix a="0.86602783203125" b="0.5" c="-0.5" d="0.86602783203125" tx="5.35" ty="0.1"/>
+                                            </matrix>
+                                            <fills>
+                                                <FillStyle index="1">
+                                                    <SolidColor alpha="1" color="#FFCC00"/>
+                                                </FillStyle>
+                                                <FillStyle index="2">
+                                                    <SolidColor alpha="1" color="#9966CC"/>
+                                                </FillStyle>
+                                            </fills>
+                                            <edges>
+                                                <Edge edges="!558 -242S2[617 -300 700 -300" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                                <Edge edges="!700 -300S2[783 -300 841 -242" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                                <Edge edges="!841 -242S2[900 -183 900 -100" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                                <Edge edges="!900 -100S2[900 -17 841 41" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                                <Edge edges="!841 41S2[783 100 700 100" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                                <Edge edges="!700 100S2[617 100 558 41" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                                <Edge edges="!558 41S2[500 -17 500 -100" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                                <Edge edges="!500 -100S2[500 -183 558 -242" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                                <Edge edges="!400 400S2|-800 400" fillStyle0="0" fillStyle1="2" strokeStyle="0"/>
+                                                <Edge edges="!-800 400S2|-800 -400" fillStyle0="0" fillStyle1="2" strokeStyle="0"/>
+                                                <Edge edges="!-800 -400S2|400 -400" fillStyle0="0" fillStyle1="2" strokeStyle="0"/>
+                                                <Edge edges="!400 -400S2|400 400" fillStyle0="0" fillStyle1="2" strokeStyle="0"/>
+                                            </edges>
+                                        </DOMShape>
+                                    </members>
+                                </DOMGroup>
+                            </elements>
+                        </DOMFrame>
+                    </frames>
+                </DOMLayer>
+            </layers>
+        </DOMTimeline>
+    </timeline>
+</DOMSymbolItem>

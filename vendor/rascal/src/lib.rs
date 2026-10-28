@@ -11,6 +11,7 @@ mod tests;
 
 pub use error::{Diagnostic, Error};
 pub use program::{
-    CompileOptions, CompiledProgram, OptimizationOptions, Program, ProgramBuilder, SwfOptions,
+    CompileOptions, CompiledProgram, OptimizationOptions, Program, ProgramBuilder, Scenes,
+    SwfOptions,
 };
 pub use provider::{FileSystemSourceProvider, SourceProvider};

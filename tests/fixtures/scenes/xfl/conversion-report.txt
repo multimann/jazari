@@ -1,0 +1,15 @@
+Binary FLA to XFL: experimental export
+This report covers conversion limitations, not Adobe application validation.
+Original document streams remain in the input model; XFL does not contain a full binary FLA backup.
+
+PUBLISH_PROPERTY [Contents:1539]: Unmapped publish property retained in the source model: PublishRNWKProperties::mediaCopyright
+PUBLISH_PROPERTY [Contents:1539]: Unmapped publish property retained in the source model: PublishRNWKProperties::mediaDescription
+PUBLISH_PROPERTY [Contents:1539]: Unmapped publish property retained in the source model: PublishFormatProperties::generatorDefaultName
+PUBLISH_PROPERTY [Contents:1539]: Unmapped publish property retained in the source model: Vector::Template
+PUBLISH_PROPERTY [Contents:1539]: Unmapped publish property retained in the source model: PublishFormatProperties::generatorFileName
+PUBLISH_PROPERTY [Contents:1539]: Unmapped publish property retained in the source model: PublishRNWKProperties::mediaKeywords
+PUBLISH_PROPERTY [Contents:1539]: Unmapped publish property retained in the source model: PublishRNWKProperties::mediaTitle
+PUBLISH_PROPERTY [Contents:1539]: Unmapped publish property retained in the source model: PublishFormatProperties::generator
+PUBLISH_PROPERTY [Contents:1539]: Unmapped publish property retained in the source model: PublishRNWKProperties::mediaAuthor
+PUBLISH_PROPERTY [Contents:1539]: Unmapped publish property retained in the source model: PublishRNWKProperties::showBitrateDlog
+EXPORT_SCOPE [Contents:0]: Experimental authoring export; source recovery and remaining feature limitations are listed in this report and the XFL export documentation.

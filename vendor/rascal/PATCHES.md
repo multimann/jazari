@@ -27,7 +27,7 @@ the same terms as Rascal.
 
 ## How the patches were checked
 
-- **Tests:** `src/patch_tests.rs` (22 tests, run with the patches applied).
+- **Tests:** `src/patch_tests.rs` (27 tests, run with the patches applied).
   The vendored package has no `samples/`, so Rascal's own suite was run in a
   copy of the upstream repository at the same commit with `src/` replaced by
   this one: `INSTA_UPDATE=no cargo test -p rascal -- --test-threads=1`.
@@ -136,6 +136,36 @@ error as a `Diagnostic { path, message, span }` (byte range in that file), and
 
 - Files: `src/error.rs`, `src/lib.rs`.
 - Tests: `diagnostics_*` in `src/patch_tests.rs`.
+
+### 6. Scenes
+
+A standalone compiler knows no scenes, so `nextScene()`/`prevScene()` went to
+frame 0 and `gotoAndPlay("Scene", n)` ignored the scene. Flash resolves them
+when compiling. The new public `Scenes` (every scene's name and first frame,
+plus the current scene) is passed with `CompileOptions::with_scenes`; it
+applies to scripts only, not classes. With it:
+
+| source | compiled (Flash 8, `tests/fixtures/scenes`) |
+|---|---|
+| `nextScene()` / `prevScene()` | `GotoFrame` to the first frame of the next / previous scene, no `Play` |
+| `gotoAndPlay(n)` | `GotoFrame` first frame of the current scene + n − 1, `Play` |
+| `gotoAndPlay("Scene", n)` | `GotoFrame` first frame of that scene + n − 1, `Play` (an unknown scene counts as the current one) |
+| `gotoAndPlay("Scene", "label")`, `gotoAndPlay("label")` | `GotoLabel`, `Play` (the scene is dropped) |
+| `gotoAndPlay(expr)` | `GotoFrame2` with the scene bias (not checked against Flash) |
+
+`gotoAndStop` is the same without `Play`. `nextScene()` on the last scene and
+`prevScene()` on the first keep the old behaviour (frame 0).
+
+- Additive: a new HIR variant `GotoSceneFrame` is produced only when scenes
+  are given, and `CompileOptions.scenes` is skipped when serialising, so the
+  upstream snapshots do not change. Ruffle's `playerglobal_avm1.swf` is
+  byte-identical (SHA-256 `e88de60f…`).
+- Files: `src/program.rs` (`Scenes`, `with_scenes`), `src/lib.rs`,
+  `src/internal/as2/hir.rs`, `hir/visitor.rs`, `resolver.rs`,
+  `resolver/special_functions.rs` (`scene_goto`, `scene_step`),
+  `as2_codegen/statement.rs`.
+- Tests: `scenes_*` in `src/patch_tests.rs` (27 patch tests in all, run in a
+  standalone copy of this directory).
 
 ## Known upstream problems not patched
 

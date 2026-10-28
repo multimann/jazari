@@ -201,6 +201,7 @@ pub fn walk_expr<V: MutVisitor + ?Sized>(visitor: &mut V, expr: &mut Expr) {
             visitor.visit_expr(value);
         }
         ExprKind::GotoFrame(frame, _) => visitor.visit_expr(frame),
+        ExprKind::GotoSceneFrame { frame, .. } => visitor.visit_expr(frame),
         ExprKind::GetUrl { target, url, .. } => {
             visitor.visit_expr(target);
             visitor.visit_expr(url);

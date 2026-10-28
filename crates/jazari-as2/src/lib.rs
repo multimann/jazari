@@ -69,6 +69,21 @@ impl Default for CompilerOptions {
     }
 }
 
+/// Where a script of a scene (root) timeline sits among the document's
+/// scenes. With it, scene gotos resolve at compile time as Flash 8 does:
+/// `nextScene()`/`prevScene()` go to (and stop at) the first frame of the
+/// next/previous scene, a bare `gotoAndPlay(n)` counts from the first frame
+/// of the current scene, `gotoAndPlay("Scene", n)` from that scene's, and a
+/// scene-qualified label drops the scene. Without it (symbol timelines),
+/// scene gotos behave as in a one-scene movie.
+#[derive(Debug, Clone, PartialEq, Eq, Hash, Default)]
+pub struct SceneContext {
+    /// Every scene in order: its name and its first root frame (0-based).
+    pub scenes: Vec<(String, u32)>,
+    /// Index of the scene the script belongs to.
+    pub current: usize,
+}
+
 /// The AS2 compiler. One instance is shared by a whole publish; its methods
 /// take `&self` and it is safe to share between threads.
 #[derive(Debug)]
@@ -101,6 +116,18 @@ impl Compiler {
     /// `on (...) { }` and `onClipEvent (...) { }` blocks are rejected, as in
     /// Flash 8: they belong on instances.
     pub fn compile_frame(&self, src: &str, origin: &Origin) -> Result<Vec<u8>, Vec<Diagnostic>> {
+        self.compile_frame_in(src, origin, None)
+    }
+
+    /// [`compile_frame`](Self::compile_frame) for a script of a scene
+    /// timeline: scene gotos resolve against `scenes` (see
+    /// [`SceneContext`]).
+    pub fn compile_frame_in(
+        &self,
+        src: &str,
+        origin: &Origin,
+        scenes: Option<&SceneContext>,
+    ) -> Result<Vec<u8>, Vec<Diagnostic>> {
         let src = strip_bom(src);
         let tokens = scan::tokenize(src);
         let mut problems = precheck(&tokens);
@@ -119,7 +146,7 @@ impl Compiler {
         if !problems.is_empty() {
             return Err(problem_diagnostics(src, problems, origin));
         }
-        self.compile_text(src)
+        self.compile_text(src, scenes)
             .map(|output| output.actions)
             .map_err(|raw| raw_diagnostics(raw, origin))
     }
@@ -134,15 +161,33 @@ impl Compiler {
         src: &str,
         origin: &Origin,
     ) -> Result<Vec<ButtonHandler>, Vec<Diagnostic>> {
+        self.compile_button_handlers_in(src, origin, None)
+    }
+
+    /// [`compile_button_handlers`](Self::compile_button_handlers) for a
+    /// button placed on a scene timeline: its handlers act on that timeline,
+    /// so scene gotos resolve against `scenes` (see [`SceneContext`]).
+    pub fn compile_button_handlers_in(
+        &self,
+        src: &str,
+        origin: &Origin,
+        scenes: Option<&SceneContext>,
+    ) -> Result<Vec<ButtonHandler>, Vec<Diagnostic>> {
         let src = strip_bom(src);
-        self.compile_handlers(src, origin, InstanceKind::Button, |handler, output| {
-            let (conditions, key_code) = handlers::button_conditions(handler)?;
-            Ok((!output.actions.is_empty()).then_some(ButtonHandler {
-                conditions,
-                key_code,
-                actions: output.actions,
-            }))
-        })
+        self.compile_handlers(
+            src,
+            origin,
+            InstanceKind::Button,
+            scenes,
+            |handler, output| {
+                let (conditions, key_code) = handlers::button_conditions(handler)?;
+                Ok((!output.actions.is_empty()).then_some(ButtonHandler {
+                    conditions,
+                    key_code,
+                    actions: output.actions,
+                }))
+            },
+        )
     }
 
     /// Splits and compiles the `onClipEvent(...)` and `on(...)` handlers of a
@@ -156,18 +201,24 @@ impl Compiler {
         origin: &Origin,
     ) -> Result<Vec<ClipHandler>, Vec<Diagnostic>> {
         let src = strip_bom(src);
-        self.compile_handlers(src, origin, InstanceKind::MovieClip, |handler, output| {
-            let (events, key_code) = handlers::clip_events(handler)?;
-            let mut actions = output.actions;
-            if actions.is_empty() {
-                actions.push(0); // ActionEnd
-            }
-            Ok(Some(ClipHandler {
-                events,
-                key_code,
-                actions,
-            }))
-        })
+        self.compile_handlers(
+            src,
+            origin,
+            InstanceKind::MovieClip,
+            None,
+            |handler, output| {
+                let (events, key_code) = handlers::clip_events(handler)?;
+                let mut actions = output.actions;
+                if actions.is_empty() {
+                    actions.push(0); // ActionEnd
+                }
+                Ok(Some(ClipHandler {
+                    events,
+                    key_code,
+                    actions,
+                }))
+            },
+        )
     }
 
     /// AS2 classes (fully qualified names) referenced by the scripts this
@@ -227,6 +278,7 @@ impl Compiler {
         src: &str,
         origin: &Origin,
         kind: InstanceKind,
+        scenes: Option<&SceneContext>,
         build: impl Fn(&handlers::Handler, Output) -> Result<Option<T>, Vec<Problem>>,
     ) -> Result<Vec<T>, Vec<Diagnostic>> {
         let tokens = scan::tokenize(src);
@@ -243,7 +295,7 @@ impl Compiler {
         let mut diagnostics = Vec::new();
         for handler in &found {
             let text = blank_outside(src, handler.body.clone());
-            match self.compile_text(&text) {
+            match self.compile_text(&text, scenes) {
                 Ok(output) => match build(handler, output) {
                     Ok(Some(result)) => results.push(result),
                     Ok(None) => {}
@@ -268,13 +320,20 @@ impl Compiler {
     }
 
     /// Compiles one script text through the cache.
-    fn compile_text(&self, text: &str) -> Result<Output, Vec<RawDiagnostic>> {
-        let key = self.options.cache.then(|| Cache::key(&self.options, text));
+    fn compile_text(
+        &self,
+        text: &str,
+        scenes: Option<&SceneContext>,
+    ) -> Result<Output, Vec<RawDiagnostic>> {
+        let key = self
+            .options
+            .cache
+            .then(|| Cache::key(&self.options, text, scenes));
         let cached = key.as_ref().and_then(|key| self.cache.get(key));
         let compiled = match cached {
             Some(compiled) => compiled,
             None => {
-                let compiled = backend::compile_script(&self.options, text);
+                let compiled = backend::compile_script(&self.options, text, scenes);
                 if let Some(key) = key {
                     self.cache.insert(key, compiled.clone());
                 }

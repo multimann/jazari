@@ -172,6 +172,17 @@ pub fn layout(lib: &FontLibrary, block: &TextBlock) -> TextLayout {
 }
 
 /// Rounds twips to a whole pixel.
+/// A shaped advance in whole twips, rounded as Flash 8 rounds it: the
+/// nominal (`hmtx`) advance and the shaper's adjustment (kerning) are
+/// rounded separately, then added (", A" in 12 pt Arial: 67 - 13 = 54, not
+/// round(53.44)). `k` converts font units to twips.
+fn twips_advance(nominal: Option<f64>, shaped: f64, k: f64) -> f64 {
+    match nominal {
+        Some(n) => (n * k).round() + ((shaped - n) * k).round(),
+        None => (shaped * k).round(),
+    }
+}
+
 fn snap_px(twips: f64) -> f64 {
     (twips / TWIPS_PER_PX).round() * TWIPS_PER_PX
 }
@@ -469,7 +480,7 @@ impl ParaCtx<'_, '_> {
                     size,
                     // Whole twips, as Flash writes them: line widths, and
                     // so alignment, then match Flash's (`text` fixture).
-                    advance: (g.x_advance * k).round(),
+                    advance: twips_advance(view.nominal_advance(g.glyph), g.x_advance, k),
                     x_offset: g.x_offset * k,
                     y_offset: g.y_offset * k,
                     space,

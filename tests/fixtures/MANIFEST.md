@@ -53,6 +53,9 @@ The first bytes were read with Python. Stage, fps and frame count come from the 
 | as2 | 28160 | 3682 | `43 57 53 08 4e 1b 00 00` | CWS | 8 | 400x300 | 12 | 12 | yes (40467 B) | OK |
 | text | 23040 | 11764 | `43 57 53 08 d5 3b 00 00` | CWS | 8 | 550x400 | 12 | 1 | yes (42393 B) | OK |
 | bitmaps | 33280 | 8362 | `43 57 53 08 4b 22 00 00` | CWS | 8 | 550x400 | 12 | 1 | yes (41312 B) | OK |
+| groups | 29696 | 1252 | `43 57 53 08 34 06 00 00` | CWS | 8 | 550x400 | 12 | 1 | yes (69374 B) | OK |
+| masks | 35840 | 1833 | `43 57 53 08 ea 0a 00 00` | CWS | 8 | 550x400 | 12 | 20 | yes (81317 B) | OK |
+| scenes | 32256 | 734 | `43 57 53 08 a0 05 00 00` | CWS | 8 | 550x400 | 12 | 13 | yes (52442 B) | OK |
 
 Every JSFL log ends with `FAILED STEPS: 0` (after the workarounds below). Every `xfl\` folder contains
 `conversion-report.txt`.
@@ -438,3 +441,389 @@ APIs that worked as documented include `fl.objectDrawingMode`, `addNewRectangle/
   - DefineBitsLossless2 128x128 format 5;
   - one DefineShape2 holding everything. The four instances use clipped fills, each with the extra
     placeholder fill whose bitmap id is 65535. The two break-apart shapes use repeating fills.
+
+## groups
+
+- **Covers:** raw shapes grouped, one group per layer: untransformed, moved, scaled, rotated and skewed
+  after grouping; three levels of nested groups, each transformed after grouping, the innermost holding a
+  named movie clip; a group holding a movie clip that was scaled and rotated before grouping; two groups, a
+  Flash 8 drawing object (rotated) and a raw shape on one layer; a group with a named instance inside a
+  movie clip. Every group has its own colours, so SWF fill styles can be matched to XFL shapes. Purpose:
+  settle how the XFL that JPEXS writes stores group member matrices.
+- **Stage / frames:** 550x400, white, 12 fps, **1 frame**. Merge drawing mode, except the one drawing object.
+- **Library:**
+  - `Marker` (MC): blue body (-20,-10)-(12,10) `#3366CC` and red tip (12,-5)-(20,5) `#FF0000`.
+  - `GroupClip` (MC): one group of a rect `#9966CC` (-40,-20)-(20,20), an oval `#FFCC00` (25,-15)-(45,5)
+    and `Marker` `inclip_mc` at (0,30), rotated 30 after grouping.
+- **Main timeline (top to bottom).** The right-hand column is the group's own matrix as Flash 8 reports it
+  (JSFL `element.matrix` after the transform; Flash transforms about the group's centre, hence the
+  translations).
+
+  | layer | content: as drawn, then the transform applied after grouping | Flash's group matrix |
+  |---|---|---|
+  | `actions` | frame script | |
+  | `clip` | `GroupClip` `clip_mc` at (340,330), scaled 0.8 and rotated 10: (0.7878,0.1389,-0.1389,0.7878,337.05,326.35) | (an instance) |
+  | `stack` | group Ga: rect `#FF00FF` (40,290)-(140,370). Group Gb: oval `#00FFFF` (100,300)-(200,380), moved (10,0). Drawing object: oval `#FFAA00` (150,280)-(250,330), rotated 20. Raw rect `#DDDDDD` (20,270)-(260,390), drawn last. | Ga identity; Gb (1,0,0,1,10,0); drawing object (0.9397,0.342,-0.342,0.9397,116.35,-50) |
+  | `symbol` | `Marker` `ingroup_mc` placed at (470,180), scaled 1.5 and rotated 90: (0,1.5,-1.5,0,470,180); raw rect `#999999` (400,150)-(420,210). Grouped, rotated 30, moved (0,10). | (0.866,0.5,-0.5,0.866,149.3,-187.15) |
+  | `nested` | N1 = rect `#FF3333` (170,150)-(210,170) + `Marker` `nested_mc` at (230,160), rotated 45. N2 = N1 + oval `#3333FF` (250,140)-(290,180), scaled (1.25,0.8). N3 = N2 + rect `#33CC33` (160,200)-(300,215), moved (5,5), rotated -15. | N1 (0.7071,0.7071,-0.7071,0.7071,174.65,-101.65); N2 (1.25,0,0,0.8,-58.05,32); N3 (0.9659,-0.2588,0.2588,0.9659,-31.9,71.05) |
+  | `skewed` | rect `#6633CC` (20,160)-(70,200) + oval `#CCCC00` (75,165)-(115,205), skewed (20,-10) | (1,0.1763,-0.364,1,66.4,-11.9) |
+  | `rotated` | rect `#009999` (430,40)-(480,80) + oval `#996600` (485,45)-(525,85), rotated 30 | (0.866,0.5,-0.5,0.866,95.2,-230.4) |
+  | `scaled` | rect `#CC0066` (290,40)-(330,80) + oval `#66CC00` (335,45)-(375,85), scaled (1.5,0.75) | (1.5,0,0,0.75,-166.25,15.65) |
+  | `moved` | rect `#0066FF` (150,30)-(200,70) + oval `#FF9900` (205,35)-(245,75), moved (10,20) | (1,0,0,1,10,20) |
+  | `plain` | rect `#FF0000` (20,40)-(70,80) + oval `#00AA00` (75,45)-(115,85) | identity |
+
+- **Expected trace** (the script rounds to 2 decimals):
+  ```
+  groups: frame 1
+  ingroup_mc: x=466.35 y=203.75 xscale=150 yscale=150 rotation=120
+  nested_mc: x=227 y=179 xscale=104.94 yscale=104.94 rotation=17.62
+  clip_mc: x=337.05 y=326.35 xscale=80 yscale=80 rotation=10
+  inclip_mc: x=-9.65 y=26.1 xscale=100 yscale=100 rotation=30
+  ```
+- **The group member matrix rule (JPEXS XFL), with evidence:**
+  - A `DOMGroup` never has a `<matrix>` or a `<transformationPoint>`. Flash's own group matrix (right-hand
+    column above) is not written anywhere.
+  - Every member has an explicit `<matrix>`, the identity included. That matrix is already the product of
+    all enclosing group transforms and the member's own transform. It maps the member's local coordinates
+    (its edges stay exactly as drawn) straight into the space of the timeline that holds the outermost group.
+    Examples: in `nested`, `#33CC33` carries N3 = (0.965927,-0.25882,0.25882,0.965927,-31.9,71.05);
+    `#3333FF` carries N3·N2 = (1.20741,-0.323517,0.207047,0.772736,-79.7,117); `#FF3333` carries N3·N2·N1 =
+    (1.00017,0.317642,-0.707352,0.775162,110.1,-18.05) and `nested_mc` N3·N2·N1·translate(230,160) =
+    (1.00017,0.317642,-0.707352,0.775162,227,179). In `symbol`, `ingroup_mc` carries G·own =
+    (-0.75,1.29904,-1.29904,-0.75,466.35,203.75). Raw shapes inside groups therefore have non-identity matrices.
+  - **Rule: use a member's matrix as it is and never multiply it by the enclosing groups** (there is nothing
+    to multiply by). The absent `DOMGroup` matrix means identity. A member without a matrix never occurs in
+    JPEXS output; reading it as identity agrees with everything here, while the fla-viewer rule "a member
+    without a matrix inherits the group matrix" could not be tested. Real CS5/CS6 saves are not verified.
+  - Member matrix applied to the XFL edges, against the edge bounds of the published shapes
+    (`swfdump.py --shapes-full`; Flash bakes the transforms into the edges). All agree within 1 twip:
+
+    | member | XFL edges (as drawn) | XFL member matrix applied | SWF |
+    |---|---|---|---|
+    | plain `#FF0000` | (20,40)-(70,80) | (20,40)-(70,80) | same |
+    | moved `#0066FF` | (150,30)-(200,70) | (160,50)-(210,90) | same |
+    | scaled `#CC0066` | (290,40)-(330,80) | (268.75,45.65)-(328.75,75.65) | same |
+    | rotated `#009999` | (430,40)-(480,80) | (427.6,19.25)-(490.9,78.9) | same |
+    | skewed `#6633CC` | (20,160)-(70,200) | (13.6,151.65)-(78.15,200.45) | same |
+    | nested `#33CC33` | (160,200)-(300,215) | (174.4,186.6)-(313.5,237.3) | (174.4,186.6)-(313.55,237.3) |
+    | nested `#3333FF` | (250,140)-(290,180) | (253.55,135.15)-(305.3,171.45) | same |
+    | nested `#FF3333` | (170,150)-(210,170) | (159.9,152.2)-(214.05,180.45) | same |
+    | symbol `#999999` | (400,150)-(420,210) | (390.7,142.75)-(438.05,204.7) | same |
+    | stack drawing object `#FFAA00` | (150,280)-(250,330) | (149.45,274.45)-(250.5,335.6) | (149.45,274.45)-(250.45,335.6) |
+    | `GroupClip` `#9966CC` | (-40,-20)-(20,20) | (-39.3,-37.2)-(32.65,27.4) | same |
+
+    The PlaceObject2 matrices of the instances equal their XFL member matrices: `nested_mc`
+    (1.0002,0.3176,-0.7074,0.7752,227,179), `ingroup_mc` (-0.75,1.299,-1.299,-0.75,466.35,203.75),
+    `inclip_mc` (0.866,0.5,-0.5,0.866,-9.65,26.1). Composing with the group matrix again would be wrong: for
+    `rotated`, Flash's group matrix times the member matrix gives (438.6,10.1)-(498.2,73.4).
+  - **Drawing order.** JPEXS lists the merge-mode raw shape of a frame or group (a `DOMShape` without
+    `isDrawingObject`) **after** the groups, drawing objects and instances beside it, but Flash draws it
+    **underneath** them. In `stack` the XFL order is Ga, Gb, drawing object, `#DDDDDD`; the SWF draws
+    `#DDDDDD`, `#FF00FF`, `#00FFFF`, `#FFAA00` from back to front (and JSFL lists the raw shape first). Inside
+    groups it is the same: `symbol` lists (`ingroup_mc`, `#999999`) and publishes `#999999` at depth 11 under
+    `ingroup_mc` at 12; `nested` lists (N2, `#33CC33`) and draws `#33CC33` first; `GroupClip` lists
+    (`inclip_mc`, raw) and publishes the raw shape at depth 1, `inclip_mc` at 2. Everything else follows
+    document order, the first element being the backmost. A reader or renderer must draw the raw shape first.
+    Whether real CS5 XFL orders it the same way is not known.
+- **JSFL problems / workarounds:** J10 (`Marker` and `GroupClip` placements needed 2 or 3 attempts), J11,
+  J19 (members cannot be read back). Each group was made by locking every other layer, `selectAll()` and
+  `group()`; Gb was selected with `mouseClick`. `moveSelectionBy`, `scaleSelection`, `rotateSelection`,
+  `skewSelection` and `fl.objectDrawingMode` work. No step failed.
+- **JPEXS:** no warnings beyond the routine ones. Problems: the group's own matrix and transformation point
+  are dropped (members are right, so publishing is unaffected, but an editor cannot recover Flash's group
+  box); the raw shape is listed last (see drawing order). The drawing object is `DOMShape
+  isDrawingObject="true"` with its own matrix and its edges as drawn.
+- **SWF:**
+  - Group transforms are baked into the edges and the shapes are placed with the identity matrix; no sprite
+    and no separate shape per group.
+  - Raw content (raw shapes, group contents, drawing objects) is merged across layers into one shape until
+    the next instance, with one new-styles block per group, drawing object or raw shape: id 1, DefineShape2
+    with 8 blocks (plain, moved, scaled, rotated, skewed, `#33CC33`, `#3333FF`, `#FF3333`) at depth 8; then
+    `nested_mc` at 9; `#999999` alone (DefineShape) at 11; `ingroup_mc` at 12; the `stack` layer (DefineShape2,
+    4 blocks) at 17; `clip_mc` at 18. DefineShape2 when there are several blocks (DefineShape has no new
+    styles), DefineShape for one.
+  - Depths: each piece of raw content takes one depth and the merged shape sits at the depth of its topmost
+    piece (pieces 1-8 at 8, 14-17 at 17); each `Marker` instance takes two depths (9-10, 12-13). Inside
+    `GroupClip`: raw shape at 1, `inclip_mc` at 2.
+  - Instance names inside groups are kept, and AS2 reaches them (see the trace).
+
+## masks
+
+- **Covers:** a raw-shape mask over one masked layer (A); a mask over two masked layers, raw stripes and a
+  movie clip (B); a movie clip instance as the mask (C); a mask layer holding a raw shape and an instance
+  (D); a motion-tweened mask, a movie clip (E); a masked layer holding a motion tween (F); a movie clip with
+  its own mask over two masked layers (G); a mask layer holding two movie clip instances (H).
+- **Stage / frames:** 550x400, white, 12 fps, **20 frames**; frame 20 calls `stop()`. The cases sit in 4
+  columns x 2 rows of 125x170 cells (A-D on top, E-H below).
+- **Library:**
+  - `Box` (MC): 40x40, quadrants red `#FF0000`, green `#00CC00`, blue `#0000FF`, black, centred.
+  - `Disc` (MC): grey `#666666` disc, r=45.
+  - `MaskedClip` (MC), layers top to bottom: `mask` (mask: raw oval (-50,-70)-(50,70)); `box` (masked:
+    `Box` `inner_box_mc` at (25,30), scaled 1.5); `bars` (masked: 8 horizontal bars `#911EB4`/`#46F0F0` in
+    (-60,-80)-(60,80)).
+- **Main timeline (top to bottom).** Stripe and grid colours: `#E6194B`, `#3CB44B`, `#FFE119`, `#4363D8`, `#F58231`.
+
+  | layer | type | content |
+  |---|---|---|
+  | `actions` | normal | scripts on frames 1 and 20 |
+  | `h_mask` | mask | H: `Disc` `h_disc1_mc` at (450,265) and then `Disc` `h_disc2_mc` at (505,330), both scaled 0.5 |
+  | `h_art` | masked by `h_mask` | 5 horizontal stripes in (415,210)-(540,380) |
+  | `g_clip` | normal | G: `MaskedClip` `maskedclip_mc` at (342,295) |
+  | `f_mask` | mask | F: raw rect (160,250)-(255,350) |
+  | `f_art` | masked by `f_mask` | `Box` `tweenbox_mc`, motion tween from (165,230) at x1 (frame 1) to (250,360) at x2 (frame 20) |
+  | `e_mask` | mask | E: `Disc` `tweenmask_mc` scaled 0.5, motion tween from (40,295) (frame 1) to (105,295) (frame 20) |
+  | `e_art` | masked by `e_mask` | 3x4 grid in (10,210)-(135,380) |
+  | `d_mask` | mask | D: raw rect (425,35)-(475,95) and `Disc` `maskdisc_mc` at (495,140), scaled 0.6 |
+  | `d_art` | masked by `d_mask` | 5 vertical stripes in (415,20)-(540,190) |
+  | `c_mask` | mask | C: `Disc` `maskclip_mc` at (342,105) |
+  | `c_art` | masked by `c_mask` | 3x4 grid in (280,20)-(405,190) |
+  | `b_mask` | mask | B: raw rounded rect (160,50)-(255,160), radius 20 |
+  | `b_art2` | masked by `b_mask` | `Box` `b_box_mc` at (245,160), scaled 1.5 (partly outside the mask) |
+  | `b_art1` | masked by `b_mask` | 6 horizontal stripes in (145,20)-(270,190) |
+  | `a_mask` | mask | A: raw oval (20,40)-(125,170) |
+  | `a_art` | masked by `a_mask` | 5 vertical stripes in (10,20)-(135,190) |
+
+- **Expected trace:**
+  ```
+  masks: frame 1
+  maskclip_mc: movieclip, _x = 342
+  maskdisc_mc._xscale = undefined
+  tweenmask_mc._x = 40, tweenbox_mc._x = 165
+  maskedclip_mc.inner_box_mc: inner_box_mc
+  h_disc1_mc: movieclip, h_disc2_mc: undefined
+  masks: frame 20, tweenmask_mc._x = 105, tweenbox_mc._x = 250
+  ```
+  `maskdisc_mc` and `h_disc2_mc` do not exist at run time, because Flash 8 did not publish them (see SWF).
+- **JSFL problems / workarounds:** J10 (placements needed 2 or 3 attempts), J11, J12 (layers extended with
+  `insertFrames`). The content was drawn first; then `layer.layerType = "mask"` on the mask layer and
+  `"masked"` on the layers directly below it. Flash 8 has `layer.parentLayer`, and it already pointed at the
+  mask. No step failed.
+- **JPEXS:** no warnings beyond the routine ones. Mask layers are `layerType="mask"`. Masked layers have no
+  `layerType` (normal) and `parentLayerIndex` = the index of their mask layer in the same `<layers>` list
+  (in `MaskedClip`, `box` and `bars` have 0). Both elements of `d_mask` and of `h_mask` are kept (on `d_mask`
+  the instance comes first and the raw shape last, the order described under groups). The tweens are classic
+  motion tweens (`keyMode="7681"`, acceleration 0).
+- **SWF (how Flash 8 publishes masks):**
+  - The mask content is placed **directly** with a PlaceObject2 `clipDepth`; there is no wrapper sprite. A
+    raw mask is a DefineShape; a movie clip mask is the clip's own DefineSprite, placed with its instance
+    name (`maskclip_mc`, `tweenmask_mc`, `h_disc1_mc`).
+  - **Only one element of a mask layer is published: the backmost.** On `d_mask` the raw rect (raw shapes
+    are always underneath) is the mask and `maskdisc_mc` is dropped. On `h_mask` `h_disc1_mc` (placed first)
+    is the mask and `h_disc2_mc` is dropped. Nothing warns; the trace shows `undefined` for both.
+    ARCHITECTURE section 6 says to wrap the union of the mask layer's elements in a generated sprite; Flash 8
+    does not do that. What the Flash 8 stage shows for such a layer was not checked.
+  - Depths and clip depths:
+
+    | case | mask: depth, clipDepth | masked content: depth |
+    |---|---|---|
+    | A | raw oval: 1, 3 | stripes 2 |
+    | B | raw rounded rect: 4, 8 | stripes 5, `b_box_mc` 6 |
+    | C | `maskclip_mc`: 9, 12 | grid 11 |
+    | D | raw rect: 14, 16 | stripes 15 |
+    | E | `tweenmask_mc`: 17, 20 | grid 19 |
+    | F | raw rect: 22, 25 | `tweenbox_mc` 23 |
+    | G | inside `MaskedClip` (placed at depth 26): raw oval 1, 5 | bars 2, `inner_box_mc` 3 |
+    | H | `h_disc1_mc`: 32, 35 | stripes 34 |
+
+    The clip depth is always one above the highest depth that the masked layers use, counting the second
+    depth that each instance takes. `maskedclip_mc` takes depths 26-31, which matches 1 + the 5 depths its
+    sprite uses. The gaps at 13 and 21 follow the two cases whose mask is an instance and are not explained.
+    A publisher needs the order and the ranges, not Flash's exact numbers.
+  - A tweened mask is one PlaceObject2 Modify per frame at the mask's depth (`clipDepth` only on the first
+    placement); a tweened masked clip is like any other tween.
+  - Masks inside a movie clip follow the same pattern inside its DefineSprite.
+  - Flash 8 reuses one DefineShape for shapes that are equal up to scale and translation, through the
+    placement matrix: the `a_mask` oval is `MaskedClip`'s mask oval (char 1) placed with
+    (1.05,0,0,0.9286,72.5,105); the `a_art` stripes are the `d_art` stripes (char 2) with tx=-405; the
+    `d_mask` rect is the `f_mask` rect (char 10) with (0.5263,0,0,0.6,340.8,-115). An XFL-driven publisher
+    will write more DefineShape tags.
+  - Every shape is DefineShape (v1: fills only, one style block). Frame 1's DoAction comes first, before
+    any definition.
+
+## scenes
+
+- **Covers:** three scenes with frame labels and frame scripts that trace the scene, the frame and
+  `_currentframe`; `nextScene()` and `prevScene()` (each followed by `play()`); an unqualified
+  `gotoAndPlay(4)` in the second scene; `gotoAndPlay("Intro", 3)`; `gotoAndPlay("finale")`, a label in
+  another scene; `gotoAndPlay("Outro", "outro")`; `stop()` at the end. A global counter `hops` makes the
+  path deterministic and finite.
+- **Stage / frames:** 550x400, white, 12 fps. Scenes `Intro` (4 frames), `Main` (5) and `Outro` (4): **13
+  frames** in the SWF.
+- **Library:** `Dot` (MC): black disc, r=12.
+- **Each scene, layers top to bottom:** `actions`; `labels`; `dot` (a `Dot` motion-tweened from (75,y) to
+  (475,y) over the scene, y = 120 / 200 / 280); `art` (raw rect (25,25)-(525,375) in `#FFD8D8` / `#D8FFD8` /
+  `#D8D8FF`).
+- **Labels and scripts** (frame numbers within the scene, root frames in brackets):
+
+  | scene | labels | scripts |
+  |---|---|---|
+  | `Intro` [1-4] | `intro` = 1 | 1: `hops = 0` if undefined, trace. 3: trace. 4: trace, `nextScene(); play();` |
+  | `Main` [5-9] | `main` = 1, `mainLoop` = 4 | 1: trace. 2: if `hops == 0`, set 1 and `gotoAndPlay(4)`, else trace. 4: trace. 5: `hops` 1 -> 2 and `gotoAndPlay("Intro", 3)`; 2 -> 3 and `gotoAndPlay("finale")`; otherwise `gotoAndPlay("Outro", "outro")`. |
+  | `Outro` [10-13] | `outro` = 1, `finale` = 3 | 1: trace. 3: trace. 4: `hops` 3 -> 4 and `prevScene(); play();`, otherwise trace and `stop()`. |
+
+  The full source is in `tools\oracle\fixtures\scenes.jsfl` and the XFL.
+- **Expected trace:**
+  ```
+  Intro 1 [intro]: root 1
+  Intro 3: root 3, hops=0
+  Intro 4: nextScene(); play()
+  Main 1 [main]: root 5
+  Main 2: gotoAndPlay(4)
+  Main 4 [mainLoop]: root 8, hops=1
+  Main 5: gotoAndPlay("Intro", 3)
+  Intro 3: root 3, hops=2
+  Intro 4: nextScene(); play()
+  Main 1 [main]: root 5
+  Main 2: root 6, hops=2
+  Main 4 [mainLoop]: root 8, hops=2
+  Main 5: gotoAndPlay("finale")
+  Outro 3 [finale]: root 12, hops=3
+  Outro 4: prevScene(); play()
+  Main 1 [main]: root 5
+  Main 2: root 6, hops=4
+  Main 4 [mainLoop]: root 8, hops=4
+  Main 5: gotoAndPlay("Outro", "outro")
+  Outro 1 [outro]: root 10
+  Outro 3 [finale]: root 12, hops=4
+  Outro 4: stop(), root 13
+  ```
+- **JSFL problems / workarounds:** `doc.renameScene(name)`, `doc.addNewScene(name)` (adds after the current
+  scene and makes it current), `doc.editScene(i)` and `doc.timelines` work. J10 (2 placement attempts per
+  scene), J12, J18 (the start-up language dialog blocked the first build and one trace capture; reruns
+  passed). No step failed.
+- **JPEXS:** no warnings beyond the routine ones. One `DOMTimeline` per scene, in order, named `Intro`,
+  `Main` and `Outro`; labels are `name` + `labelType="name"`; scripts are preserved. `DOMDocument` has
+  `currentTimeline="1"` and `nextSceneIdentifier="4"`.
+- **SWF (how Flash 8 lays out scenes and compiles the gotos):**
+  - The scenes are concatenated into the root timeline in order: `Intro` = root frames 1-4, `Main` = 5-9,
+    `Outro` = 10-13. Nothing in the SWF names a scene: no FrameLabel for scene names and no
+    DefineSceneAndFrameLabelData.
+  - Frame labels are ordinary FrameLabel tags at the absolute frame: `intro` 1, `main` 5, `mainLoop` 8,
+    `outro` 10, `finale` 12. `_currentframe` is the absolute root frame.
+  - The gotos are resolved at compile time (GotoFrame takes a 0-based frame):
+
+    | source, in scene | AVM1 |
+    |---|---|
+    | `nextScene()` in `Intro` | `GotoFrame 4` (the first frame of `Main`) |
+    | `prevScene()` in `Outro` | `GotoFrame 4` (the first frame of `Main`) |
+    | `gotoAndPlay(4)` in `Main` | `GotoFrame 7`, `Play`: a bare number is relative to the current scene |
+    | `gotoAndPlay("Intro", 3)` in `Main` | `GotoFrame 2`, `Play` |
+    | `gotoAndPlay("finale")` in `Main` | `GoToLabel 'finale'`, `Play` |
+    | `gotoAndPlay("Outro", "outro")` in `Main` | `GoToLabel 'outro'`, `Play`: the scene name is dropped |
+    | `stop()` | `Stop` |
+
+  - `nextScene()` and `prevScene()` compile to a bare GotoFrame, which **stops** the playhead. The first
+    build of this fixture called `nextScene()` without `play()`, and its Test Movie trace ended after
+    `Main 1 [main]: root 5`. That is why the scripts add `play()`.
+  - Because a scene-qualified goto with a label compiles to a plain GoToLabel, labels act as names on the
+    whole root timeline; a label used in two scenes would resolve to one of them (not tested).
+  - At a scene change the new scene's content takes the same depths: root frame 5 holds RemoveObject2 depth
+    2 (the `Intro` dot), DoAction, FrameLabel `main`, DefineShape (the `Main` background), a PlaceObject2
+    Modify with a new character at depth 1 (a replace) and a PlaceObject2 of the `Main` dot at depth 2 with
+    `ratio=4`. Every scene uses depth 1 (art) and depth 2 (dot).
+  - Order within frame 1: DoAction, FrameLabel, then the definitions and placements.
+
+## Flash 8 JSFL problems found (groups, masks, scenes)
+
+| # | API / situation | what happens in Flash 8 | workaround used |
+|---|---|---|---|
+| J18 | Starting Flash soon after another instance exited | Twice in this run Flash stopped at start-up on the modal "Flash 8 Language" dialog, although it was started in its own folder (J1). The script never started. | Rerun. `run-jsfl.ps1` (repository copy) now recognises the dialog before the script's log exists, kills Flash and relaunches after 10 s, up to 3 attempts, and every launcher waits 3 s after Flash exits before it releases the lock. The retry was added after both failures and has not been exercised yet. |
+| J19 | Group members | `shape.members` is undefined in Flash 8, so group members and their matrices cannot be read back. `element.isGroup` was true for every shape on the groups fixture's `stack` layer, the raw shape and the drawing object included. `layer.frames[0].elements` lists the raw shape first. | Groups are made by locking every other layer, `selectAll()` and `group()`; the new group is found on the layer. The XFL and the SWF are the evidence for member matrices. |
+
+## Repository tooling (tools/oracle)
+
+The builders and tools listed at the top now also live in `tools/oracle/` of this repository (see its
+`README.md`); `C:\dev\oracle` is unchanged. Differences:
+
+- Builders get their paths from a prelude that `build-all.ps1` writes (`JZ_OUT`, `JZ_SRC`, `JZ_LOG`,
+  `JZ_WORK`) and save straight into `tests/fixtures/NAME/` as `NAME.fla` and `flash8.swf`;
+  `capture-trace.ps1` installs `flash8-trace.txt`. Logs, generated scripts and Test Movie copies go to
+  `target/oracle/`.
+- Every Flash launch takes the lock directory `target/flash8.lock` (one Flash at a time across agents).
+- `build-all.ps1` needs `-Names` or `-All`, and `-OutRoot` builds into another folder.
+- `swfdump.py --shapes-full` prints per-style edge bounds; GotoFrame2 shows its scene bias.
+  `xfl-summary.py` prints group matrices, `parentLayerIndex` and per-style edge bounds.
+  `verify-fixtures.py` reads the repository layout and checks that the Test Movie SWF equals `flash8.swf`.
+- Check of the copy: gradients, bitmaps and smoke rebuilt with it into a scratch folder gave SWFs identical
+  (after decompression) to the committed ones. groups, masks and scenes were built with it, and for each
+  the Test Movie SWF equals `flash8.swf` after decompression.
+
+---
+
+## tween-probes
+
+Small Flash 8 probes that pin down how the IDE bakes classic motion tweens, where the `tweens` and
+`smoke` fixtures do not. They live in `tests/fixtures/tween-probes/NAME/` (`NAME.fla`, `flash8.swf`,
+`xfl/`; no trace, the probes have no scripts) and are **not** picked up by the all-fixtures tests
+(`tween-probes/` itself has no `xfl/`). `crates/jazari-publish/tests/tween_oracle.rs` compares our
+output with each `flash8.swf` frame by frame. Built on 2026-10-28 with the same Flash 8 IDE and
+JPEXS FLA Convert 3.0.0 as the other fixtures.
+
+- **Builders:** `tests/fixtures/tween-probes/builders/NAME.jsfl`, run by
+  `powershell -NoProfile -ExecutionPolicy Bypass -File tests\fixtures\tween-probes\builders\build.ps1 -Names NAME`
+  (prelude + `tools/oracle/run-jsfl.ps1`, which takes the Flash lock; then JPEXS). Like the other builders
+  they save, reopen and publish from the reopened FLA.
+
+| probe | stage / fps / frames | covers |
+|---|---|---|
+| `matrices` | 800x600, 24, 121 | One `Arrow` clip per layer, one tween 0 → 120 between matrices set with `element.matrix`: rotation 0→6°, 42→48°, 84→90°, 0→90°, 0→−90°, CW x1 360°, 10→100°, 170→−170° (auto), scale x2 with 90°, skew x 40°, skew y 40°, mixed scales and skews, mirrored (−1,0,0,1) → 90°, "scale" off, anisotropic scale with 60°, CCW the long way, CW x2, rotate none, ease −40 on a 90° turn. |
+| `tpoint` | 550x400, 24, 31 | Transformation point: `Arrow` (centred) and `Corner` (registration point at its top-left corner, so the transformation point is the centre (35, 10)) rotated 90°, scaled (2, 0.5), eased −100, CW x1 with 45° and x1.5, rotated about a corner; all with `rotateSelection` / `scaleSelection` / `moveSelectionBy`. |
+| `ease` | 550x600, 24, 21 | Classic ease −100, −70, −30, 30, 70, 100 on a 400 px move; −50, 50, −100, 100 on a x3 scale (precise 16.16 data); ease 60 on a clip that turns 90°, doubles and fades to 20 %; custom ease curves: one segment overshooting (Flash clamps y to 1), two segments with a dip, a steep start, and a curve with a classic ease also set. |
+| `color` | 600x400, 24, 21 | Colour effects: none → tint, tint → tint, brightness −50 → 70, alpha → tint, advanced → advanced, tint → none, alpha 100 → 7. Filters: drop shadow (all fields), glow, blur with quality low → high, bevel, drop shadow → drop shadow + blur, none → glow, glow → none, [blur, glow] → [glow, blur], Adjust Color 0 → (50, 30, −40, 60), drop shadow flags off → on. |
+| `graphics` | 550x400, 12, 41 | The 10-frame `Counter` graphic (as in `tweens`) tweened 0 → 15: loop, loop with first frame 3, play once, single frame (6 → 2 at the end keyframe), loop → play once, sync on and off; two static layers with a second keyframe. |
+
+**What Flash 8 does (all reproduced by `crates/jazari-publish/src/tween/`):**
+
+- **Progress.** Step k of n is `round(k·65536/n)` in 16.16. The classic ease is
+  `t + s·t − s·t²` (`s` = IDE ease / 100, −100 = ease in) in 16.16 integers: `s` and `t²` rounded to 16.16,
+  `s·t` rounded, the sum rounded. A custom ease curve is evaluated at the exact `k/n` and truncated to
+  16.16. One progress drives the matrix, the colour and the filters.
+- **Rotation uses a quarter-degree sine table** with a quirk: between entries the value moves by
+  `(T[i+1] − T[i]) · (x − i/4)` with the distance in degrees, so within each 0.25° cell the sine climbs at a
+  quarter of the right rate and jumps at the next entry (0.05° → 14/65536, 0.25° → 286). `cos x = sin(90° − x)`.
+  Each sine/cosine is rounded to 16.16, then multiplied by the interpolated scale and rounded again.
+- **Decomposition:** `sx = |(a,b)|`, `sy = |(c,d)|`, rotation `atan2(b,a)`, skew angle `atan2(−c,d)`, scales
+  always positive (a mirrored keyframe is 180° apart). The rotation turns by the rotate mode (auto = short way;
+  CW/CCW = that direction plus whole turns); the skew angle turns by the same amount plus the short-way skew change.
+  **Rotate "none" does not rotate at all**: the angle stays at the start keyframe's until the end keyframe.
+  "Scale" off keeps the start scales.
+- **The transformation point moves on a straight line** between its two keyframe positions; `tx, ty` are what
+  puts the start keyframe's local transformation point there. With the point at the registration point this is a
+  plain lerp of `tx, ty` (the `tweens` fixture); with `Corner` the old lerp was up to 82 px off.
+- **Colour:** both keyframes are first rounded to SWF units (multipliers ×256, offsets); each of the eight numbers
+  then moves linearly with halves rounded up. Tint, brightness, alpha and advanced all behave the same; a change of
+  mode (alpha → tint) is just the same interpolation.
+- **Filters:** lists are aligned by kind like a diff; filters only at one end fade from/to a neutral copy (blur,
+  strength and distance 0, colour and flags kept). Strength moves in whole percent, truncated; colour channels
+  (alpha included) move by a truncated delta; quality (passes) by a truncated delta (low → high: 1 until halfway,
+  then 2); blur, distance and angle (degrees, then truncated to radians 16.16) are linear; flags keep the start
+  values. Adjust Color interpolates its parameters (the matrix itself is not calibrated).
+- **Graphic symbols:** in a tween the graphic keeps playing from the start keyframe's first frame; at the end
+  keyframe the end instance's own loop mode and first frame apply. Inserting a keyframe after a graphic makes the
+  IDE store the continued first frame (0 + 15 → 5), so "sync" changes nothing at publish time.
+
+**Known residuals** (bounds asserted per layer in `tween_oracle.rs`):
+
+- Keyframe angles that are not axis-aligned are stored as truncated 16.16 matrices; Flash 8's own decomposition of
+  them differs from `atan2` by ~1e-4°, so an in-between angle that lands exactly on a 0.25° table entry can fall on
+  the other side (one frame off by up to ~370/65536), and their scales can differ by 1–3/65536. Axis-aligned
+  keyframes (0°, ±90°, 180°, full turns) are exact.
+- Translations with the transformation point off the registration point are within 1–2 twips (3 in `matrices`,
+  whose JSFL-set matrices left the point far off). The fixture's 2 → 0.5 ease-out scale is 1/65536 off on 8 frames;
+  Flash 8 also moved the still `scale_ease` clip of `tweens` by 1 twip on frame 36 (18 pixels differ there).
+- Per-property custom ease curves (`useSingleEaseCurve = false`) are not probed: Flash 8 hung on
+  `setCustomEase("position", …)` with a single curve off. JPEXS writes the five per-property curves (linear) plus
+  `all` for single-curve tweens; the reader uses `all`.
+
+**JSFL problems found:**
+
+| # | API / situation | what happens in Flash 8 | workaround used |
+|---|---|---|---|
+| J20 | `element.getTransformationPoint` / `setTransformationPoint` | Not defined in Flash 8 (CS3+). | A symbol whose registration point is a corner (`Corner`): `addItem` puts the transformation point at the bounds centre. |
+| J21 | Setting `element.matrix` | The transformation point stays where it was **on the stage** (its local position changes), so a tween between such keyframes does not move. The matrix is stored truncated to 16.16 (cos 6° → 65176/65536). | `matrices` accepts it (rotation data only); `tpoint` and `ease` move with `moveSelectionBy`, `rotateSelection`, `scaleSelection`. |
+| J22 | `doc.getFilters()` on an instance without filters | Flash hung (killed after the timeout). | Only call it on instances known to have filters. |
+| J23 | `frame.setCustomEase("position", …)` with `useSingleEaseCurve = false` | Flash hung. | Per-property curves left out. |
+
+**JPEXS:** routine conversion reports only. The classic ease sign is inverted for every strength (IDE −70 is written
+`acceleration="70"`), as in `tweens`; custom curves, rotate modes, scale, sync, colour effects, filters,
+transformation points and graphic loop settings are exported correctly.

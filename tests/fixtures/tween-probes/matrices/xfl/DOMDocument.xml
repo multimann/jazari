@@ -1,0 +1,877 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<DOMDocument backgroundColor="#FFFFFF" creatorInfo="FlaComDoc" currentTimeline="1" frameRate="24" gridColor="#C0C0C0" gridSnapAccuracy="Normal" gridSnapTo="false" gridSpacingX="18" gridSpacingY="18" gridVisible="false" guidesColor="#00FF00" guidesLocked="false" guidesSnapAccuracy="Normal" guidesSnapTo="true" guidesVisible="true" height="600" nextSceneIdentifier="2" objectsSnapTo="true" pixelSnap="false" playOptionsPlayFrameActions="false" playOptionsPlayLoop="false" playOptionsPlayPages="false" playOptionsPlaySounds="true" previewMode="anti alias text" rulerUnitType="pixels" rulerVisible="false" sharedLibraryURL="" snapAlign="true" snapAlignBorderSpacing="18" snapAlignHorizontalCenter="false" snapAlignHorizontalSpacing="0" snapAlignVerticalCenter="false" snapAlignVerticalSpacing="0" viewOptionsAnimationControlVisible="true" viewOptionsButtonsActive="false" viewOptionsLivePreview="true" viewOptionsPasteBoardView="true" width="800" xflVersion="2.0" xmlns="http://ns.adobe.com/xfl/2008/">
+    <folders/>
+    <media/>
+    <symbols>
+        <Include href="symbol-1.xml"/>
+    </symbols>
+    <timelines>
+        <DOMTimeline currentFrame="120" name="Scene 1">
+            <layers>
+                <DOMLayer autoNamed="false" color="#FF4FFF" current="false" heightMultiplier="1" isSelected="false" locked="false" name="eased_rot" open="true" outline="false" useOutlineView="false" visible="true">
+                    <frames>
+                        <DOMFrame acceleration="40" duration="120" index="0" keyMode="7681" motionTweenOrientToPath="false" motionTweenRotate="auto" motionTweenRotateTimes="0" motionTweenScale="true" motionTweenSnap="true" motionTweenSync="true" tweenType="motion" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMSymbolInstance blendMode="normal" cacheAsBitmap="false" isExtensible="false" libraryItemName="Arrow" locked="false" name="" selected="false" symbolType="movie clip">
+                                    <matrix>
+                                        <Matrix a="1" b="0" c="0" d="1" tx="460" ty="350"/>
+                                    </matrix>
+                                    <transformationPoint>
+                                        <Point x="0" y="-0.05000000000001137"/>
+                                    </transformationPoint>
+                                </DOMSymbolInstance>
+                            </elements>
+                        </DOMFrame>
+                        <DOMFrame acceleration="0" duration="1" index="120" keyMode="1536" motionTweenRotate="auto" motionTweenRotateTimes="0" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMSymbolInstance blendMode="normal" cacheAsBitmap="false" isExtensible="false" libraryItemName="Arrow" locked="false" name="" selected="false" symbolType="movie clip">
+                                    <matrix>
+                                        <Matrix a="0" b="1" c="-1" d="0" tx="480" ty="360"/>
+                                    </matrix>
+                                    <transformationPoint>
+                                        <Point x="-10.050000000000011" y="20"/>
+                                    </transformationPoint>
+                                </DOMSymbolInstance>
+                            </elements>
+                        </DOMFrame>
+                    </frames>
+                </DOMLayer>
+                <DOMLayer autoNamed="false" color="#FFFF4F" current="false" heightMultiplier="1" isSelected="false" locked="false" name="r170_m170" open="true" outline="false" useOutlineView="false" visible="true">
+                    <frames>
+                        <DOMFrame acceleration="0" duration="120" index="0" keyMode="7681" motionTweenOrientToPath="false" motionTweenRotate="auto" motionTweenRotateTimes="0" motionTweenScale="true" motionTweenSnap="true" motionTweenSync="true" tweenType="motion" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMSymbolInstance blendMode="normal" cacheAsBitmap="false" isExtensible="false" libraryItemName="Arrow" locked="false" name="" selected="false" symbolType="movie clip">
+                                    <matrix>
+                                        <Matrix a="-0.98480224609375" b="0.17364501953125" c="-0.17364501953125" d="-0.98480224609375" tx="360" ty="350"/>
+                                    </matrix>
+                                    <transformationPoint>
+                                        <Point x="-0.008682354672363436" y="0.04924070040020529"/>
+                                    </transformationPoint>
+                                </DOMSymbolInstance>
+                            </elements>
+                        </DOMFrame>
+                        <DOMFrame acceleration="0" duration="1" index="120" keyMode="1536" motionTweenRotate="auto" motionTweenRotateTimes="0" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMSymbolInstance blendMode="normal" cacheAsBitmap="false" isExtensible="false" libraryItemName="Arrow" locked="false" name="" selected="false" symbolType="movie clip">
+                                    <matrix>
+                                        <Matrix a="-0.98480224609375" b="-0.17364501953125" c="0.17364501953125" d="-0.98480224609375" tx="380" ty="360"/>
+                                    </matrix>
+                                    <transformationPoint>
+                                        <Point x="21.441433449222295" y="6.4244389114944385"/>
+                                    </transformationPoint>
+                                </DOMSymbolInstance>
+                            </elements>
+                        </DOMFrame>
+                    </frames>
+                </DOMLayer>
+                <DOMLayer autoNamed="false" color="#9933CC" current="false" heightMultiplier="1" isSelected="false" locked="false" name="none_rot" open="true" outline="false" useOutlineView="false" visible="true">
+                    <frames>
+                        <DOMFrame acceleration="0" duration="120" index="0" keyMode="6657" motionTweenOrientToPath="false" motionTweenRotate="none" motionTweenRotateTimes="0" motionTweenScale="true" motionTweenSnap="true" motionTweenSync="true" tweenType="motion" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMSymbolInstance blendMode="normal" cacheAsBitmap="false" isExtensible="false" libraryItemName="Arrow" locked="false" name="" selected="false" symbolType="movie clip">
+                                    <matrix>
+                                        <Matrix a="1" b="0" c="0" d="1" tx="260" ty="350"/>
+                                    </matrix>
+                                    <transformationPoint>
+                                        <Point x="0" y="-0.05000000000001137"/>
+                                    </transformationPoint>
+                                </DOMSymbolInstance>
+                            </elements>
+                        </DOMFrame>
+                        <DOMFrame acceleration="0" duration="1" index="120" keyMode="1536" motionTweenRotate="auto" motionTweenRotateTimes="0" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMSymbolInstance blendMode="normal" cacheAsBitmap="false" isExtensible="false" libraryItemName="Arrow" locked="false" name="" selected="false" symbolType="movie clip">
+                                    <matrix>
+                                        <Matrix a="0" b="1" c="-1" d="0" tx="280" ty="360"/>
+                                    </matrix>
+                                    <transformationPoint>
+                                        <Point x="-10.050000000000011" y="20"/>
+                                    </transformationPoint>
+                                </DOMSymbolInstance>
+                            </elements>
+                        </DOMFrame>
+                    </frames>
+                </DOMLayer>
+                <DOMLayer autoNamed="false" color="#4FFF4F" current="false" heightMultiplier="1" isSelected="false" locked="false" name="cw_times2" open="true" outline="false" useOutlineView="false" visible="true">
+                    <frames>
+                        <DOMFrame acceleration="0" duration="120" index="0" keyMode="7681" motionTweenOrientToPath="false" motionTweenRotate="clockwise" motionTweenRotateTimes="2" motionTweenScale="true" motionTweenSnap="true" motionTweenSync="true" tweenType="motion" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMSymbolInstance blendMode="normal" cacheAsBitmap="false" isExtensible="false" libraryItemName="Arrow" locked="false" name="" selected="false" symbolType="movie clip">
+                                    <matrix>
+                                        <Matrix a="1" b="0" c="0" d="1" tx="160" ty="350"/>
+                                    </matrix>
+                                    <transformationPoint>
+                                        <Point x="0" y="-0.05000000000001137"/>
+                                    </transformationPoint>
+                                </DOMSymbolInstance>
+                            </elements>
+                        </DOMFrame>
+                        <DOMFrame acceleration="0" duration="1" index="120" keyMode="1536" motionTweenRotate="auto" motionTweenRotateTimes="0" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMSymbolInstance blendMode="normal" cacheAsBitmap="false" isExtensible="false" libraryItemName="Arrow" locked="false" name="" selected="false" symbolType="movie clip">
+                                    <matrix>
+                                        <Matrix a="0" b="1" c="-1" d="0" tx="180" ty="360"/>
+                                    </matrix>
+                                    <transformationPoint>
+                                        <Point x="-10.050000000000011" y="20"/>
+                                    </transformationPoint>
+                                </DOMSymbolInstance>
+                            </elements>
+                        </DOMFrame>
+                    </frames>
+                </DOMLayer>
+                <DOMLayer autoNamed="false" color="#FF4F4F" current="false" heightMultiplier="1" isSelected="false" locked="false" name="ccw_long" open="true" outline="false" useOutlineView="false" visible="true">
+                    <frames>
+                        <DOMFrame acceleration="0" duration="120" index="0" keyMode="7681" motionTweenOrientToPath="false" motionTweenRotate="counter-clockwise" motionTweenRotateTimes="0" motionTweenScale="true" motionTweenSnap="true" motionTweenSync="true" tweenType="motion" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMSymbolInstance blendMode="normal" cacheAsBitmap="false" isExtensible="false" libraryItemName="Arrow" locked="false" name="" selected="false" symbolType="movie clip">
+                                    <matrix>
+                                        <Matrix a="0.98480224609375" b="0.17364501953125" c="-0.17364501953125" d="0.98480224609375" tx="60" ty="350"/>
+                                    </matrix>
+                                    <transformationPoint>
+                                        <Point x="-0.008682354672363436" y="-0.04924070040020529"/>
+                                    </transformationPoint>
+                                </DOMSymbolInstance>
+                            </elements>
+                        </DOMFrame>
+                        <DOMFrame acceleration="0" duration="1" index="120" keyMode="1536" motionTweenRotate="auto" motionTweenRotateTimes="0" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMSymbolInstance blendMode="normal" cacheAsBitmap="false" isExtensible="false" libraryItemName="Arrow" locked="false" name="" selected="false" symbolType="movie clip">
+                                    <matrix>
+                                        <Matrix a="0.9396820068359375" b="0.342010498046875" c="-0.342010498046875" d="0.9396820068359375" tx="80" ty="360"/>
+                                    </matrix>
+                                    <transformationPoint>
+                                        <Point x="-22.231435781210863" y="-2.603663322669251"/>
+                                    </transformationPoint>
+                                </DOMSymbolInstance>
+                            </elements>
+                        </DOMFrame>
+                    </frames>
+                </DOMLayer>
+                <DOMLayer autoNamed="false" color="#4F80FF" current="false" heightMultiplier="1" isSelected="false" locked="false" name="aniso" open="true" outline="false" useOutlineView="false" visible="true">
+                    <frames>
+                        <DOMFrame acceleration="0" duration="120" index="0" keyMode="7681" motionTweenOrientToPath="false" motionTweenRotate="auto" motionTweenRotateTimes="0" motionTweenScale="true" motionTweenSnap="true" motionTweenSync="true" tweenType="motion" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMSymbolInstance blendMode="normal" cacheAsBitmap="false" isExtensible="false" libraryItemName="Arrow" locked="false" name="" selected="false" symbolType="movie clip">
+                                    <matrix>
+                                        <Matrix a="2" b="0" c="0" d="0.5" tx="660" ty="200"/>
+                                    </matrix>
+                                    <transformationPoint>
+                                        <Point x="0" y="0"/>
+                                    </transformationPoint>
+                                </DOMSymbolInstance>
+                            </elements>
+                        </DOMFrame>
+                        <DOMFrame acceleration="0" duration="1" index="120" keyMode="1536" motionTweenRotate="auto" motionTweenRotateTimes="0" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMSymbolInstance blendMode="normal" cacheAsBitmap="false" isExtensible="false" libraryItemName="Arrow" locked="false" name="" selected="false" symbolType="movie clip">
+                                    <matrix>
+                                        <Matrix a="0.25" b="0.4329986572265625" c="-1.7320404052734375" d="1" tx="680" ty="210"/>
+                                    </matrix>
+                                    <transformationPoint>
+                                        <Point x="-37.32148004050041" y="6.160150743244631"/>
+                                    </transformationPoint>
+                                </DOMSymbolInstance>
+                            </elements>
+                        </DOMFrame>
+                    </frames>
+                </DOMLayer>
+                <DOMLayer autoNamed="false" color="#808080" current="false" heightMultiplier="1" isSelected="false" locked="false" name="no_scale" open="true" outline="false" useOutlineView="false" visible="true">
+                    <frames>
+                        <DOMFrame acceleration="0" duration="120" index="0" keyMode="7169" motionTweenOrientToPath="false" motionTweenRotate="auto" motionTweenRotateTimes="0" motionTweenScale="false" motionTweenSnap="true" motionTweenSync="true" tweenType="motion" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMSymbolInstance blendMode="normal" cacheAsBitmap="false" isExtensible="false" libraryItemName="Arrow" locked="false" name="" selected="false" symbolType="movie clip">
+                                    <matrix>
+                                        <Matrix a="1.2990264892578125" b="0.7499847412109375" c="-0.7499847412109375" d="1.2990264892578125" tx="560" ty="200"/>
+                                    </matrix>
+                                    <transformationPoint>
+                                        <Point x="0" y="0"/>
+                                    </transformationPoint>
+                                </DOMSymbolInstance>
+                            </elements>
+                        </DOMFrame>
+                        <DOMFrame acceleration="0" duration="1" index="120" keyMode="1536" motionTweenRotate="auto" motionTweenRotateTimes="0" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMSymbolInstance blendMode="normal" cacheAsBitmap="false" isExtensible="false" libraryItemName="Arrow" locked="false" name="" selected="false" symbolType="movie clip">
+                                    <matrix>
+                                        <Matrix a="-0.2499847412109375" b="0.4329986572265625" c="-0.4329986572265625" d="-0.2499847412109375" tx="580" ty="210"/>
+                                    </matrix>
+                                    <transformationPoint>
+                                        <Point x="2.6790451024733306" y="44.64281650936249"/>
+                                    </transformationPoint>
+                                </DOMSymbolInstance>
+                            </elements>
+                        </DOMFrame>
+                    </frames>
+                </DOMLayer>
+                <DOMLayer autoNamed="false" color="#4FFFFF" current="false" heightMultiplier="1" isSelected="false" locked="false" name="mirror" open="true" outline="false" useOutlineView="false" visible="true">
+                    <frames>
+                        <DOMFrame acceleration="0" duration="120" index="0" keyMode="7681" motionTweenOrientToPath="false" motionTweenRotate="auto" motionTweenRotateTimes="0" motionTweenScale="true" motionTweenSnap="true" motionTweenSync="true" tweenType="motion" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMSymbolInstance blendMode="normal" cacheAsBitmap="false" isExtensible="false" libraryItemName="Arrow" locked="false" name="" selected="false" symbolType="movie clip">
+                                    <matrix>
+                                        <Matrix a="-1" b="0" c="0" d="1" tx="460" ty="200"/>
+                                    </matrix>
+                                    <transformationPoint>
+                                        <Point x="0" y="0"/>
+                                    </transformationPoint>
+                                </DOMSymbolInstance>
+                            </elements>
+                        </DOMFrame>
+                        <DOMFrame acceleration="0" duration="1" index="120" keyMode="1536" motionTweenRotate="auto" motionTweenRotateTimes="0" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMSymbolInstance blendMode="normal" cacheAsBitmap="false" isExtensible="false" libraryItemName="Arrow" locked="false" name="" selected="false" symbolType="movie clip">
+                                    <matrix>
+                                        <Matrix a="0" b="1" c="-1" d="0" tx="480" ty="210"/>
+                                    </matrix>
+                                    <transformationPoint>
+                                        <Point x="-10" y="20"/>
+                                    </transformationPoint>
+                                </DOMSymbolInstance>
+                            </elements>
+                        </DOMFrame>
+                    </frames>
+                </DOMLayer>
+                <DOMLayer autoNamed="false" color="#FF4FFF" current="false" heightMultiplier="1" isSelected="false" locked="false" name="skew_xy" open="true" outline="false" useOutlineView="false" visible="true">
+                    <frames>
+                        <DOMFrame acceleration="0" duration="120" index="0" keyMode="7681" motionTweenOrientToPath="false" motionTweenRotate="auto" motionTweenRotateTimes="0" motionTweenScale="true" motionTweenSnap="true" motionTweenSync="true" tweenType="motion" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMSymbolInstance blendMode="normal" cacheAsBitmap="false" isExtensible="false" libraryItemName="Arrow" locked="false" name="" selected="false" symbolType="movie clip">
+                                    <matrix>
+                                        <Matrix a="1.477203369140625" b="-0.260467529296875" c="-0.256500244140625" d="0.7047576904296875" tx="360" ty="200"/>
+                                    </matrix>
+                                    <transformationPoint>
+                                        <Point x="0" y="0"/>
+                                    </transformationPoint>
+                                </DOMSymbolInstance>
+                            </elements>
+                        </DOMFrame>
+                        <DOMFrame acceleration="0" duration="1" index="120" keyMode="1536" motionTweenRotate="auto" motionTweenRotateTimes="0" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMSymbolInstance blendMode="normal" cacheAsBitmap="false" isExtensible="false" libraryItemName="Arrow" locked="false" name="" selected="false" symbolType="movie clip">
+                                    <matrix>
+                                        <Matrix a="0.51422119140625" b="0.612823486328125" c="0.5999908447265625" d="1.0392303466796875" tx="380" ty="210"/>
+                                    </matrix>
+                                    <transformationPoint>
+                                        <Point x="-88.6873746866075" y="42.675530300314655"/>
+                                    </transformationPoint>
+                                </DOMSymbolInstance>
+                            </elements>
+                        </DOMFrame>
+                    </frames>
+                </DOMLayer>
+                <DOMLayer autoNamed="false" color="#FFFF4F" current="false" heightMultiplier="1" isSelected="false" locked="false" name="skew_y" open="true" outline="false" useOutlineView="false" visible="true">
+                    <frames>
+                        <DOMFrame acceleration="0" duration="120" index="0" keyMode="7681" motionTweenOrientToPath="false" motionTweenRotate="auto" motionTweenRotateTimes="0" motionTweenScale="true" motionTweenSnap="true" motionTweenSync="true" tweenType="motion" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMSymbolInstance blendMode="normal" cacheAsBitmap="false" isExtensible="false" libraryItemName="Arrow" locked="false" name="" selected="false" symbolType="movie clip">
+                                    <matrix>
+                                        <Matrix a="1" b="0" c="0" d="1" tx="260" ty="200"/>
+                                    </matrix>
+                                    <transformationPoint>
+                                        <Point x="0" y="0"/>
+                                    </transformationPoint>
+                                </DOMSymbolInstance>
+                            </elements>
+                        </DOMFrame>
+                        <DOMFrame acceleration="0" duration="1" index="120" keyMode="1536" motionTweenRotate="auto" motionTweenRotateTimes="0" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMSymbolInstance blendMode="normal" cacheAsBitmap="false" isExtensible="false" libraryItemName="Arrow" locked="false" name="" selected="false" symbolType="movie clip">
+                                    <matrix>
+                                        <Matrix a="0.7660369873046875" b="0.6427764892578125" c="0" d="1" tx="280" ty="210"/>
+                                    </matrix>
+                                    <transformationPoint>
+                                        <Point x="-26.108399896420533" y="6.781865625560226"/>
+                                    </transformationPoint>
+                                </DOMSymbolInstance>
+                            </elements>
+                        </DOMFrame>
+                    </frames>
+                </DOMLayer>
+                <DOMLayer autoNamed="false" color="#9933CC" current="false" heightMultiplier="1" isSelected="false" locked="false" name="skew_x" open="true" outline="false" useOutlineView="false" visible="true">
+                    <frames>
+                        <DOMFrame acceleration="0" duration="120" index="0" keyMode="7681" motionTweenOrientToPath="false" motionTweenRotate="auto" motionTweenRotateTimes="0" motionTweenScale="true" motionTweenSnap="true" motionTweenSync="true" tweenType="motion" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMSymbolInstance blendMode="normal" cacheAsBitmap="false" isExtensible="false" libraryItemName="Arrow" locked="false" name="" selected="false" symbolType="movie clip">
+                                    <matrix>
+                                        <Matrix a="1" b="0" c="0" d="1" tx="160" ty="200"/>
+                                    </matrix>
+                                    <transformationPoint>
+                                        <Point x="0" y="0"/>
+                                    </transformationPoint>
+                                </DOMSymbolInstance>
+                            </elements>
+                        </DOMFrame>
+                        <DOMFrame acceleration="0" duration="1" index="120" keyMode="1536" motionTweenRotate="auto" motionTweenRotateTimes="0" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMSymbolInstance blendMode="normal" cacheAsBitmap="false" isExtensible="false" libraryItemName="Arrow" locked="false" name="" selected="false" symbolType="movie clip">
+                                    <matrix>
+                                        <Matrix a="1" b="0" c="-0.6427764892578125" d="0.7660369873046875" tx="180" ty="210"/>
+                                    </matrix>
+                                    <transformationPoint>
+                                        <Point x="-28.39093281278011" y="-13.054199948210266"/>
+                                    </transformationPoint>
+                                </DOMSymbolInstance>
+                            </elements>
+                        </DOMFrame>
+                    </frames>
+                </DOMLayer>
+                <DOMLayer autoNamed="false" color="#4FFF4F" current="false" heightMultiplier="1" isSelected="false" locked="false" name="scale_rot" open="true" outline="false" useOutlineView="false" visible="true">
+                    <frames>
+                        <DOMFrame acceleration="0" duration="120" index="0" keyMode="7681" motionTweenOrientToPath="false" motionTweenRotate="auto" motionTweenRotateTimes="0" motionTweenScale="true" motionTweenSnap="true" motionTweenSync="true" tweenType="motion" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMSymbolInstance blendMode="normal" cacheAsBitmap="false" isExtensible="false" libraryItemName="Arrow" locked="false" name="" selected="false" symbolType="movie clip">
+                                    <matrix>
+                                        <Matrix a="1" b="0" c="0" d="1" tx="60" ty="200"/>
+                                    </matrix>
+                                    <transformationPoint>
+                                        <Point x="0" y="0"/>
+                                    </transformationPoint>
+                                </DOMSymbolInstance>
+                            </elements>
+                        </DOMFrame>
+                        <DOMFrame acceleration="0" duration="1" index="120" keyMode="1536" motionTweenRotate="auto" motionTweenRotateTimes="0" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMSymbolInstance blendMode="normal" cacheAsBitmap="false" isExtensible="false" libraryItemName="Arrow" locked="false" name="" selected="false" symbolType="movie clip">
+                                    <matrix>
+                                        <Matrix a="0" b="2" c="-2" d="0" tx="80" ty="210"/>
+                                    </matrix>
+                                    <transformationPoint>
+                                        <Point x="-5" y="10"/>
+                                    </transformationPoint>
+                                </DOMSymbolInstance>
+                            </elements>
+                        </DOMFrame>
+                    </frames>
+                </DOMLayer>
+                <DOMLayer autoNamed="false" color="#FF4F4F" current="false" heightMultiplier="1" isSelected="false" locked="false" name="r10_100" open="true" outline="false" useOutlineView="false" visible="true">
+                    <frames>
+                        <DOMFrame acceleration="0" duration="120" index="0" keyMode="7681" motionTweenOrientToPath="false" motionTweenRotate="auto" motionTweenRotateTimes="0" motionTweenScale="true" motionTweenSnap="true" motionTweenSync="true" tweenType="motion" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMSymbolInstance blendMode="normal" cacheAsBitmap="false" isExtensible="false" libraryItemName="Arrow" locked="false" name="" selected="false" symbolType="movie clip">
+                                    <matrix>
+                                        <Matrix a="0.98480224609375" b="0.17364501953125" c="-0.17364501953125" d="0.98480224609375" tx="660" ty="50"/>
+                                    </matrix>
+                                    <transformationPoint>
+                                        <Point x="0" y="0"/>
+                                    </transformationPoint>
+                                </DOMSymbolInstance>
+                            </elements>
+                        </DOMFrame>
+                        <DOMFrame acceleration="0" duration="1" index="120" keyMode="1536" motionTweenRotate="auto" motionTweenRotateTimes="0" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMSymbolInstance blendMode="normal" cacheAsBitmap="false" isExtensible="false" libraryItemName="Arrow" locked="false" name="" selected="false" symbolType="movie clip">
+                                    <matrix>
+                                        <Matrix a="-0.17364501953125" b="0.98480224609375" c="-0.98480224609375" d="-0.17364501953125" tx="680" ty="60"/>
+                                    </matrix>
+                                    <transformationPoint>
+                                        <Point x="-6.375198211094233" y="21.43275109454993"/>
+                                    </transformationPoint>
+                                </DOMSymbolInstance>
+                            </elements>
+                        </DOMFrame>
+                    </frames>
+                </DOMLayer>
+                <DOMLayer autoNamed="false" color="#4F80FF" current="false" heightMultiplier="1" isSelected="false" locked="false" name="r_cw360" open="true" outline="false" useOutlineView="false" visible="true">
+                    <frames>
+                        <DOMFrame acceleration="0" duration="120" index="0" keyMode="7681" motionTweenOrientToPath="false" motionTweenRotate="clockwise" motionTweenRotateTimes="1" motionTweenScale="true" motionTweenSnap="true" motionTweenSync="true" tweenType="motion" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMSymbolInstance blendMode="normal" cacheAsBitmap="false" isExtensible="false" libraryItemName="Arrow" locked="false" name="" selected="false" symbolType="movie clip">
+                                    <matrix>
+                                        <Matrix a="1" b="0" c="0" d="1" tx="560" ty="50"/>
+                                    </matrix>
+                                    <transformationPoint>
+                                        <Point x="0" y="0"/>
+                                    </transformationPoint>
+                                </DOMSymbolInstance>
+                            </elements>
+                        </DOMFrame>
+                        <DOMFrame acceleration="0" duration="1" index="120" keyMode="1536" motionTweenRotate="auto" motionTweenRotateTimes="0" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMSymbolInstance blendMode="normal" cacheAsBitmap="false" isExtensible="false" libraryItemName="Arrow" locked="false" name="" selected="false" symbolType="movie clip">
+                                    <matrix>
+                                        <Matrix a="1" b="0" c="0" d="1" tx="580" ty="60"/>
+                                    </matrix>
+                                    <transformationPoint>
+                                        <Point x="-20" y="-10"/>
+                                    </transformationPoint>
+                                </DOMSymbolInstance>
+                            </elements>
+                        </DOMFrame>
+                    </frames>
+                </DOMLayer>
+                <DOMLayer autoNamed="false" color="#808080" current="false" heightMultiplier="1" isSelected="false" locked="false" name="r0_m90" open="true" outline="false" useOutlineView="false" visible="true">
+                    <frames>
+                        <DOMFrame acceleration="0" duration="120" index="0" keyMode="7681" motionTweenOrientToPath="false" motionTweenRotate="auto" motionTweenRotateTimes="0" motionTweenScale="true" motionTweenSnap="true" motionTweenSync="true" tweenType="motion" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMSymbolInstance blendMode="normal" cacheAsBitmap="false" isExtensible="false" libraryItemName="Arrow" locked="false" name="" selected="false" symbolType="movie clip">
+                                    <matrix>
+                                        <Matrix a="1" b="0" c="0" d="1" tx="460" ty="50"/>
+                                    </matrix>
+                                    <transformationPoint>
+                                        <Point x="0" y="0"/>
+                                    </transformationPoint>
+                                </DOMSymbolInstance>
+                            </elements>
+                        </DOMFrame>
+                        <DOMFrame acceleration="0" duration="1" index="120" keyMode="1536" motionTweenRotate="auto" motionTweenRotateTimes="0" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMSymbolInstance blendMode="normal" cacheAsBitmap="false" isExtensible="false" libraryItemName="Arrow" locked="false" name="" selected="false" symbolType="movie clip">
+                                    <matrix>
+                                        <Matrix a="0" b="-1" c="1" d="0" tx="480" ty="60"/>
+                                    </matrix>
+                                    <transformationPoint>
+                                        <Point x="10" y="-20"/>
+                                    </transformationPoint>
+                                </DOMSymbolInstance>
+                            </elements>
+                        </DOMFrame>
+                    </frames>
+                </DOMLayer>
+                <DOMLayer autoNamed="false" color="#4FFFFF" current="false" heightMultiplier="1" isSelected="false" locked="false" name="r0_90" open="true" outline="false" useOutlineView="false" visible="true">
+                    <frames>
+                        <DOMFrame acceleration="0" duration="120" index="0" keyMode="7681" motionTweenOrientToPath="false" motionTweenRotate="auto" motionTweenRotateTimes="0" motionTweenScale="true" motionTweenSnap="true" motionTweenSync="true" tweenType="motion" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMSymbolInstance blendMode="normal" cacheAsBitmap="false" isExtensible="false" libraryItemName="Arrow" locked="false" name="" selected="false" symbolType="movie clip">
+                                    <matrix>
+                                        <Matrix a="1" b="0" c="0" d="1" tx="360" ty="50"/>
+                                    </matrix>
+                                    <transformationPoint>
+                                        <Point x="0" y="0"/>
+                                    </transformationPoint>
+                                </DOMSymbolInstance>
+                            </elements>
+                        </DOMFrame>
+                        <DOMFrame acceleration="0" duration="1" index="120" keyMode="1536" motionTweenRotate="auto" motionTweenRotateTimes="0" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMSymbolInstance blendMode="normal" cacheAsBitmap="false" isExtensible="false" libraryItemName="Arrow" locked="false" name="" selected="false" symbolType="movie clip">
+                                    <matrix>
+                                        <Matrix a="0" b="1" c="-1" d="0" tx="380" ty="60"/>
+                                    </matrix>
+                                    <transformationPoint>
+                                        <Point x="-10" y="20"/>
+                                    </transformationPoint>
+                                </DOMSymbolInstance>
+                            </elements>
+                        </DOMFrame>
+                    </frames>
+                </DOMLayer>
+                <DOMLayer autoNamed="false" color="#FF4FFF" current="false" heightMultiplier="1" isSelected="false" locked="false" name="r84_90" open="true" outline="false" useOutlineView="false" visible="true">
+                    <frames>
+                        <DOMFrame acceleration="0" duration="120" index="0" keyMode="7681" motionTweenOrientToPath="false" motionTweenRotate="auto" motionTweenRotateTimes="0" motionTweenScale="true" motionTweenSnap="true" motionTweenSync="true" tweenType="motion" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMSymbolInstance blendMode="normal" cacheAsBitmap="false" isExtensible="false" libraryItemName="Arrow" locked="false" name="" selected="false" symbolType="movie clip">
+                                    <matrix>
+                                        <Matrix a="0.104522705078125" b="0.9945068359375" c="-0.9945068359375" d="0.104522705078125" tx="260" ty="50"/>
+                                    </matrix>
+                                    <transformationPoint>
+                                        <Point x="0" y="0"/>
+                                    </transformationPoint>
+                                </DOMSymbolInstance>
+                            </elements>
+                        </DOMFrame>
+                        <DOMFrame acceleration="0" duration="1" index="120" keyMode="1536" motionTweenRotate="auto" motionTweenRotateTimes="0" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMSymbolInstance blendMode="normal" cacheAsBitmap="false" isExtensible="false" libraryItemName="Arrow" locked="false" name="" selected="false" symbolType="movie clip">
+                                    <matrix>
+                                        <Matrix a="0" b="1" c="-1" d="0" tx="280" ty="60"/>
+                                    </matrix>
+                                    <transformationPoint>
+                                        <Point x="-10" y="20"/>
+                                    </transformationPoint>
+                                </DOMSymbolInstance>
+                            </elements>
+                        </DOMFrame>
+                    </frames>
+                </DOMLayer>
+                <DOMLayer autoNamed="false" color="#FFFF4F" current="false" heightMultiplier="1" isSelected="false" locked="false" name="r42_48" open="true" outline="false" useOutlineView="false" visible="true">
+                    <frames>
+                        <DOMFrame acceleration="0" duration="120" index="0" keyMode="7681" motionTweenOrientToPath="false" motionTweenRotate="auto" motionTweenRotateTimes="0" motionTweenScale="true" motionTweenSnap="true" motionTweenSync="true" tweenType="motion" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMSymbolInstance blendMode="normal" cacheAsBitmap="false" isExtensible="false" libraryItemName="Arrow" locked="false" name="" selected="false" symbolType="movie clip">
+                                    <matrix>
+                                        <Matrix a="0.743133544921875" b="0.66912841796875" c="-0.66912841796875" d="0.743133544921875" tx="160" ty="50"/>
+                                    </matrix>
+                                    <transformationPoint>
+                                        <Point x="0" y="0"/>
+                                    </transformationPoint>
+                                </DOMSymbolInstance>
+                            </elements>
+                        </DOMFrame>
+                        <DOMFrame acceleration="0" duration="1" index="120" keyMode="1536" motionTweenRotate="auto" motionTweenRotateTimes="0" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMSymbolInstance blendMode="normal" cacheAsBitmap="false" isExtensible="false" libraryItemName="Arrow" locked="false" name="" selected="false" symbolType="movie clip">
+                                    <matrix>
+                                        <Matrix a="0.66912841796875" b="0.743133544921875" c="-0.743133544921875" d="0.66912841796875" tx="180" ty="60"/>
+                                    </matrix>
+                                    <transformationPoint>
+                                        <Point x="-20.81431373981075" y="8.17154765475379"/>
+                                    </transformationPoint>
+                                </DOMSymbolInstance>
+                            </elements>
+                        </DOMFrame>
+                    </frames>
+                </DOMLayer>
+                <DOMLayer autoNamed="false" color="#9933CC" current="false" heightMultiplier="1" isSelected="false" locked="false" name="r0_6" open="true" outline="false" useOutlineView="false" visible="true">
+                    <frames>
+                        <DOMFrame acceleration="0" duration="120" index="0" keyMode="7681" motionTweenOrientToPath="false" motionTweenRotate="auto" motionTweenRotateTimes="0" motionTweenScale="true" motionTweenSnap="true" motionTweenSync="true" tweenType="motion" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMSymbolInstance blendMode="normal" cacheAsBitmap="false" isExtensible="false" libraryItemName="Arrow" locked="false" name="" selected="false" symbolType="movie clip">
+                                    <matrix>
+                                        <Matrix a="1" b="0" c="0" d="1" tx="60" ty="50"/>
+                                    </matrix>
+                                    <transformationPoint>
+                                        <Point x="0" y="0"/>
+                                    </transformationPoint>
+                                </DOMSymbolInstance>
+                            </elements>
+                        </DOMFrame>
+                        <DOMFrame acceleration="0" duration="1" index="120" keyMode="1536" motionTweenRotate="auto" motionTweenRotateTimes="0" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMSymbolInstance blendMode="normal" cacheAsBitmap="false" isExtensible="false" libraryItemName="Arrow" locked="false" name="" selected="false" symbolType="movie clip">
+                                    <matrix>
+                                        <Matrix a="0.9945068359375" b="0.104522705078125" c="-0.104522705078125" d="0.9945068359375" tx="80" ty="60"/>
+                                    </matrix>
+                                    <transformationPoint>
+                                        <Point x="-20.93601608129032" y="-7.854858994770487"/>
+                                    </transformationPoint>
+                                </DOMSymbolInstance>
+                            </elements>
+                        </DOMFrame>
+                    </frames>
+                </DOMLayer>
+                <DOMLayer autoNamed="false" color="#4FFF4F" current="true" heightMultiplier="1" isSelected="true" locked="false" name="base" open="true" outline="false" useOutlineView="false" visible="true">
+                    <frames>
+                        <DOMFrame acceleration="0" duration="121" index="0" keyMode="1536" motionTweenRotate="auto" motionTweenRotateTimes="0" useSingleEaseCurve="true">
+                            <elements/>
+                        </DOMFrame>
+                    </frames>
+                </DOMLayer>
+            </layers>
+        </DOMTimeline>
+    </timelines>
+    <swatchLists>
+        <swatchList>
+            <swatches>
+                <SolidSwatchItem alpha="1" brightness="0" color="#000000" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="0" color="#000000" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="0" color="#000000" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="0" color="#000000" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="24" color="#003300" hue="80" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="48" color="#006600" hue="80" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="72" color="#009900" hue="80" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#00CC00" hue="80" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#00FF00" hue="80" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="24" color="#330000" hue="0" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="24" color="#333300" hue="40" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="48" color="#336600" hue="60" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="72" color="#339900" hue="67" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#33CC00" hue="70" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#33FF00" hue="72" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="48" color="#660000" hue="0" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="48" color="#663300" hue="20" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="48" color="#666600" hue="40" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="72" color="#669900" hue="53" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#66CC00" hue="60" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#66FF00" hue="64" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="0" color="#000000" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="48" color="#333333" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="0" color="#000000" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="24" color="#000033" hue="160" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="24" color="#003333" hue="120" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="48" color="#006633" hue="100" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="72" color="#009933" hue="93" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#00CC33" hue="90" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#00FF33" hue="88" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="24" color="#330033" hue="200" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="48" color="#333333" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="72" color="#336633" hue="80" saturation="80"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#339933" hue="80" saturation="120"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#33CC33" hue="80" saturation="144"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#33FF33" hue="80" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="48" color="#660033" hue="220" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="72" color="#663333" hue="0" saturation="80"/>
+                <SolidSwatchItem alpha="1" brightness="72" color="#666633" hue="40" saturation="80"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#669933" hue="60" saturation="120"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#66CC33" hue="67" saturation="144"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#66FF33" hue="70" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="0" color="#000000" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#666666" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="0" color="#000000" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="48" color="#000066" hue="160" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="48" color="#003366" hue="140" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="48" color="#006666" hue="120" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="72" color="#009966" hue="107" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#00CC66" hue="100" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#00FF66" hue="96" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="48" color="#330066" hue="180" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="72" color="#333366" hue="160" saturation="80"/>
+                <SolidSwatchItem alpha="1" brightness="72" color="#336666" hue="120" saturation="80"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#339966" hue="100" saturation="120"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#33CC66" hue="93" saturation="144"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#33FF66" hue="90" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="48" color="#660066" hue="200" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="72" color="#663366" hue="200" saturation="80"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#666666" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#669966" hue="80" saturation="48"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#66CC66" hue="80" saturation="120"/>
+                <SolidSwatchItem alpha="1" brightness="168" color="#66FF66" hue="80" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="0" color="#000000" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#999999" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="0" color="#000000" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="72" color="#000099" hue="160" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="72" color="#003399" hue="147" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="72" color="#006699" hue="133" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="72" color="#009999" hue="120" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#00CC99" hue="110" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#00FF99" hue="104" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="72" color="#330099" hue="173" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#333399" hue="160" saturation="120"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#336699" hue="140" saturation="120"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#339999" hue="120" saturation="120"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#33CC99" hue="107" saturation="144"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#33FF99" hue="100" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="72" color="#660099" hue="187" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#663399" hue="180" saturation="120"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#666699" hue="160" saturation="48"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#669999" hue="120" saturation="48"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#66CC99" hue="100" saturation="120"/>
+                <SolidSwatchItem alpha="1" brightness="168" color="#66FF99" hue="93" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="0" color="#000000" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="192" color="#CCCCCC" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="0" color="#000000" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#0000CC" hue="160" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#0033CC" hue="150" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#0066CC" hue="140" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#0099CC" hue="130" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#00CCCC" hue="120" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#00FFCC" hue="112" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#3300CC" hue="170" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#3333CC" hue="160" saturation="144"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#3366CC" hue="147" saturation="144"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#3399CC" hue="133" saturation="144"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#33CCCC" hue="120" saturation="144"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#33FFCC" hue="110" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#6600CC" hue="180" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#6633CC" hue="173" saturation="144"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#6666CC" hue="160" saturation="120"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#6699CC" hue="140" saturation="120"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#66CCCC" hue="120" saturation="120"/>
+                <SolidSwatchItem alpha="1" brightness="168" color="#66FFCC" hue="107" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="0" color="#000000" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="240" color="#FFFFFF" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="0" color="#000000" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#0000FF" hue="160" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#0033FF" hue="152" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#0066FF" hue="144" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#0099FF" hue="136" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#00CCFF" hue="128" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#00FFFF" hue="120" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#3300FF" hue="168" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#3333FF" hue="160" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#3366FF" hue="150" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#3399FF" hue="140" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#33CCFF" hue="130" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#33FFFF" hue="120" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#6600FF" hue="176" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#6633FF" hue="170" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="168" color="#6666FF" hue="160" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="168" color="#6699FF" hue="147" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="168" color="#66CCFF" hue="133" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="168" color="#66FFFF" hue="120" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="0" color="#000000" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#FF0000" hue="0" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="0" color="#000000" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="72" color="#990000" hue="0" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="72" color="#993300" hue="13" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="72" color="#996600" hue="27" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="72" color="#999900" hue="40" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#99CC00" hue="50" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#99FF00" hue="56" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#CC0000" hue="0" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#CC3300" hue="10" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#CC6600" hue="20" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#CC9900" hue="30" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#CCCC00" hue="40" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#CCFF00" hue="48" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#FF0000" hue="0" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#FF3300" hue="8" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#FF6600" hue="16" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#FF9900" hue="24" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#FFCC00" hue="32" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#FFFF00" hue="40" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="0" color="#000000" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#00FF00" hue="80" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="0" color="#000000" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="72" color="#990033" hue="227" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#993333" hue="0" saturation="120"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#996633" hue="20" saturation="120"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#999933" hue="40" saturation="120"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#99CC33" hue="53" saturation="144"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#99FF33" hue="60" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#CC0033" hue="230" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#CC3333" hue="0" saturation="144"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#CC6633" hue="13" saturation="144"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#CC9933" hue="27" saturation="144"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#CCCC33" hue="40" saturation="144"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#CCFF33" hue="50" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#FF0033" hue="232" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#FF3333" hue="0" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#FF6633" hue="10" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#FF9933" hue="20" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#FFCC33" hue="30" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#FFFF33" hue="40" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="0" color="#000000" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#0000FF" hue="160" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="0" color="#000000" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="72" color="#990066" hue="213" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#993366" hue="220" saturation="120"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#996666" hue="0" saturation="48"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#999966" hue="40" saturation="48"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#99CC66" hue="60" saturation="120"/>
+                <SolidSwatchItem alpha="1" brightness="168" color="#99FF66" hue="67" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#CC0066" hue="220" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#CC3366" hue="227" saturation="144"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#CC6666" hue="0" saturation="120"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#CC9966" hue="20" saturation="120"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#CCCC66" hue="40" saturation="120"/>
+                <SolidSwatchItem alpha="1" brightness="168" color="#CCFF66" hue="53" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#FF0066" hue="224" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#FF3366" hue="230" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="168" color="#FF6666" hue="0" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="168" color="#FF9966" hue="13" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="168" color="#FFCC66" hue="27" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="168" color="#FFFF66" hue="40" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="0" color="#000000" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#FFFF00" hue="40" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="0" color="#000000" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="72" color="#990099" hue="200" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#993399" hue="200" saturation="120"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#996699" hue="200" saturation="48"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#999999" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="168" color="#99CC99" hue="80" saturation="80"/>
+                <SolidSwatchItem alpha="1" brightness="192" color="#99FF99" hue="80" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#CC0099" hue="210" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#CC3399" hue="213" saturation="144"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#CC6699" hue="220" saturation="120"/>
+                <SolidSwatchItem alpha="1" brightness="168" color="#CC9999" hue="0" saturation="80"/>
+                <SolidSwatchItem alpha="1" brightness="168" color="#CCCC99" hue="40" saturation="80"/>
+                <SolidSwatchItem alpha="1" brightness="192" color="#CCFF99" hue="60" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#FF0099" hue="216" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#FF3399" hue="220" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="168" color="#FF6699" hue="227" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="192" color="#FF9999" hue="0" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="192" color="#FFCC99" hue="20" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="192" color="#FFFF99" hue="40" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="0" color="#000000" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#00FFFF" hue="120" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="0" color="#000000" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#9900CC" hue="190" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#9933CC" hue="187" saturation="144"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#9966CC" hue="180" saturation="120"/>
+                <SolidSwatchItem alpha="1" brightness="168" color="#9999CC" hue="160" saturation="80"/>
+                <SolidSwatchItem alpha="1" brightness="168" color="#99CCCC" hue="120" saturation="80"/>
+                <SolidSwatchItem alpha="1" brightness="192" color="#99FFCC" hue="100" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#CC00CC" hue="200" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#CC33CC" hue="200" saturation="144"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#CC66CC" hue="200" saturation="120"/>
+                <SolidSwatchItem alpha="1" brightness="168" color="#CC99CC" hue="200" saturation="80"/>
+                <SolidSwatchItem alpha="1" brightness="192" color="#CCCCCC" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="216" color="#CCFFCC" hue="80" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#FF00CC" hue="208" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#FF33CC" hue="210" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="168" color="#FF66CC" hue="213" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="192" color="#FF99CC" hue="220" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="216" color="#FFCCCC" hue="0" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="216" color="#FFFFCC" hue="40" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="0" color="#000000" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#FF00FF" hue="200" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="0" color="#000000" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#9900FF" hue="184" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#9933FF" hue="180" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="168" color="#9966FF" hue="173" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="192" color="#9999FF" hue="160" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="192" color="#99CCFF" hue="140" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="192" color="#99FFFF" hue="120" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#CC00FF" hue="192" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#CC33FF" hue="190" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="168" color="#CC66FF" hue="187" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="192" color="#CC99FF" hue="180" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="216" color="#CCCCFF" hue="160" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="216" color="#CCFFFF" hue="120" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#FF00FF" hue="200" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#FF33FF" hue="200" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="168" color="#FF66FF" hue="200" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="192" color="#FF99FF" hue="200" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="216" color="#FFCCFF" hue="200" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="240" color="#FFFFFF" hue="0" saturation="0"/>
+            </swatches>
+        </swatchList>
+    </swatchLists>
+    <extendedSwatchLists>
+        <swatchList>
+            <swatches>
+                <LinearGradientSwatchItem interpolationMethod="rgb" spreadMethod="pad">
+                    <matrix>
+                        <Matrix a="1" b="0" c="0" d="1" tx="0" ty="0"/>
+                    </matrix>
+                    <GradientEntry alpha="1" color="#FFFFFF" ratio="0"/>
+                    <GradientEntry alpha="1" color="#000000" ratio="1"/>
+                </LinearGradientSwatchItem>
+                <RadialGradientSwatchItem focalPointRatio="0" interpolationMethod="rgb" spreadMethod="pad">
+                    <matrix>
+                        <Matrix a="1" b="0" c="0" d="1" tx="0" ty="0"/>
+                    </matrix>
+                    <GradientEntry alpha="1" color="#FFFFFF" ratio="0"/>
+                    <GradientEntry alpha="1" color="#000000" ratio="1"/>
+                </RadialGradientSwatchItem>
+                <RadialGradientSwatchItem focalPointRatio="0" interpolationMethod="rgb" spreadMethod="pad">
+                    <matrix>
+                        <Matrix a="1" b="0" c="0" d="1" tx="0" ty="0"/>
+                    </matrix>
+                    <GradientEntry alpha="1" color="#FF0000" ratio="0"/>
+                    <GradientEntry alpha="1" color="#000000" ratio="1"/>
+                </RadialGradientSwatchItem>
+                <RadialGradientSwatchItem focalPointRatio="0" interpolationMethod="rgb" spreadMethod="pad">
+                    <matrix>
+                        <Matrix a="1" b="0" c="0" d="1" tx="0" ty="0"/>
+                    </matrix>
+                    <GradientEntry alpha="1" color="#00FF00" ratio="0"/>
+                    <GradientEntry alpha="1" color="#000000" ratio="1"/>
+                </RadialGradientSwatchItem>
+                <RadialGradientSwatchItem focalPointRatio="0" interpolationMethod="rgb" spreadMethod="pad">
+                    <matrix>
+                        <Matrix a="1" b="0" c="0" d="1" tx="0" ty="0"/>
+                    </matrix>
+                    <GradientEntry alpha="1" color="#0000FF" ratio="0"/>
+                    <GradientEntry alpha="1" color="#000000" ratio="1"/>
+                </RadialGradientSwatchItem>
+                <LinearGradientSwatchItem interpolationMethod="rgb" spreadMethod="pad">
+                    <matrix>
+                        <Matrix a="1" b="0" c="0" d="1" tx="0" ty="0"/>
+                    </matrix>
+                    <GradientEntry alpha="1" color="#0066FD" ratio="0"/>
+                    <GradientEntry alpha="1" color="#FFFFFF" ratio="0.3764705882352941"/>
+                    <GradientEntry alpha="1" color="#FFFFFF" ratio="0.47843137254901963"/>
+                    <GradientEntry alpha="1" color="#996600" ratio="0.5019607843137255"/>
+                    <GradientEntry alpha="1" color="#FFCC00" ratio="0.6666666666666666"/>
+                    <GradientEntry alpha="1" color="#FFFFFF" ratio="1"/>
+                </LinearGradientSwatchItem>
+                <LinearGradientSwatchItem interpolationMethod="rgb" spreadMethod="pad">
+                    <matrix>
+                        <Matrix a="1" b="0" c="0" d="1" tx="0" ty="0"/>
+                    </matrix>
+                    <GradientEntry alpha="1" color="#FF0000" ratio="0"/>
+                    <GradientEntry alpha="1" color="#FFFF00" ratio="0.16470588235294117"/>
+                    <GradientEntry alpha="1" color="#00FF00" ratio="0.36470588235294116"/>
+                    <GradientEntry alpha="1" color="#00FFFF" ratio="0.4980392156862745"/>
+                    <GradientEntry alpha="1" color="#0000FF" ratio="0.6666666666666666"/>
+                    <GradientEntry alpha="1" color="#FF00FF" ratio="0.8313725490196079"/>
+                    <GradientEntry alpha="1" color="#FF0000" ratio="1"/>
+                </LinearGradientSwatchItem>
+            </swatches>
+        </swatchList>
+    </extendedSwatchLists>
+    <PrinterSettings centerHorizontal="true" centerVertical="true" disablePostscript="false" frameCountAcrossPage="3" framesToPrint="first frame only" labelPages="false" layout="actual size" pageMarginBottom="360" pageMarginLeft="360" pageMarginRight="360" pageMarginTop="360" scale="100" storyBoardMargin="180"/>
+    <publishHistory/>
+</DOMDocument>

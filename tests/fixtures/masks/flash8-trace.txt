@@ -1,0 +1,7 @@
+﻿masks: frame 1
+maskclip_mc: movieclip, _x = 342
+maskdisc_mc._xscale = undefined
+tweenmask_mc._x = 40, tweenbox_mc._x = 165
+maskedclip_mc.inner_box_mc: inner_box_mc
+h_disc1_mc: movieclip, h_disc2_mc: undefined
+masks: frame 20, tweenmask_mc._x = 105, tweenbox_mc._x = 250

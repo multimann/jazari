@@ -49,6 +49,13 @@ pub enum ExprKind {
     GetVariable(Box<Expr>),
     SetVariable(Box<Expr>, Box<Expr>),
     GotoFrame(Box<Expr>, bool),
+    /// A goto whose frame number is offset by `bias` (the first frame of a
+    /// scene); labels are not affected. Only produced when scenes are known.
+    GotoSceneFrame {
+        frame: Box<Expr>,
+        play: bool,
+        bias: u16,
+    },
     GetUrl {
         target: Box<Expr>,
         url: Box<Expr>,

@@ -1,0 +1,22 @@
+﻿Intro 1 [intro]: root 1
+Intro 3: root 3, hops=0
+Intro 4: nextScene(); play()
+Main 1 [main]: root 5
+Main 2: gotoAndPlay(4)
+Main 4 [mainLoop]: root 8, hops=1
+Main 5: gotoAndPlay("Intro", 3)
+Intro 3: root 3, hops=2
+Intro 4: nextScene(); play()
+Main 1 [main]: root 5
+Main 2: root 6, hops=2
+Main 4 [mainLoop]: root 8, hops=2
+Main 5: gotoAndPlay("finale")
+Outro 3 [finale]: root 12, hops=3
+Outro 4: prevScene(); play()
+Main 1 [main]: root 5
+Main 2: root 6, hops=4
+Main 4 [mainLoop]: root 8, hops=4
+Main 5: gotoAndPlay("Outro", "outro")
+Outro 1 [outro]: root 10
+Outro 3 [finale]: root 12, hops=4
+Outro 4: stop(), root 13

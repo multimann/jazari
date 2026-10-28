@@ -928,3 +928,51 @@ fn as2_fixture_matches_flash_8() {
         assert_eq!(normalized(&our.actions), normalized(actions));
     }
 }
+
+/// The scenes of the scenes fixture: Intro (root frames 1-4), Main (5-9) and
+/// Outro (10-13).
+fn fixture_scenes(current: usize) -> crate::SceneContext {
+    crate::SceneContext {
+        scenes: vec![
+            ("Intro".to_owned(), 0),
+            ("Main".to_owned(), 4),
+            ("Outro".to_owned(), 9),
+        ],
+        current,
+    }
+}
+
+fn scene_frame(src: &str, current: usize) -> String {
+    let scenes = fixture_scenes(current);
+    code(
+        &compiler()
+            .compile_frame_in(src, &origin(), Some(&scenes))
+            .expect("compiles"),
+    )
+}
+
+#[test]
+fn scene_gotos_compile_as_flash_8_does() {
+    // tests/fixtures/scenes (MANIFEST.md, "SWF"): Flash 8's compiled forms.
+    let next = scene_frame("nextScene();", 0);
+    let prev = scene_frame("prevScene();", 2);
+    assert_eq!(next, prev);
+    assert!(next.contains("GotoFrame 4"), "{next}");
+    assert!(!next.contains("Play"), "{next}");
+    let bare = scene_frame("gotoAndPlay(4);", 1);
+    assert!(
+        bare.contains("GotoFrame 7") && bare.contains("Play"),
+        "{bare}"
+    );
+    let named = scene_frame("gotoAndPlay(\"Intro\", 3);", 1);
+    assert!(named.contains("GotoFrame 2"), "{named}");
+    let label = scene_frame("gotoAndPlay(\"Outro\", \"outro\");", 1);
+    assert!(
+        label.contains("GotoLabel") && label.contains("outro"),
+        "{label}"
+    );
+    // The same script in a symbol timeline (no scenes) is unaffected, and
+    // the cache keeps the two apart.
+    assert!(frame("gotoAndPlay(4);").contains("GotoFrame 3"));
+    assert!(scene_frame("gotoAndPlay(4);", 1).contains("GotoFrame 7"));
+}

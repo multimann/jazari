@@ -1,0 +1,925 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<DOMDocument backgroundColor="#FFFFFF" creatorInfo="FlaComDoc" currentTimeline="1" frameRate="12" gridColor="#C0C0C0" gridSnapAccuracy="Normal" gridSnapTo="false" gridSpacingX="18" gridSpacingY="18" gridVisible="false" guidesColor="#00FF00" guidesLocked="false" guidesSnapAccuracy="Normal" guidesSnapTo="true" guidesVisible="true" height="400" nextSceneIdentifier="2" objectsSnapTo="true" pixelSnap="false" playOptionsPlayFrameActions="false" playOptionsPlayLoop="false" playOptionsPlayPages="false" playOptionsPlaySounds="true" previewMode="anti alias text" rulerUnitType="pixels" rulerVisible="false" sharedLibraryURL="" snapAlign="true" snapAlignBorderSpacing="18" snapAlignHorizontalCenter="false" snapAlignHorizontalSpacing="0" snapAlignVerticalCenter="false" snapAlignVerticalSpacing="0" viewOptionsAnimationControlVisible="true" viewOptionsButtonsActive="false" viewOptionsLivePreview="true" viewOptionsPasteBoardView="true" width="550" xflVersion="2.0" xmlns="http://ns.adobe.com/xfl/2008/">
+    <folders/>
+    <media/>
+    <symbols>
+        <Include href="symbol-1.xml"/>
+        <Include href="symbol-2.xml"/>
+        <Include href="symbol-3.xml"/>
+    </symbols>
+    <timelines>
+        <DOMTimeline currentFrame="19" name="Scene 1">
+            <layers>
+                <DOMLayer autoNamed="false" color="#4FFF4F" current="false" heightMultiplier="1" isSelected="false" locked="false" name="actions" open="true" outline="false" useOutlineView="false" visible="true">
+                    <frames>
+                        <DOMFrame acceleration="0" duration="19" index="0" keyMode="1536" motionTweenRotate="auto" motionTweenRotateTimes="0" useSingleEaseCurve="true">
+                            <Actionscript>
+                                <script>trace("masks: frame 1");
+trace("maskclip_mc: " + typeof maskclip_mc + ", _x = " + maskclip_mc._x);
+trace("maskdisc_mc._xscale = " + maskdisc_mc._xscale);
+trace("tweenmask_mc._x = " + tweenmask_mc._x + ", tweenbox_mc._x = " + tweenbox_mc._x);
+trace("maskedclip_mc.inner_box_mc: " + maskedclip_mc.inner_box_mc._name);
+trace("h_disc1_mc: " + typeof h_disc1_mc + ", h_disc2_mc: " + typeof h_disc2_mc);
+</script>
+                            </Actionscript>
+                            <elements/>
+                        </DOMFrame>
+                        <DOMFrame acceleration="0" duration="1" index="19" keyMode="1536" motionTweenRotate="auto" motionTweenRotateTimes="0" useSingleEaseCurve="true">
+                            <Actionscript>
+                                <script>trace("masks: frame " + _currentframe + ", tweenmask_mc._x = " + tweenmask_mc._x + ", tweenbox_mc._x = " + tweenbox_mc._x);
+stop();
+</script>
+                            </Actionscript>
+                            <elements/>
+                        </DOMFrame>
+                    </frames>
+                </DOMLayer>
+                <DOMLayer autoNamed="false" color="#FF4F4F" current="false" heightMultiplier="1" isSelected="false" layerType="mask" locked="false" name="h_mask" open="true" outline="false" useOutlineView="false" visible="true">
+                    <frames>
+                        <DOMFrame acceleration="0" duration="20" index="0" keyMode="1536" motionTweenRotate="auto" motionTweenRotateTimes="0" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMSymbolInstance blendMode="normal" cacheAsBitmap="false" isExtensible="false" libraryItemName="Disc" locked="false" name="h_disc1_mc" selected="false" symbolType="movie clip">
+                                    <matrix>
+                                        <Matrix a="0.5" b="0" c="0" d="0.5" tx="450" ty="265"/>
+                                    </matrix>
+                                    <transformationPoint>
+                                        <Point x="0" y="0"/>
+                                    </transformationPoint>
+                                </DOMSymbolInstance>
+                                <DOMSymbolInstance blendMode="normal" cacheAsBitmap="false" isExtensible="false" libraryItemName="Disc" locked="false" name="h_disc2_mc" selected="false" symbolType="movie clip">
+                                    <matrix>
+                                        <Matrix a="0.5" b="0" c="0" d="0.5" tx="505" ty="330"/>
+                                    </matrix>
+                                    <transformationPoint>
+                                        <Point x="0" y="0"/>
+                                    </transformationPoint>
+                                </DOMSymbolInstance>
+                            </elements>
+                        </DOMFrame>
+                    </frames>
+                </DOMLayer>
+                <DOMLayer autoNamed="false" color="#4F80FF" current="false" heightMultiplier="1" isSelected="false" locked="false" name="h_art" open="true" outline="false" parentLayerIndex="1" useOutlineView="false" visible="true">
+                    <frames>
+                        <DOMFrame acceleration="0" duration="20" index="0" keyMode="1536" motionTweenRotate="auto" motionTweenRotateTimes="0" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMShape selected="false">
+                                    <matrix>
+                                        <Matrix a="1" b="0" c="0" d="1" tx="0" ty="0"/>
+                                    </matrix>
+                                    <fills>
+                                        <FillStyle index="1">
+                                            <SolidColor alpha="1" color="#E6194B"/>
+                                        </FillStyle>
+                                        <FillStyle index="2">
+                                            <SolidColor alpha="1" color="#3CB44B"/>
+                                        </FillStyle>
+                                        <FillStyle index="3">
+                                            <SolidColor alpha="1" color="#FFE119"/>
+                                        </FillStyle>
+                                        <FillStyle index="4">
+                                            <SolidColor alpha="1" color="#4363D8"/>
+                                        </FillStyle>
+                                        <FillStyle index="5">
+                                            <SolidColor alpha="1" color="#F58231"/>
+                                        </FillStyle>
+                                    </fills>
+                                    <edges>
+                                        <Edge edges="!8300 4880|8300 4200" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!8300 4200|10800 4200" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!10800 4200|10800 4880" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!10800 4880|10800 5560" fillStyle0="0" fillStyle1="2" strokeStyle="0"/>
+                                        <Edge edges="!10800 5560|10800 6240" fillStyle0="0" fillStyle1="3" strokeStyle="0"/>
+                                        <Edge edges="!10800 6240|10800 6920" fillStyle0="0" fillStyle1="4" strokeStyle="0"/>
+                                        <Edge edges="!10800 6920|10800 7600" fillStyle0="0" fillStyle1="5" strokeStyle="0"/>
+                                        <Edge edges="!10800 7600|8300 7600" fillStyle0="0" fillStyle1="5" strokeStyle="0"/>
+                                        <Edge edges="!8300 7600|8300 6920" fillStyle0="0" fillStyle1="5" strokeStyle="0"/>
+                                        <Edge edges="!8300 6920|8300 6240" fillStyle0="0" fillStyle1="4" strokeStyle="0"/>
+                                        <Edge edges="!8300 6240|8300 5560" fillStyle0="0" fillStyle1="3" strokeStyle="0"/>
+                                        <Edge edges="!8300 5560|8300 4880" fillStyle0="0" fillStyle1="2" strokeStyle="0"/>
+                                        <Edge edges="!10800 6920|8300 6920" fillStyle0="5" fillStyle1="4" strokeStyle="0"/>
+                                        <Edge edges="!10800 6240|8300 6240" fillStyle0="4" fillStyle1="3" strokeStyle="0"/>
+                                        <Edge edges="!10800 5560|8300 5560" fillStyle0="3" fillStyle1="2" strokeStyle="0"/>
+                                        <Edge edges="!10800 4880|8300 4880" fillStyle0="2" fillStyle1="1" strokeStyle="0"/>
+                                    </edges>
+                                </DOMShape>
+                            </elements>
+                        </DOMFrame>
+                    </frames>
+                </DOMLayer>
+                <DOMLayer autoNamed="false" color="#808080" current="false" heightMultiplier="1" isSelected="false" locked="false" name="g_clip" open="true" outline="false" useOutlineView="false" visible="true">
+                    <frames>
+                        <DOMFrame acceleration="0" duration="20" index="0" keyMode="1536" motionTweenRotate="auto" motionTweenRotateTimes="0" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMSymbolInstance blendMode="normal" cacheAsBitmap="false" isExtensible="false" libraryItemName="MaskedClip" locked="false" name="maskedclip_mc" selected="false" symbolType="movie clip">
+                                    <matrix>
+                                        <Matrix a="1" b="0" c="0" d="1" tx="342" ty="295"/>
+                                    </matrix>
+                                    <transformationPoint>
+                                        <Point x="0" y="0"/>
+                                    </transformationPoint>
+                                </DOMSymbolInstance>
+                            </elements>
+                        </DOMFrame>
+                    </frames>
+                </DOMLayer>
+                <DOMLayer autoNamed="false" color="#4FFFFF" current="false" heightMultiplier="1" isSelected="false" layerType="mask" locked="false" name="f_mask" open="true" outline="false" useOutlineView="false" visible="true">
+                    <frames>
+                        <DOMFrame acceleration="0" duration="20" index="0" keyMode="1536" motionTweenRotate="auto" motionTweenRotateTimes="0" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMShape selected="false">
+                                    <matrix>
+                                        <Matrix a="1" b="0" c="0" d="1" tx="0" ty="0"/>
+                                    </matrix>
+                                    <fills>
+                                        <FillStyle index="1">
+                                            <SolidColor alpha="1" color="#000000"/>
+                                        </FillStyle>
+                                    </fills>
+                                    <edges>
+                                        <Edge edges="!3200 5000|5100 5000" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!5100 5000|5100 7000" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!5100 7000|3200 7000" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!3200 7000|3200 5000" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                    </edges>
+                                </DOMShape>
+                            </elements>
+                        </DOMFrame>
+                    </frames>
+                </DOMLayer>
+                <DOMLayer autoNamed="false" color="#FF4FFF" current="false" heightMultiplier="1" isSelected="false" locked="false" name="f_art" open="true" outline="false" parentLayerIndex="4" useOutlineView="false" visible="true">
+                    <frames>
+                        <DOMFrame acceleration="0" duration="19" index="0" keyMode="7681" motionTweenOrientToPath="false" motionTweenRotate="auto" motionTweenRotateTimes="0" motionTweenScale="true" motionTweenSnap="true" motionTweenSync="true" tweenType="motion" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMSymbolInstance blendMode="normal" cacheAsBitmap="false" isExtensible="false" libraryItemName="Box" locked="false" name="tweenbox_mc" selected="false" symbolType="movie clip">
+                                    <matrix>
+                                        <Matrix a="1" b="0" c="0" d="1" tx="165" ty="230"/>
+                                    </matrix>
+                                    <transformationPoint>
+                                        <Point x="0" y="0"/>
+                                    </transformationPoint>
+                                </DOMSymbolInstance>
+                            </elements>
+                        </DOMFrame>
+                        <DOMFrame acceleration="0" duration="1" index="19" keyMode="1536" motionTweenRotate="auto" motionTweenRotateTimes="0" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMSymbolInstance blendMode="normal" cacheAsBitmap="false" isExtensible="false" libraryItemName="Box" locked="false" name="tweenbox_mc" selected="false" symbolType="movie clip">
+                                    <matrix>
+                                        <Matrix a="2" b="0" c="0" d="2" tx="250" ty="360"/>
+                                    </matrix>
+                                    <transformationPoint>
+                                        <Point x="0" y="0"/>
+                                    </transformationPoint>
+                                </DOMSymbolInstance>
+                            </elements>
+                        </DOMFrame>
+                    </frames>
+                </DOMLayer>
+                <DOMLayer autoNamed="false" color="#FFFF4F" current="false" heightMultiplier="1" isSelected="false" layerType="mask" locked="false" name="e_mask" open="true" outline="false" useOutlineView="false" visible="true">
+                    <frames>
+                        <DOMFrame acceleration="0" duration="19" index="0" keyMode="7681" motionTweenOrientToPath="false" motionTweenRotate="auto" motionTweenRotateTimes="0" motionTweenScale="true" motionTweenSnap="true" motionTweenSync="true" tweenType="motion" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMSymbolInstance blendMode="normal" cacheAsBitmap="false" isExtensible="false" libraryItemName="Disc" locked="false" name="tweenmask_mc" selected="false" symbolType="movie clip">
+                                    <matrix>
+                                        <Matrix a="0.5" b="0" c="0" d="0.5" tx="40" ty="295"/>
+                                    </matrix>
+                                    <transformationPoint>
+                                        <Point x="0" y="0"/>
+                                    </transformationPoint>
+                                </DOMSymbolInstance>
+                            </elements>
+                        </DOMFrame>
+                        <DOMFrame acceleration="0" duration="1" index="19" keyMode="1536" motionTweenRotate="auto" motionTweenRotateTimes="0" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMSymbolInstance blendMode="normal" cacheAsBitmap="false" isExtensible="false" libraryItemName="Disc" locked="false" name="tweenmask_mc" selected="false" symbolType="movie clip">
+                                    <matrix>
+                                        <Matrix a="0.5" b="0" c="0" d="0.5" tx="105" ty="295"/>
+                                    </matrix>
+                                    <transformationPoint>
+                                        <Point x="0" y="0"/>
+                                    </transformationPoint>
+                                </DOMSymbolInstance>
+                            </elements>
+                        </DOMFrame>
+                    </frames>
+                </DOMLayer>
+                <DOMLayer autoNamed="false" color="#9933CC" current="false" heightMultiplier="1" isSelected="false" locked="false" name="e_art" open="true" outline="false" parentLayerIndex="6" useOutlineView="false" visible="true">
+                    <frames>
+                        <DOMFrame acceleration="0" duration="20" index="0" keyMode="1536" motionTweenRotate="auto" motionTweenRotateTimes="0" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMShape selected="false">
+                                    <matrix>
+                                        <Matrix a="1" b="0" c="0" d="1" tx="0" ty="0"/>
+                                    </matrix>
+                                    <fills>
+                                        <FillStyle index="1">
+                                            <SolidColor alpha="1" color="#E6194B"/>
+                                        </FillStyle>
+                                        <FillStyle index="2">
+                                            <SolidColor alpha="1" color="#FFE119"/>
+                                        </FillStyle>
+                                        <FillStyle index="3">
+                                            <SolidColor alpha="1" color="#F58231"/>
+                                        </FillStyle>
+                                        <FillStyle index="4">
+                                            <SolidColor alpha="1" color="#3CB44B"/>
+                                        </FillStyle>
+                                        <FillStyle index="5">
+                                            <SolidColor alpha="1" color="#4363D8"/>
+                                        </FillStyle>
+                                    </fills>
+                                    <edges>
+                                        <Edge edges="!1866 5050|1866 5900" fillStyle0="1" fillStyle1="5" strokeStyle="0"/>
+                                        <Edge edges="!1866 5900|2700 5900" fillStyle0="1" fillStyle1="4" strokeStyle="0"/>
+                                        <Edge edges="!2700 5900|2700 5050" fillStyle0="1" fillStyle1="0" strokeStyle="0"/>
+                                        <Edge edges="!2700 5050|1866 5050" fillStyle0="1" fillStyle1="3" strokeStyle="0"/>
+                                        <Edge edges="!1866 4200|2700 4200" fillStyle0="0" fillStyle1="3" strokeStyle="0"/>
+                                        <Edge edges="!2700 4200|2700 5050" fillStyle0="0" fillStyle1="3" strokeStyle="0"/>
+                                        <Edge edges="!1866 4200|1866 5050" fillStyle0="3" fillStyle1="2" strokeStyle="0"/>
+                                        <Edge edges="!200 5900|200 5050" fillStyle0="0" fillStyle1="4" strokeStyle="0"/>
+                                        <Edge edges="!200 5050|200 4200" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!200 4200|1033 4200" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!1033 4200|1866 4200" fillStyle0="0" fillStyle1="2" strokeStyle="0"/>
+                                        <Edge edges="!1033 5050|1033 5900" fillStyle0="5" fillStyle1="4" strokeStyle="0"/>
+                                        <Edge edges="!1033 5900|1866 5900" fillStyle0="5" fillStyle1="3" strokeStyle="0"/>
+                                        <Edge edges="!1033 5900|200 5900" fillStyle0="2" fillStyle1="4" strokeStyle="0"/>
+                                        <Edge edges="!200 5900|200 6750" fillStyle0="2" fillStyle1="0" strokeStyle="0"/>
+                                        <Edge edges="!200 6750|1033 6750" fillStyle0="2" fillStyle1="5" strokeStyle="0"/>
+                                        <Edge edges="!1033 6750|1033 5900" fillStyle0="2" fillStyle1="3" strokeStyle="0"/>
+                                        <Edge edges="!1033 4200|1033 5050" fillStyle0="2" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!1033 5050|1866 5050" fillStyle0="2" fillStyle1="5" strokeStyle="0"/>
+                                        <Edge edges="!1033 5050|200 5050" fillStyle0="4" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!1033 6750|1033 7600" fillStyle0="1" fillStyle1="5" strokeStyle="0"/>
+                                        <Edge edges="!1033 7600|1866 7600" fillStyle0="1" fillStyle1="0" strokeStyle="0"/>
+                                        <Edge edges="!1866 7600|1866 6750" fillStyle0="1" fillStyle1="2" strokeStyle="0"/>
+                                        <Edge edges="!1866 6750|1033 6750" fillStyle0="1" fillStyle1="3" strokeStyle="0"/>
+                                        <Edge edges="!1033 7600|200 7600" fillStyle0="0" fillStyle1="5" strokeStyle="0"/>
+                                        <Edge edges="!200 7600|200 6750" fillStyle0="0" fillStyle1="5" strokeStyle="0"/>
+                                        <Edge edges="!2700 6750|2700 7600" fillStyle0="0" fillStyle1="2" strokeStyle="0"/>
+                                        <Edge edges="!2700 7600|1866 7600" fillStyle0="0" fillStyle1="2" strokeStyle="0"/>
+                                        <Edge edges="!2700 6750|1866 6750" fillStyle0="2" fillStyle1="4" strokeStyle="0"/>
+                                        <Edge edges="!2700 5900|2700 6750" fillStyle0="0" fillStyle1="4" strokeStyle="0"/>
+                                        <Edge edges="!1866 5900|1866 6750" fillStyle0="4" fillStyle1="3" strokeStyle="0"/>
+                                    </edges>
+                                </DOMShape>
+                            </elements>
+                        </DOMFrame>
+                    </frames>
+                </DOMLayer>
+                <DOMLayer autoNamed="false" color="#4FFF4F" current="false" heightMultiplier="1" isSelected="false" layerType="mask" locked="false" name="d_mask" open="true" outline="false" useOutlineView="false" visible="true">
+                    <frames>
+                        <DOMFrame acceleration="0" duration="20" index="0" keyMode="1536" motionTweenRotate="auto" motionTweenRotateTimes="0" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMSymbolInstance blendMode="normal" cacheAsBitmap="false" isExtensible="false" libraryItemName="Disc" locked="false" name="maskdisc_mc" selected="false" symbolType="movie clip">
+                                    <matrix>
+                                        <Matrix a="0.5999908447265625" b="0" c="0" d="0.5999908447265625" tx="495" ty="140"/>
+                                    </matrix>
+                                    <transformationPoint>
+                                        <Point x="0" y="0"/>
+                                    </transformationPoint>
+                                </DOMSymbolInstance>
+                                <DOMShape selected="false">
+                                    <matrix>
+                                        <Matrix a="1" b="0" c="0" d="1" tx="0" ty="0"/>
+                                    </matrix>
+                                    <fills>
+                                        <FillStyle index="1">
+                                            <SolidColor alpha="1" color="#000000"/>
+                                        </FillStyle>
+                                    </fills>
+                                    <edges>
+                                        <Edge edges="!9500 700|9500 1900" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!9500 1900|8500 1900" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!8500 1900|8500 700" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!8500 700|9500 700" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                    </edges>
+                                </DOMShape>
+                            </elements>
+                        </DOMFrame>
+                    </frames>
+                </DOMLayer>
+                <DOMLayer autoNamed="false" color="#FF4F4F" current="false" heightMultiplier="1" isSelected="false" locked="false" name="d_art" open="true" outline="false" parentLayerIndex="8" useOutlineView="false" visible="true">
+                    <frames>
+                        <DOMFrame acceleration="0" duration="20" index="0" keyMode="1536" motionTweenRotate="auto" motionTweenRotateTimes="0" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMShape selected="false">
+                                    <matrix>
+                                        <Matrix a="1" b="0" c="0" d="1" tx="0" ty="0"/>
+                                    </matrix>
+                                    <fills>
+                                        <FillStyle index="1">
+                                            <SolidColor alpha="1" color="#E6194B"/>
+                                        </FillStyle>
+                                        <FillStyle index="2">
+                                            <SolidColor alpha="1" color="#3CB44B"/>
+                                        </FillStyle>
+                                        <FillStyle index="3">
+                                            <SolidColor alpha="1" color="#FFE119"/>
+                                        </FillStyle>
+                                        <FillStyle index="4">
+                                            <SolidColor alpha="1" color="#4363D8"/>
+                                        </FillStyle>
+                                        <FillStyle index="5">
+                                            <SolidColor alpha="1" color="#F58231"/>
+                                        </FillStyle>
+                                    </fills>
+                                    <edges>
+                                        <Edge edges="!9800 400|10300 400" fillStyle0="0" fillStyle1="4" strokeStyle="0"/>
+                                        <Edge edges="!10300 400|10800 400" fillStyle0="0" fillStyle1="5" strokeStyle="0"/>
+                                        <Edge edges="!10800 400|10800 3800" fillStyle0="0" fillStyle1="5" strokeStyle="0"/>
+                                        <Edge edges="!10800 3800|10300 3800" fillStyle0="0" fillStyle1="5" strokeStyle="0"/>
+                                        <Edge edges="!10300 3800|9800 3800" fillStyle0="0" fillStyle1="4" strokeStyle="0"/>
+                                        <Edge edges="!9800 3800|9300 3800" fillStyle0="0" fillStyle1="3" strokeStyle="0"/>
+                                        <Edge edges="!9300 3800|8800 3800" fillStyle0="0" fillStyle1="2" strokeStyle="0"/>
+                                        <Edge edges="!8800 3800|8300 3800" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!8300 3800|8300 400" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!8300 400|8800 400" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!8800 400|9300 400" fillStyle0="0" fillStyle1="2" strokeStyle="0"/>
+                                        <Edge edges="!9300 400|9800 400" fillStyle0="0" fillStyle1="3" strokeStyle="0"/>
+                                        <Edge edges="!10300 400|10300 3800" fillStyle0="5" fillStyle1="4" strokeStyle="0"/>
+                                        <Edge edges="!9800 400|9800 3800" fillStyle0="4" fillStyle1="3" strokeStyle="0"/>
+                                        <Edge edges="!9300 400|9300 3800" fillStyle0="3" fillStyle1="2" strokeStyle="0"/>
+                                        <Edge edges="!8800 400|8800 3800" fillStyle0="2" fillStyle1="1" strokeStyle="0"/>
+                                    </edges>
+                                </DOMShape>
+                            </elements>
+                        </DOMFrame>
+                    </frames>
+                </DOMLayer>
+                <DOMLayer autoNamed="false" color="#4F80FF" current="false" heightMultiplier="1" isSelected="false" layerType="mask" locked="false" name="c_mask" open="true" outline="false" useOutlineView="false" visible="true">
+                    <frames>
+                        <DOMFrame acceleration="0" duration="20" index="0" keyMode="1536" motionTweenRotate="auto" motionTweenRotateTimes="0" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMSymbolInstance blendMode="normal" cacheAsBitmap="false" isExtensible="false" libraryItemName="Disc" locked="false" name="maskclip_mc" selected="false" symbolType="movie clip">
+                                    <matrix>
+                                        <Matrix a="1" b="0" c="0" d="1" tx="342" ty="105"/>
+                                    </matrix>
+                                    <transformationPoint>
+                                        <Point x="0" y="0"/>
+                                    </transformationPoint>
+                                </DOMSymbolInstance>
+                            </elements>
+                        </DOMFrame>
+                    </frames>
+                </DOMLayer>
+                <DOMLayer autoNamed="false" color="#808080" current="false" heightMultiplier="1" isSelected="false" locked="false" name="c_art" open="true" outline="false" parentLayerIndex="10" useOutlineView="false" visible="true">
+                    <frames>
+                        <DOMFrame acceleration="0" duration="20" index="0" keyMode="1536" motionTweenRotate="auto" motionTweenRotateTimes="0" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMShape selected="false">
+                                    <matrix>
+                                        <Matrix a="1" b="0" c="0" d="1" tx="0" ty="0"/>
+                                    </matrix>
+                                    <fills>
+                                        <FillStyle index="1">
+                                            <SolidColor alpha="1" color="#E6194B"/>
+                                        </FillStyle>
+                                        <FillStyle index="2">
+                                            <SolidColor alpha="1" color="#3CB44B"/>
+                                        </FillStyle>
+                                        <FillStyle index="3">
+                                            <SolidColor alpha="1" color="#FFE119"/>
+                                        </FillStyle>
+                                        <FillStyle index="4">
+                                            <SolidColor alpha="1" color="#4363D8"/>
+                                        </FillStyle>
+                                        <FillStyle index="5">
+                                            <SolidColor alpha="1" color="#F58231"/>
+                                        </FillStyle>
+                                    </fills>
+                                    <edges>
+                                        <Edge edges="!7266 400|8100 400" fillStyle0="0" fillStyle1="3" strokeStyle="0"/>
+                                        <Edge edges="!8100 400|8100 1250" fillStyle0="0" fillStyle1="3" strokeStyle="0"/>
+                                        <Edge edges="!8100 1250|8100 2100" fillStyle0="0" fillStyle1="4" strokeStyle="0"/>
+                                        <Edge edges="!8100 2100|8100 2950" fillStyle0="0" fillStyle1="5" strokeStyle="0"/>
+                                        <Edge edges="!8100 2950|8100 3800" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!8100 3800|7266 3800" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!7266 3800|6433 3800" fillStyle0="0" fillStyle1="5" strokeStyle="0"/>
+                                        <Edge edges="!6433 3800|5600 3800" fillStyle0="0" fillStyle1="4" strokeStyle="0"/>
+                                        <Edge edges="!5600 3800|5600 2950" fillStyle0="0" fillStyle1="4" strokeStyle="0"/>
+                                        <Edge edges="!5600 2950|5600 2100" fillStyle0="0" fillStyle1="3" strokeStyle="0"/>
+                                        <Edge edges="!5600 2100|5600 1250" fillStyle0="0" fillStyle1="2" strokeStyle="0"/>
+                                        <Edge edges="!5600 1250|5600 400" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!5600 400|6433 400" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!6433 400|7266 400" fillStyle0="0" fillStyle1="2" strokeStyle="0"/>
+                                        <Edge edges="!7266 400|7266 1250" fillStyle0="3" fillStyle1="2" strokeStyle="0"/>
+                                        <Edge edges="!7266 1250|8100 1250" fillStyle0="3" fillStyle1="4" strokeStyle="0"/>
+                                        <Edge edges="!8100 2100|7266 2100" fillStyle0="5" fillStyle1="4" strokeStyle="0"/>
+                                        <Edge edges="!7266 2100|7266 2950" fillStyle0="5" fillStyle1="4" strokeStyle="0"/>
+                                        <Edge edges="!7266 2950|8100 2950" fillStyle0="5" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!7266 2950|7266 3800" fillStyle0="1" fillStyle1="5" strokeStyle="0"/>
+                                        <Edge edges="!7266 1250|7266 2100" fillStyle0="4" fillStyle1="3" strokeStyle="0"/>
+                                        <Edge edges="!6433 400|6433 1250" fillStyle0="2" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!6433 1250|7266 1250" fillStyle0="2" fillStyle1="3" strokeStyle="0"/>
+                                        <Edge edges="!6433 1250|5600 1250" fillStyle0="2" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!7266 2100|6433 2100" fillStyle0="4" fillStyle1="3" strokeStyle="0"/>
+                                        <Edge edges="!6433 2100|6433 2950" fillStyle0="4" fillStyle1="3" strokeStyle="0"/>
+                                        <Edge edges="!6433 2950|7266 2950" fillStyle0="4" fillStyle1="5" strokeStyle="0"/>
+                                        <Edge edges="!6433 2950|6433 3800" fillStyle0="5" fillStyle1="4" strokeStyle="0"/>
+                                        <Edge edges="!6433 2950|5600 2950" fillStyle0="4" fillStyle1="3" strokeStyle="0"/>
+                                        <Edge edges="!6433 2100|5600 2100" fillStyle0="3" fillStyle1="2" strokeStyle="0"/>
+                                        <Edge edges="!6433 1250|6433 2100" fillStyle0="3" fillStyle1="2" strokeStyle="0"/>
+                                    </edges>
+                                </DOMShape>
+                            </elements>
+                        </DOMFrame>
+                    </frames>
+                </DOMLayer>
+                <DOMLayer autoNamed="false" color="#4FFFFF" current="false" heightMultiplier="1" isSelected="false" layerType="mask" locked="false" name="b_mask" open="true" outline="false" useOutlineView="false" visible="true">
+                    <frames>
+                        <DOMFrame acceleration="0" duration="20" index="0" keyMode="1536" motionTweenRotate="auto" motionTweenRotateTimes="0" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMShape selected="false">
+                                    <matrix>
+                                        <Matrix a="1" b="0" c="0" d="1" tx="0" ty="0"/>
+                                    </matrix>
+                                    <fills>
+                                        <FillStyle index="1">
+                                            <SolidColor alpha="1" color="#000000"/>
+                                        </FillStyle>
+                                    </fills>
+                                    <edges>
+                                        <Edge edges="!3600 1000[3200 1000 3200 1400" fillStyle0="1" fillStyle1="0" strokeStyle="0"/>
+                                        <Edge edges="!3200 1400|3200 2800" fillStyle0="1" fillStyle1="0" strokeStyle="0"/>
+                                        <Edge edges="!3200 2800[3200 3200 3600 3200" fillStyle0="1" fillStyle1="0" strokeStyle="0"/>
+                                        <Edge edges="!3600 3200|4700 3200" fillStyle0="1" fillStyle1="0" strokeStyle="0"/>
+                                        <Edge edges="!4700 3200[5100 3200 5100 2800" fillStyle0="1" fillStyle1="0" strokeStyle="0"/>
+                                        <Edge edges="!5100 2800|5100 1400" fillStyle0="1" fillStyle1="0" strokeStyle="0"/>
+                                        <Edge edges="!5100 1400[5100 1000 4700 1000" fillStyle0="1" fillStyle1="0" strokeStyle="0"/>
+                                        <Edge edges="!4700 1000|3600 1000" fillStyle0="1" fillStyle1="0" strokeStyle="0"/>
+                                    </edges>
+                                </DOMShape>
+                            </elements>
+                        </DOMFrame>
+                    </frames>
+                </DOMLayer>
+                <DOMLayer autoNamed="false" color="#FF4FFF" current="false" heightMultiplier="1" isSelected="false" locked="false" name="b_art2" open="true" outline="false" parentLayerIndex="12" useOutlineView="false" visible="true">
+                    <frames>
+                        <DOMFrame acceleration="0" duration="20" index="0" keyMode="1536" motionTweenRotate="auto" motionTweenRotateTimes="0" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMSymbolInstance blendMode="normal" cacheAsBitmap="false" isExtensible="false" libraryItemName="Box" locked="false" name="b_box_mc" selected="false" symbolType="movie clip">
+                                    <matrix>
+                                        <Matrix a="1.5" b="0" c="0" d="1.5" tx="245" ty="160"/>
+                                    </matrix>
+                                    <transformationPoint>
+                                        <Point x="0" y="0"/>
+                                    </transformationPoint>
+                                </DOMSymbolInstance>
+                            </elements>
+                        </DOMFrame>
+                    </frames>
+                </DOMLayer>
+                <DOMLayer autoNamed="false" color="#FFFF4F" current="false" heightMultiplier="1" isSelected="false" locked="false" name="b_art1" open="true" outline="false" parentLayerIndex="12" useOutlineView="false" visible="true">
+                    <frames>
+                        <DOMFrame acceleration="0" duration="20" index="0" keyMode="1536" motionTweenRotate="auto" motionTweenRotateTimes="0" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMShape selected="false">
+                                    <matrix>
+                                        <Matrix a="1" b="0" c="0" d="1" tx="0" ty="0"/>
+                                    </matrix>
+                                    <fills>
+                                        <FillStyle index="1">
+                                            <SolidColor alpha="1" color="#E6194B"/>
+                                        </FillStyle>
+                                        <FillStyle index="2">
+                                            <SolidColor alpha="1" color="#3CB44B"/>
+                                        </FillStyle>
+                                        <FillStyle index="3">
+                                            <SolidColor alpha="1" color="#FFE119"/>
+                                        </FillStyle>
+                                        <FillStyle index="4">
+                                            <SolidColor alpha="1" color="#4363D8"/>
+                                        </FillStyle>
+                                        <FillStyle index="5">
+                                            <SolidColor alpha="1" color="#F58231"/>
+                                        </FillStyle>
+                                    </fills>
+                                    <edges>
+                                        <Edge edges="!2900 966|2900 400" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!2900 400|5400 400" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!5400 400|5400 966" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!5400 966|5400 1533" fillStyle0="0" fillStyle1="2" strokeStyle="0"/>
+                                        <Edge edges="!5400 1533|5400 2100" fillStyle0="0" fillStyle1="3" strokeStyle="0"/>
+                                        <Edge edges="!5400 2100|5400 2666" fillStyle0="0" fillStyle1="4" strokeStyle="0"/>
+                                        <Edge edges="!5400 2666|5400 3233" fillStyle0="0" fillStyle1="5" strokeStyle="0"/>
+                                        <Edge edges="!5400 3233|5400 3800" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!5400 3800|2900 3800" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!2900 3800|2900 3233" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!2900 3233|2900 2666" fillStyle0="0" fillStyle1="5" strokeStyle="0"/>
+                                        <Edge edges="!2900 2666|2900 2100" fillStyle0="0" fillStyle1="4" strokeStyle="0"/>
+                                        <Edge edges="!2900 2100|2900 1533" fillStyle0="0" fillStyle1="3" strokeStyle="0"/>
+                                        <Edge edges="!2900 1533|2900 966" fillStyle0="0" fillStyle1="2" strokeStyle="0"/>
+                                        <Edge edges="!5400 3233|2900 3233" fillStyle0="1" fillStyle1="5" strokeStyle="0"/>
+                                        <Edge edges="!5400 2666|2900 2666" fillStyle0="5" fillStyle1="4" strokeStyle="0"/>
+                                        <Edge edges="!5400 2100|2900 2100" fillStyle0="4" fillStyle1="3" strokeStyle="0"/>
+                                        <Edge edges="!5400 1533|2900 1533" fillStyle0="3" fillStyle1="2" strokeStyle="0"/>
+                                        <Edge edges="!5400 966|2900 966" fillStyle0="2" fillStyle1="1" strokeStyle="0"/>
+                                    </edges>
+                                </DOMShape>
+                            </elements>
+                        </DOMFrame>
+                    </frames>
+                </DOMLayer>
+                <DOMLayer autoNamed="false" color="#9933CC" current="false" heightMultiplier="1" isSelected="false" layerType="mask" locked="false" name="a_mask" open="true" outline="false" useOutlineView="false" visible="true">
+                    <frames>
+                        <DOMFrame acceleration="0" duration="20" index="0" keyMode="1536" motionTweenRotate="auto" motionTweenRotateTimes="0" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMShape selected="false">
+                                    <matrix>
+                                        <Matrix a="1" b="0" c="0" d="1" tx="0" ty="0"/>
+                                    </matrix>
+                                    <fills>
+                                        <FillStyle index="1">
+                                            <SolidColor alpha="1" color="#000000"/>
+                                        </FillStyle>
+                                    </fills>
+                                    <edges>
+                                        <Edge edges="!1450 800[1885 800 2192 1181" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!2192 1181[2500 1562 2500 2100" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!2500 2100[2500 2638 2192 3019" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!2192 3019[1885 3400 1450 3400" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!1450 3400[1015 3400 707 3019" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!707 3019[400 2638 400 2100" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!400 2100[400 1562 707 1181" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!707 1181[1015 800 1450 800" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                    </edges>
+                                </DOMShape>
+                            </elements>
+                        </DOMFrame>
+                    </frames>
+                </DOMLayer>
+                <DOMLayer autoNamed="false" color="#4FFF4F" current="true" heightMultiplier="1" isSelected="true" locked="false" name="a_art" open="true" outline="false" parentLayerIndex="15" useOutlineView="false" visible="true">
+                    <frames>
+                        <DOMFrame acceleration="0" duration="20" index="0" keyMode="1536" motionTweenRotate="auto" motionTweenRotateTimes="0" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMShape selected="false">
+                                    <matrix>
+                                        <Matrix a="1" b="0" c="0" d="1" tx="0" ty="0"/>
+                                    </matrix>
+                                    <fills>
+                                        <FillStyle index="1">
+                                            <SolidColor alpha="1" color="#E6194B"/>
+                                        </FillStyle>
+                                        <FillStyle index="2">
+                                            <SolidColor alpha="1" color="#3CB44B"/>
+                                        </FillStyle>
+                                        <FillStyle index="3">
+                                            <SolidColor alpha="1" color="#FFE119"/>
+                                        </FillStyle>
+                                        <FillStyle index="4">
+                                            <SolidColor alpha="1" color="#4363D8"/>
+                                        </FillStyle>
+                                        <FillStyle index="5">
+                                            <SolidColor alpha="1" color="#F58231"/>
+                                        </FillStyle>
+                                    </fills>
+                                    <edges>
+                                        <Edge edges="!1700 400|2200 400" fillStyle0="0" fillStyle1="4" strokeStyle="0"/>
+                                        <Edge edges="!2200 400|2700 400" fillStyle0="0" fillStyle1="5" strokeStyle="0"/>
+                                        <Edge edges="!2700 400|2700 3800" fillStyle0="0" fillStyle1="5" strokeStyle="0"/>
+                                        <Edge edges="!2700 3800|2200 3800" fillStyle0="0" fillStyle1="5" strokeStyle="0"/>
+                                        <Edge edges="!2200 3800|1700 3800" fillStyle0="0" fillStyle1="4" strokeStyle="0"/>
+                                        <Edge edges="!1700 3800|1200 3800" fillStyle0="0" fillStyle1="3" strokeStyle="0"/>
+                                        <Edge edges="!1200 3800|700 3800" fillStyle0="0" fillStyle1="2" strokeStyle="0"/>
+                                        <Edge edges="!700 3800|200 3800" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!200 3800|200 400" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!200 400|700 400" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!700 400|1200 400" fillStyle0="0" fillStyle1="2" strokeStyle="0"/>
+                                        <Edge edges="!1200 400|1700 400" fillStyle0="0" fillStyle1="3" strokeStyle="0"/>
+                                        <Edge edges="!2200 400|2200 3800" fillStyle0="5" fillStyle1="4" strokeStyle="0"/>
+                                        <Edge edges="!1700 400|1700 3800" fillStyle0="4" fillStyle1="3" strokeStyle="0"/>
+                                        <Edge edges="!1200 400|1200 3800" fillStyle0="3" fillStyle1="2" strokeStyle="0"/>
+                                        <Edge edges="!700 400|700 3800" fillStyle0="2" fillStyle1="1" strokeStyle="0"/>
+                                    </edges>
+                                </DOMShape>
+                            </elements>
+                        </DOMFrame>
+                    </frames>
+                </DOMLayer>
+            </layers>
+        </DOMTimeline>
+    </timelines>
+    <swatchLists>
+        <swatchList>
+            <swatches>
+                <SolidSwatchItem alpha="1" brightness="0" color="#000000" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="0" color="#000000" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="0" color="#000000" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="0" color="#000000" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="24" color="#003300" hue="80" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="48" color="#006600" hue="80" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="72" color="#009900" hue="80" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#00CC00" hue="80" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#00FF00" hue="80" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="24" color="#330000" hue="0" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="24" color="#333300" hue="40" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="48" color="#336600" hue="60" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="72" color="#339900" hue="67" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#33CC00" hue="70" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#33FF00" hue="72" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="48" color="#660000" hue="0" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="48" color="#663300" hue="20" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="48" color="#666600" hue="40" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="72" color="#669900" hue="53" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#66CC00" hue="60" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#66FF00" hue="64" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="0" color="#000000" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="48" color="#333333" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="0" color="#000000" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="24" color="#000033" hue="160" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="24" color="#003333" hue="120" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="48" color="#006633" hue="100" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="72" color="#009933" hue="93" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#00CC33" hue="90" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#00FF33" hue="88" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="24" color="#330033" hue="200" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="48" color="#333333" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="72" color="#336633" hue="80" saturation="80"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#339933" hue="80" saturation="120"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#33CC33" hue="80" saturation="144"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#33FF33" hue="80" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="48" color="#660033" hue="220" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="72" color="#663333" hue="0" saturation="80"/>
+                <SolidSwatchItem alpha="1" brightness="72" color="#666633" hue="40" saturation="80"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#669933" hue="60" saturation="120"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#66CC33" hue="67" saturation="144"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#66FF33" hue="70" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="0" color="#000000" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#666666" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="0" color="#000000" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="48" color="#000066" hue="160" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="48" color="#003366" hue="140" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="48" color="#006666" hue="120" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="72" color="#009966" hue="107" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#00CC66" hue="100" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#00FF66" hue="96" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="48" color="#330066" hue="180" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="72" color="#333366" hue="160" saturation="80"/>
+                <SolidSwatchItem alpha="1" brightness="72" color="#336666" hue="120" saturation="80"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#339966" hue="100" saturation="120"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#33CC66" hue="93" saturation="144"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#33FF66" hue="90" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="48" color="#660066" hue="200" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="72" color="#663366" hue="200" saturation="80"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#666666" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#669966" hue="80" saturation="48"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#66CC66" hue="80" saturation="120"/>
+                <SolidSwatchItem alpha="1" brightness="168" color="#66FF66" hue="80" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="0" color="#000000" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#999999" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="0" color="#000000" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="72" color="#000099" hue="160" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="72" color="#003399" hue="147" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="72" color="#006699" hue="133" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="72" color="#009999" hue="120" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#00CC99" hue="110" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#00FF99" hue="104" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="72" color="#330099" hue="173" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#333399" hue="160" saturation="120"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#336699" hue="140" saturation="120"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#339999" hue="120" saturation="120"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#33CC99" hue="107" saturation="144"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#33FF99" hue="100" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="72" color="#660099" hue="187" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#663399" hue="180" saturation="120"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#666699" hue="160" saturation="48"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#669999" hue="120" saturation="48"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#66CC99" hue="100" saturation="120"/>
+                <SolidSwatchItem alpha="1" brightness="168" color="#66FF99" hue="93" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="0" color="#000000" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="192" color="#CCCCCC" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="0" color="#000000" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#0000CC" hue="160" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#0033CC" hue="150" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#0066CC" hue="140" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#0099CC" hue="130" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#00CCCC" hue="120" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#00FFCC" hue="112" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#3300CC" hue="170" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#3333CC" hue="160" saturation="144"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#3366CC" hue="147" saturation="144"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#3399CC" hue="133" saturation="144"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#33CCCC" hue="120" saturation="144"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#33FFCC" hue="110" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#6600CC" hue="180" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#6633CC" hue="173" saturation="144"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#6666CC" hue="160" saturation="120"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#6699CC" hue="140" saturation="120"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#66CCCC" hue="120" saturation="120"/>
+                <SolidSwatchItem alpha="1" brightness="168" color="#66FFCC" hue="107" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="0" color="#000000" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="240" color="#FFFFFF" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="0" color="#000000" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#0000FF" hue="160" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#0033FF" hue="152" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#0066FF" hue="144" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#0099FF" hue="136" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#00CCFF" hue="128" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#00FFFF" hue="120" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#3300FF" hue="168" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#3333FF" hue="160" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#3366FF" hue="150" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#3399FF" hue="140" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#33CCFF" hue="130" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#33FFFF" hue="120" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#6600FF" hue="176" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#6633FF" hue="170" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="168" color="#6666FF" hue="160" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="168" color="#6699FF" hue="147" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="168" color="#66CCFF" hue="133" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="168" color="#66FFFF" hue="120" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="0" color="#000000" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#FF0000" hue="0" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="0" color="#000000" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="72" color="#990000" hue="0" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="72" color="#993300" hue="13" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="72" color="#996600" hue="27" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="72" color="#999900" hue="40" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#99CC00" hue="50" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#99FF00" hue="56" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#CC0000" hue="0" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#CC3300" hue="10" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#CC6600" hue="20" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#CC9900" hue="30" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#CCCC00" hue="40" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#CCFF00" hue="48" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#FF0000" hue="0" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#FF3300" hue="8" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#FF6600" hue="16" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#FF9900" hue="24" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#FFCC00" hue="32" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#FFFF00" hue="40" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="0" color="#000000" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#00FF00" hue="80" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="0" color="#000000" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="72" color="#990033" hue="227" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#993333" hue="0" saturation="120"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#996633" hue="20" saturation="120"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#999933" hue="40" saturation="120"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#99CC33" hue="53" saturation="144"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#99FF33" hue="60" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#CC0033" hue="230" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#CC3333" hue="0" saturation="144"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#CC6633" hue="13" saturation="144"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#CC9933" hue="27" saturation="144"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#CCCC33" hue="40" saturation="144"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#CCFF33" hue="50" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#FF0033" hue="232" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#FF3333" hue="0" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#FF6633" hue="10" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#FF9933" hue="20" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#FFCC33" hue="30" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#FFFF33" hue="40" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="0" color="#000000" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#0000FF" hue="160" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="0" color="#000000" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="72" color="#990066" hue="213" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#993366" hue="220" saturation="120"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#996666" hue="0" saturation="48"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#999966" hue="40" saturation="48"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#99CC66" hue="60" saturation="120"/>
+                <SolidSwatchItem alpha="1" brightness="168" color="#99FF66" hue="67" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#CC0066" hue="220" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#CC3366" hue="227" saturation="144"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#CC6666" hue="0" saturation="120"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#CC9966" hue="20" saturation="120"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#CCCC66" hue="40" saturation="120"/>
+                <SolidSwatchItem alpha="1" brightness="168" color="#CCFF66" hue="53" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#FF0066" hue="224" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#FF3366" hue="230" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="168" color="#FF6666" hue="0" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="168" color="#FF9966" hue="13" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="168" color="#FFCC66" hue="27" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="168" color="#FFFF66" hue="40" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="0" color="#000000" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#FFFF00" hue="40" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="0" color="#000000" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="72" color="#990099" hue="200" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#993399" hue="200" saturation="120"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#996699" hue="200" saturation="48"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#999999" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="168" color="#99CC99" hue="80" saturation="80"/>
+                <SolidSwatchItem alpha="1" brightness="192" color="#99FF99" hue="80" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#CC0099" hue="210" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#CC3399" hue="213" saturation="144"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#CC6699" hue="220" saturation="120"/>
+                <SolidSwatchItem alpha="1" brightness="168" color="#CC9999" hue="0" saturation="80"/>
+                <SolidSwatchItem alpha="1" brightness="168" color="#CCCC99" hue="40" saturation="80"/>
+                <SolidSwatchItem alpha="1" brightness="192" color="#CCFF99" hue="60" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#FF0099" hue="216" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#FF3399" hue="220" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="168" color="#FF6699" hue="227" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="192" color="#FF9999" hue="0" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="192" color="#FFCC99" hue="20" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="192" color="#FFFF99" hue="40" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="0" color="#000000" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#00FFFF" hue="120" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="0" color="#000000" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#9900CC" hue="190" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#9933CC" hue="187" saturation="144"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#9966CC" hue="180" saturation="120"/>
+                <SolidSwatchItem alpha="1" brightness="168" color="#9999CC" hue="160" saturation="80"/>
+                <SolidSwatchItem alpha="1" brightness="168" color="#99CCCC" hue="120" saturation="80"/>
+                <SolidSwatchItem alpha="1" brightness="192" color="#99FFCC" hue="100" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="96" color="#CC00CC" hue="200" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#CC33CC" hue="200" saturation="144"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#CC66CC" hue="200" saturation="120"/>
+                <SolidSwatchItem alpha="1" brightness="168" color="#CC99CC" hue="200" saturation="80"/>
+                <SolidSwatchItem alpha="1" brightness="192" color="#CCCCCC" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="216" color="#CCFFCC" hue="80" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#FF00CC" hue="208" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#FF33CC" hue="210" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="168" color="#FF66CC" hue="213" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="192" color="#FF99CC" hue="220" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="216" color="#FFCCCC" hue="0" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="216" color="#FFFFCC" hue="40" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="0" color="#000000" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#FF00FF" hue="200" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="0" color="#000000" hue="0" saturation="0"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#9900FF" hue="184" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#9933FF" hue="180" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="168" color="#9966FF" hue="173" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="192" color="#9999FF" hue="160" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="192" color="#99CCFF" hue="140" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="192" color="#99FFFF" hue="120" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#CC00FF" hue="192" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#CC33FF" hue="190" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="168" color="#CC66FF" hue="187" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="192" color="#CC99FF" hue="180" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="216" color="#CCCCFF" hue="160" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="216" color="#CCFFFF" hue="120" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="120" color="#FF00FF" hue="200" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="144" color="#FF33FF" hue="200" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="168" color="#FF66FF" hue="200" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="192" color="#FF99FF" hue="200" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="216" color="#FFCCFF" hue="200" saturation="239"/>
+                <SolidSwatchItem alpha="1" brightness="240" color="#FFFFFF" hue="0" saturation="0"/>
+            </swatches>
+        </swatchList>
+    </swatchLists>
+    <extendedSwatchLists>
+        <swatchList>
+            <swatches>
+                <LinearGradientSwatchItem interpolationMethod="rgb" spreadMethod="pad">
+                    <matrix>
+                        <Matrix a="1" b="0" c="0" d="1" tx="0" ty="0"/>
+                    </matrix>
+                    <GradientEntry alpha="1" color="#FFFFFF" ratio="0"/>
+                    <GradientEntry alpha="1" color="#000000" ratio="1"/>
+                </LinearGradientSwatchItem>
+                <RadialGradientSwatchItem focalPointRatio="0" interpolationMethod="rgb" spreadMethod="pad">
+                    <matrix>
+                        <Matrix a="1" b="0" c="0" d="1" tx="0" ty="0"/>
+                    </matrix>
+                    <GradientEntry alpha="1" color="#FFFFFF" ratio="0"/>
+                    <GradientEntry alpha="1" color="#000000" ratio="1"/>
+                </RadialGradientSwatchItem>
+                <RadialGradientSwatchItem focalPointRatio="0" interpolationMethod="rgb" spreadMethod="pad">
+                    <matrix>
+                        <Matrix a="1" b="0" c="0" d="1" tx="0" ty="0"/>
+                    </matrix>
+                    <GradientEntry alpha="1" color="#FF0000" ratio="0"/>
+                    <GradientEntry alpha="1" color="#000000" ratio="1"/>
+                </RadialGradientSwatchItem>
+                <RadialGradientSwatchItem focalPointRatio="0" interpolationMethod="rgb" spreadMethod="pad">
+                    <matrix>
+                        <Matrix a="1" b="0" c="0" d="1" tx="0" ty="0"/>
+                    </matrix>
+                    <GradientEntry alpha="1" color="#00FF00" ratio="0"/>
+                    <GradientEntry alpha="1" color="#000000" ratio="1"/>
+                </RadialGradientSwatchItem>
+                <RadialGradientSwatchItem focalPointRatio="0" interpolationMethod="rgb" spreadMethod="pad">
+                    <matrix>
+                        <Matrix a="1" b="0" c="0" d="1" tx="0" ty="0"/>
+                    </matrix>
+                    <GradientEntry alpha="1" color="#0000FF" ratio="0"/>
+                    <GradientEntry alpha="1" color="#000000" ratio="1"/>
+                </RadialGradientSwatchItem>
+                <LinearGradientSwatchItem interpolationMethod="rgb" spreadMethod="pad">
+                    <matrix>
+                        <Matrix a="1" b="0" c="0" d="1" tx="0" ty="0"/>
+                    </matrix>
+                    <GradientEntry alpha="1" color="#0066FD" ratio="0"/>
+                    <GradientEntry alpha="1" color="#FFFFFF" ratio="0.3764705882352941"/>
+                    <GradientEntry alpha="1" color="#FFFFFF" ratio="0.47843137254901963"/>
+                    <GradientEntry alpha="1" color="#996600" ratio="0.5019607843137255"/>
+                    <GradientEntry alpha="1" color="#FFCC00" ratio="0.6666666666666666"/>
+                    <GradientEntry alpha="1" color="#FFFFFF" ratio="1"/>
+                </LinearGradientSwatchItem>
+                <LinearGradientSwatchItem interpolationMethod="rgb" spreadMethod="pad">
+                    <matrix>
+                        <Matrix a="1" b="0" c="0" d="1" tx="0" ty="0"/>
+                    </matrix>
+                    <GradientEntry alpha="1" color="#FF0000" ratio="0"/>
+                    <GradientEntry alpha="1" color="#FFFF00" ratio="0.16470588235294117"/>
+                    <GradientEntry alpha="1" color="#00FF00" ratio="0.36470588235294116"/>
+                    <GradientEntry alpha="1" color="#00FFFF" ratio="0.4980392156862745"/>
+                    <GradientEntry alpha="1" color="#0000FF" ratio="0.6666666666666666"/>
+                    <GradientEntry alpha="1" color="#FF00FF" ratio="0.8313725490196079"/>
+                    <GradientEntry alpha="1" color="#FF0000" ratio="1"/>
+                </LinearGradientSwatchItem>
+            </swatches>
+        </swatchList>
+    </extendedSwatchLists>
+    <PrinterSettings centerHorizontal="true" centerVertical="true" disablePostscript="false" frameCountAcrossPage="3" framesToPrint="first frame only" labelPages="false" layout="actual size" pageMarginBottom="360" pageMarginLeft="360" pageMarginRight="360" pageMarginTop="360" scale="100" storyBoardMargin="180"/>
+    <publishHistory/>
+</DOMDocument>

@@ -12,6 +12,7 @@ use crate::library::{FontId, FontLibrary, LoadedFace};
 pub(crate) struct FaceView<'l> {
     pub face: &'l LoadedFace,
     charmap: Charmap<'l>,
+    metrics: skrifa::metrics::GlyphMetrics<'l>,
     shaper: harfrust::Shaper<'l>,
     /// Font units per em.
     pub upem: f64,
@@ -24,14 +25,26 @@ impl<'l> FaceView<'l> {
         let face = lib.face(id)?;
         let font: FontRef<'l> = face.font()?;
         let charmap = font.charmap();
+        let metrics = font.glyph_metrics(
+            skrifa::instance::Size::unscaled(),
+            skrifa::instance::LocationRef::default(),
+        );
         let shaper = face.shaper_data().shaper(&font).build();
         let upem = f64::from(face.metrics().units_per_em.max(1));
         Some(Self {
             face,
             charmap,
+            metrics,
             shaper,
             upem,
         })
+    }
+
+    /// The nominal (`hmtx`) advance of a glyph in font units.
+    pub fn nominal_advance(&self, glyph: u16) -> Option<f64> {
+        self.metrics
+            .advance_width(skrifa::GlyphId::new(u32::from(glyph)))
+            .map(f64::from)
     }
 
     /// Whether the face has a real glyph (not `.notdef`) for a character.

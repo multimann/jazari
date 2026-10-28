@@ -30,7 +30,9 @@ A vertical slice through every layer of the tool:
 Out of scope for M1 (warn, never crash): editing tools, saving XFL, shape
 tweens (publish keyframes only), motion guides (tween without the path),
 sounds, video, camera/layer depth, IK, Arabic in dynamic/input text, AS2
-classes from external `.as` files (best effort), scenes in `gotoAndPlay("Scene", n)`.
+classes from external `.as` files (best effort). Scene gotos are resolved at
+compile time as Flash 8 does (section 6, Scenes); computed frames
+(`gotoAndPlay(expr)`) carry the scene bias, which is unverified against Flash.
 
 ## 2. Hard constraints
 
@@ -240,10 +242,20 @@ Rules (details and citations in `docs/research/swf-writer.md`):
 - **Header and tag order.** Use version 8 and `Compression::Zlib`. The first tag
   is FileAttributes (never AS3; UseNetwork from PublishSettings), then
   SetBackgroundColor. Definitions go just before first use, at root level.
-  Write per frame: RemoveObject2, definitions, DoAction, PlaceObject2/3,
-  ShowFrame. Never write `Tag::End` yourself.
+  Write per frame, as Flash 8 does: RemoveObject2, DoAction (the scripts of
+  several layers top layer first), FrameLabel, then each definition just
+  before its first placement, PlaceObject2/3, ShowFrame. Never write
+  `Tag::End` yourself.
 - **Scenes** are concatenated into the root timeline, and `frame_map` records
-  where each one lands.
+  where each one lands. Nothing in the SWF names a scene. Scene gotos are
+  resolved when compiling (`tests/fixtures/scenes`): frame scripts of a scene
+  and button handlers on a scene timeline are compiled with a
+  `jazari_as2::SceneContext` (every scene's name and first root frame), so
+  `nextScene()`/`prevScene()` become a bare `GotoFrame` to the first frame of
+  the next/previous scene (which stops the playhead, as in Flash), a bare
+  `gotoAndPlay(n)` counts from the current scene's first frame,
+  `gotoAndPlay("Scene", n)` from that scene's, and a scene-qualified label
+  drops the scene. Symbol timelines and clip handlers get no scene context.
 - **Depths.** Each timeline gets depth bands per layer, bottom layer lowest.
   Everything stays below 16384 (the AVM depth bias). Flattened graphic symbols
   use sub-bands inside their parent's band.
@@ -251,19 +263,35 @@ Rules (details and citations in `docs/research/swf-writer.md`):
   of a layer persists across consecutive keyframes when the library item and
   kind are unchanged: emit a PlaceObject2 *Modify*. Otherwise emit Remove plus
   Place. Name, clip depth and clip actions are set at first placement only.
-  When they change, re-place.
+  When they change, re-place. A new placement of a movie clip after a
+  timeline's first frame carries `ratio` = its 0-based frame (absolute on the
+  root), as Flash 8 writes it; players use it on a backwards goto to replace
+  a later instance with a fresh one (`display::mark_ratios`).
 - **Shapes** become DefineShape3, or DefineShape4 when LineStyle2 or focal
   gradients are needed. `fill0/fill1/stroke` map 1:1. Re-specify all three
   selectors with every `new_styles`, and never emit an empty StyleChange.
   Split edges longer than 65535 twips. Cap gradients at 15 records. Bounds are
   the edge bounds grown by half the stroke width. Deduplicate identical shapes.
-- **Groups** are flattened into their parent with composed matrices.
+- **Groups** are flattened into their parent. In the XFL that JPEXS writes, a
+  `DOMGroup` has no matrix and every member's matrix already includes all
+  enclosing group transforms (`tests/fixtures/groups`), so member matrices
+  are used as they are and never composed with a group matrix. A merge-mode
+  raw shape, listed last by JPEXS, is drawn underneath its siblings, as Flash
+  draws it. Grouped shapes have their transform baked into the edges and are
+  placed with the identity matrix, as Flash 8 does.
 - **Motion tweens.** Place on the keyframe, then one Modify per in-between
   frame. Interpolate in `f64`, decomposing into scale, skew, rotation and
   translation with the rotate mode and times, and round once to twips and
   Fixed16. Colour effects and matching filter lists interpolate too. Calibrate
   the ease curve and the decomposition against the matrices in the Flash 8
   reference SWFs of the `tweens` fixture: they must agree to within 1 twip.
+  As calibrated (`src/tween/`, `tests/fixtures/tween-probes`): progress is
+  the 16.16 value `round(k*65536/n)` and drives matrix, colour and filters;
+  rotation uses Flash 8's quarter-degree sine table; the transformation point
+  moves on a straight line; rotate *none* does not rotate; colour keyframes
+  are rounded to SWF units before interpolating; filter lists are aligned
+  like a diff by kind. The XFL-to-ease sign mapping lives in one place,
+  `tween::ide_ease()` (JPEXS writes the sign flipped).
 - **Graphic symbols** are flattened into the parent timeline frame by frame,
   honouring loop, play-once, single-frame and `first_frame`.
 - **Movie clips** become DefineSprite (`num_frames` = number of ShowFrame tags).
@@ -276,25 +304,48 @@ Rules (details and citations in `docs/research/swf-writer.md`):
   PlaceObject2 ClipActions: `all_event_flags` is the OR of the records, and
   `key_code` is set only for KEY_PRESS. Arabic characters cannot be keyPress
   codes: emit a diagnostic.
-- **Masks.** The content of a mask layer keyframe is wrapped in a generated
-  sprite (the union of its elements) and placed with `clip_depth` equal to the
-  top depth of the masked layers. Guide layers are not published.
-- **Bitmaps** become DefineBitsLossless2 (zlib, premultiplied ARGB) or
-  DefineBitsJPEG2/3. A bitmap instance becomes a shape with a clipped bitmap
-  fill.
+- **Masks.** As Flash 8 does (`tests/fixtures/masks`), only the backmost
+  element of a mask layer keyframe is published (the others are reported as
+  warnings). It is placed directly like ordinary content (its own DefineShape
+  or sprite, with its instance name and motion tween) with `clip_depth` equal
+  to the top depth of the masked layers. Only an element that would take more
+  than one depth (a graphic symbol, a group holding instances) is wrapped in
+  a generated one-frame sprite. A mask whose masked layers take no depth is
+  left out. Guide layers are not published.
+- **Bitmaps** become DefineBitsLossless2 (zlib, premultiplied ARGB), or
+  DefineBitsLossless version 1 when opaque (as Flash 8 writes them), or
+  DefineBitsJPEG2/3. `allowSmoothing` picks the smoothed or non-smoothed
+  bitmap fill types. A bitmap instance becomes a bitmap-filled rectangle
+  baked into the surrounding shape and placed with the identity matrix, as
+  Flash does. The item's compression setting is not re-applied: the stored
+  data is published as is.
 - **Static text** is laid out with `jazari-text` and becomes one DefineFont3
   per face, holding the glyphs used by all texts: 20480 units per em,
   `HAS_WIDE_CODES | HAS_LAYOUT`, never `IS_ANSI`, and split before 60 KB. Each
   text becomes one DefineText, or DefineText2 when alpha is used. The first
   record sets font, height and colour. A record holds at most 255 glyphs.
-  Marks with a y offset get their own record.
+  Marks with a y offset get their own record. As Flash 8 writes it: each
+  text is followed by CSMTextSettings, the font name is NUL-terminated, a
+  face's glyphs are split into DefineFont3 chunks of at most 60,000 bytes,
+  and identical texts share one character. Fallback faces, `.notdef`
+  glyphs, links, vertical text and range overflows are reported per element.
 - **Dynamic and input text** becomes DefineEditText with device font, the
   initial text, the variable name and the layout. Arabic content gets a
-  diagnostic: Ruffle and FP8 do not shape it.
+  diagnostic: Ruffle and FP8 do not shape it. The text is always written as
+  HTML, generated exactly as Flash 8 writes it, with a glyph-less DefineFont3
+  per device face.
 - **Filters and blend modes** become PlaceObject3, but only when used.
+  Filter strengths and angles are truncated to fixed point, as Flash writes
+  them. Adjust Color becomes a ColorMatrix filter computed with Flash's own
+  algorithm (brightness, contrast table, saturation, hue, in that order;
+  `filter::adjust_color_matrix`), equal to Flash 8's to f32 precision.
 - **Frame scripts and handlers** are compiled through `jazari-as2`.
   Diagnostics carry the location (scene/symbol, layer, frame or instance).
   A failed script is skipped and the publish continues.
+- **Output.** `PublishOutput.frame_map` has one entry per root SWF frame.
+  Diagnostics are `jazari_as2::Diagnostic`, located by `Origin` (timeline =
+  scene or symbol path, layer, 0-based keyframe start, instance or element
+  description, or a file for document-level messages).
 - **Stage build** (`BuildMode::Stage`), used by the editor's stage view:
   - every user script is omitted;
   - every DefineSprite gets `stop();` on frame 1;
@@ -322,6 +373,13 @@ impl Compiler {
 }
 pub struct ButtonHandler { pub conditions: swf::ButtonActionCondition, pub key_code: Option<u8>, pub actions: Vec<u8> }
 pub struct ClipHandler { pub events: swf::ClipEventFlag, pub key_code: Option<u8>, pub actions: Vec<u8> }
+// Added at integration, for scripts of a scene timeline (scene gotos resolve
+// at compile time, see section 6, Scenes):
+pub struct SceneContext { pub scenes: Vec<(String, u32 /* first root frame */)>, pub current: usize }
+impl Compiler {
+    pub fn compile_frame_in(&self, src: &str, origin: &Origin, scenes: Option<&SceneContext>) -> ...;
+    pub fn compile_button_handlers_in(&self, src: &str, origin: &Origin, scenes: Option<&SceneContext>) -> ...;
+}
 pub struct Diagnostic { pub severity: Severity, pub message: String, pub origin: Origin, pub line: u32, pub column: u32 }
 ```
 
@@ -342,6 +400,11 @@ pub struct Diagnostic { pub severity: Severity, pub message: String, pub origin:
   2. `do { } while ( )`;
   3. `\uXXXX`, `\xNN`, `\b`, `\f` and octal escapes in string literals;
   4. panics turned into errors where feasible.
+
+  5. structured diagnostics (`Error::diagnostics`);
+  6. scenes: `CompileOptions::with_scenes(Scenes)` resolves scene gotos in
+     scripts through a new HIR variant, so builds without scenes are
+     unchanged and Ruffle's `playerglobal_avm1.swf` stays byte-identical.
 
   Keep each patch small and upstreamable, and record it in
   `vendor/rascal/PATCHES.md`.
@@ -376,6 +439,9 @@ pub fn layout(lib: &FontLibrary, block: &TextBlock) -> TextLayout;
     lack.
 - **Glyph codes** for the DefineFont3 code table: the cmap code, otherwise the
   Arabic Presentation Form, otherwise a Private Use code.
+- **Advances** are whole twips, rounded as Flash 8 does: the nominal (`hmtx`)
+  advance and the shaper's adjustment (kerning) are rounded separately and
+  then added. The text fixture's Latin records equal Flash 8's exactly.
 - **Tests.** Shape and position golden tests (CPU only) cover lam-alef, harakat
   and mixed digits.
 
@@ -465,18 +531,66 @@ jazari-cli compare <doc> <reference.swf> <outdir>   # publish, render both, per-
   4. Compare the `trace()` sequences.
 
   Report the differences. Never "fix" a fixture to make a test pass.
+
+  The table at the top of `golden.rs` holds, per fixture, the frames, the
+  channel threshold, the tolerated share of differing pixels and whether the
+  pixel and trace checks must pass. Every fixture whose output is right is
+  `Pass`; a tolerance above zero is the measured difference rounded up, with
+  its cause in the row's note. A row may list stage regions left out of the
+  count where our output is right and Flash 8's is not (the text fixture's
+  Arabic line); they are drawn blue in the diff panel and reviewed by eye.
+  Groups of fixtures one level down (`tests/fixtures/tween-probes/<name>`)
+  are discovered too.
 - **Unit tests** in each crate run without Ruffle.
 
 ## 12. Acceptance for M1
 
-- [ ] `cargo build` and `cargo test` pass on Windows. Linux is checked later in CI.
-- [ ] `jazari-cli publish` succeeds on every fixture, and every output parses
+- [x] `cargo build` and `cargo test` pass on Windows. Linux is checked later in CI.
+- [x] `jazari-cli publish` succeeds on every fixture, and every output parses
       back with the `swf` crate.
-- [ ] Golden comparisons against Flash 8 output are within tolerance for
+- [x] Golden comparisons against Flash 8 output are within tolerance for
       shapes, gradients, symbols, tweens and bitmaps. `as2` traces match.
       `text` is visually correct, including Arabic: our output is correct
       where Flash 8's is wrong, so that case is reviewed by eye.
-- [ ] The app opens a fixture, shows stage, timeline and library, scrubs
+- [x] The app opens a fixture, shows stage, timeline and library, scrubs
       frames, runs Test Movie with traces, and publishes a SWF. All of this
       is verified in CPU mode.
-- [ ] `JAZARI_FORCE_CPU=1` keeps the GPU untouched by rendering work.
+- [x] `JAZARI_FORCE_CPU=1` keeps the GPU untouched by rendering work.
+
+Checked at the end of the M1 integration (Windows only; GPU mode, Linux and
+real mouse/keyboard input were not exercised).
+
+## 13. Deviations accepted at integration
+
+The crate builders' notes list every addition to the APIs above (extra model
+fields such as `TextElement::top`, `FontLibrary` helpers, the preview's
+`OffscreenRenderer`/`run_headless`, the app's developer flags). Those that
+change behaviour, and are accepted:
+
+- **jazari-xfl.** Lossless `.dat` bitmaps keep Flash's premultiplied plane as
+  is (`BitmapData::Rgba { premultiplied: true }`); `MotionTween::ease` is the
+  raw XFL acceleration (the sign is decided in `tween::ide_ease()`); an
+  absent `motionTweenRotate` is *none*. A group member without a matrix
+  cannot be told from one with the identity (no corpus has one).
+- **jazari-as2.** Every compile runs on its own thread inside
+  `catch_unwind`. There is no warnings channel on success, so constructs
+  Flash compiles silently (an unknown scene name, for example) are silent
+  here too.
+- **jazari-text.** Only multi-line static text wraps; vertical metrics come
+  from OS/2 (typo when `USE_TYPO_METRICS`, else win); alignment is absolute
+  (left is the left edge even for right-to-left paragraphs); letter spacing
+  is not applied to Arabic. The Arabic layout has no oracle: Flash 8 draws
+  it unjoined, left to right.
+- **jazari-preview.** `is_halted()` covers both halts and crashes; halts are
+  not rebuilt automatically. Offscreen frame N means N `run_frame` calls, so
+  timers do not fire offscreen.
+- **jazari-publish.** Shapes equal up to scale are not shared as Flash 8
+  shares them (a few anti-aliasing pixels, masks fixture); selectable,
+  linked and device-font static text stay glyph runs where Flash 8 turns
+  them into DefineEditText (reported as Info); `omit_trace` is not
+  supported (Info).
+- **jazari-app.** `--frame N` is a root frame of the movie and opens the
+  scene that holds it. Hidden developer flags (`--test-movie`, `--test-swf`,
+  `--stage-swf`, `--select-layer`, `--open-menu`, `--show-about`,
+  `--dump-output`, `--screenshot-delay`, `--publish-to`) drive the app for
+  automatic CPU-only checks. A Window menu toggles panels.

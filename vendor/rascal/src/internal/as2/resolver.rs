@@ -11,6 +11,7 @@ use crate::internal::as2::{ast, type_path_to_file_path};
 use crate::internal::as2::{hir, parser};
 use crate::internal::as2_pcode::PCode;
 use crate::internal::span::{Span, Spanned};
+use crate::program::Scenes;
 use crate::provider::SourceProvider;
 use crate::sources::SourceSet;
 use indexmap::{IndexMap, IndexSet};
@@ -28,6 +29,7 @@ struct ModuleContext<'a> {
     class_name: Option<Spanned<String>>,
     super_name: Option<Spanned<String>>,
     class_members: HashMap<String, bool>,
+    scenes: Option<&'a Scenes>,
 }
 
 impl<'a> ModuleContext<'a> {
@@ -49,6 +51,7 @@ impl<'a> ModuleContext<'a> {
             super_name: None,
             class_members: HashMap::new(),
             known_script_paths,
+            scenes: None,
         }
     }
 
@@ -205,6 +208,7 @@ pub fn resolve_hir<P: SourceProvider>(
     is_script: bool,
     expected_name: &str,
     known_script_paths: &IndexSet<String>,
+    scenes: Option<&Scenes>,
 ) -> (hir::Document, Vec<ParsingError>, IndexSet<String>) {
     let mut context = ModuleContext::new(
         provider,
@@ -217,6 +221,7 @@ pub fn resolve_hir<P: SourceProvider>(
         },
         known_script_paths,
     );
+    context.scenes = scenes;
     let document = if is_script {
         let mut statements = resolve_statement_vec(&mut context, &ast.statements);
         let scope = Scope::for_root(&mut statements);

@@ -30,7 +30,7 @@ pub fn stage_goto_hook() -> Result<Vec<u8>, Vec<Diagnostic>> {
 }
 
 fn build_stage_goto_hook() -> Result<Vec<u8>, Vec<Diagnostic>> {
-    let compiled = backend::compile_script(&CompilerOptions::default(), STAGE_GOTO_SOURCE);
+    let compiled = backend::compile_script(&CompilerOptions::default(), STAGE_GOTO_SOURCE, None);
     match compiled.result {
         Ok(output) => match verify_stage_goto_hook(&output.actions) {
             Ok(()) => return Ok(output.actions),
@@ -310,7 +310,8 @@ mod tests {
 
     #[test]
     fn rascal_compiles_the_hook_and_it_verifies() {
-        let compiled = backend::compile_script(&CompilerOptions::default(), STAGE_GOTO_SOURCE);
+        let compiled =
+            backend::compile_script(&CompilerOptions::default(), STAGE_GOTO_SOURCE, None);
         let actions = compiled
             .result
             .expect("Rascal compiles the stage hook")
@@ -328,7 +329,8 @@ mod tests {
     fn public_hook_is_the_verified_rascal_output() {
         let hook = stage_goto_hook().expect("stage hook");
         assert_eq!(verify_stage_goto_hook(&hook), Ok(()));
-        let compiled = backend::compile_script(&CompilerOptions::default(), STAGE_GOTO_SOURCE);
+        let compiled =
+            backend::compile_script(&CompilerOptions::default(), STAGE_GOTO_SOURCE, None);
         assert_eq!(hook, compiled.result.expect("compiles").actions);
     }
 
@@ -351,6 +353,7 @@ mod tests {
         let compiled = backend::compile_script(
             &CompilerOptions::default(),
             "stop();\nExternalInterface.addCallback(\"jz_goto\", null, function (f) { _root.gotoAndStop(f); });",
+            None,
         );
         let actions = compiled.result.expect("compiles").actions;
         assert!(verify_stage_goto_hook(&actions).is_err());

@@ -170,6 +170,7 @@ fn fn_goto_and_play(
     span: Span,
     args: &[ast::Expr],
 ) -> Option<hir::ExprKind> {
+    let mut scene = None;
     let frame = if args.len() == 1 {
         // gotoAndPlay(frame)
         &args[0]
@@ -184,6 +185,7 @@ fn fn_goto_and_play(
             context.error("Scene name must be quoted string.", args[0].span);
             return None;
         }
+        scene = Some(&args[0]);
         &args[1]
     } else {
         context.error(
@@ -193,10 +195,8 @@ fn fn_goto_and_play(
         return None;
     };
 
-    Some(hir::ExprKind::GotoFrame(
-        Box::new(resolve_expr(context, frame)),
-        true,
-    ))
+    let frame = resolve_expr(context, frame);
+    scene_goto(context, scene, frame, true)
 }
 
 fn fn_goto_and_stop(
@@ -204,6 +204,7 @@ fn fn_goto_and_stop(
     span: Span,
     args: &[ast::Expr],
 ) -> Option<hir::ExprKind> {
+    let mut scene = None;
     let frame = if args.len() == 1 {
         // gotoAndStop(frame)
         &args[0]
@@ -218,6 +219,7 @@ fn fn_goto_and_stop(
             context.error("Scene name must be quoted string.", args[0].span);
             return None;
         }
+        scene = Some(&args[0]);
         &args[1]
     } else {
         context.error(
@@ -227,10 +229,52 @@ fn fn_goto_and_stop(
         return None;
     };
 
-    Some(hir::ExprKind::GotoFrame(
-        Box::new(resolve_expr(context, frame)),
-        false,
-    ))
+    let frame = resolve_expr(context, frame);
+    scene_goto(context, scene, frame, false)
+}
+
+/// A goto, resolved against the document's scenes when they are known
+/// (patch 6): a frame number counts from the first frame of the named scene,
+/// or of the current one, as in Flash. A scene that is not known is ignored,
+/// as Flash does; labels are never affected.
+fn scene_goto(
+    context: &ModuleContext,
+    scene: Option<&ast::Expr>,
+    frame: hir::Expr,
+    play: bool,
+) -> Option<hir::ExprKind> {
+    let Some(scenes) = context.scenes else {
+        return Some(hir::ExprKind::GotoFrame(Box::new(frame), play));
+    };
+    let named = scene.and_then(|scene| match &scene.value {
+        ast::ExprKind::Constant(ast::ConstantKind::String(name)) => scenes.find(name),
+        _ => None,
+    });
+    let bias = named
+        .or_else(|| scenes.first_frame(scenes.current))
+        .unwrap_or(0);
+    Some(hir::ExprKind::GotoSceneFrame {
+        frame: Box::new(frame),
+        play,
+        bias,
+    })
+}
+
+/// `nextScene()` / `prevScene()` when the scenes are known (patch 6): a
+/// plain goto (which stops the playhead, as in Flash) to the first frame of
+/// the scene `step` away, or `None` when there is no such scene.
+fn scene_step(context: &ModuleContext, span: Span, step: isize) -> Option<hir::ExprKind> {
+    let scenes = context.scenes?;
+    let target = scenes.current.checked_add_signed(step)?;
+    let bias = scenes.first_frame(target)?;
+    Some(hir::ExprKind::GotoSceneFrame {
+        frame: Box::new(hir::Expr::new(
+            span,
+            hir::ExprKind::Constant(hir::ConstantKind::Integer(1)),
+        )),
+        play: false,
+        bias,
+    })
 }
 
 fn fn_get_url(
@@ -603,6 +647,9 @@ fn fn_prev_scene(
     args: &[ast::Expr],
 ) -> Option<hir::ExprKind> {
     if args.is_empty() {
+        if let Some(goto) = scene_step(context, span, -1) {
+            return Some(goto);
+        }
         // Scenes don't exist in a standalone compiler, and Flash's behaviour is to skip to frame 0 in this case
         Some(hir::ExprKind::GotoFrame(
             Box::new(hir::Expr::new(
@@ -626,6 +673,9 @@ fn fn_next_scene(
     args: &[ast::Expr],
 ) -> Option<hir::ExprKind> {
     if args.is_empty() {
+        if let Some(goto) = scene_step(context, span, 1) {
+            return Some(goto);
+        }
         // Scenes don't exist in a standalone compiler, and Flash's behaviour is to skip to frame 0 in this case
         Some(hir::ExprKind::GotoFrame(
             Box::new(hir::Expr::new(

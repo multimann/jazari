@@ -7,7 +7,7 @@
 //! recursion can take the application down.
 
 use crate::source::{LineIndex, prepare_for_rascal, strip_bom};
-use crate::{CompilerOptions, handlers, scan};
+use crate::{CompilerOptions, SceneContext, handlers, scan};
 use rascal::{CompileOptions, OptimizationOptions, ProgramBuilder, SourceProvider, SwfOptions};
 use sha2::{Digest, Sha256};
 use std::cell::RefCell;
@@ -94,15 +94,22 @@ pub(crate) fn sha256(bytes: &[u8]) -> [u8; 32] {
 /// compiles against the class names only: the classes themselves go into
 /// their own DoInitAction modules, and Rascal's MTASC-style `X.main(this)`
 /// call is not added to the script.
-pub(crate) fn compile_script(options: &CompilerOptions, text: &str) -> Compiled {
+pub(crate) fn compile_script(
+    options: &CompilerOptions,
+    text: &str,
+    scenes: Option<&SceneContext>,
+) -> Compiled {
     let task = || {
         let script = prepare_for_rascal(text);
         let provider = Provider::new(options, &script, ClassMode::Stub);
-        let mut builder = ProgramBuilder::new(ByRef(&provider)).with_compile_options(
-            CompileOptions::default()
-                .with_swf_version(options.swf_version)
-                .with_optimizations(OptimizationOptions::full()),
-        );
+        let mut compile_options = CompileOptions::default()
+            .with_swf_version(options.swf_version)
+            .with_optimizations(OptimizationOptions::full());
+        if let Some(scenes) = scenes {
+            compile_options = compile_options.with_scenes(rascal_scenes(scenes));
+        }
+        let mut builder =
+            ProgramBuilder::new(ByRef(&provider)).with_compile_options(compile_options);
         builder.add_script(SCRIPT_PATH);
         let result = match builder.build() {
             Ok(program) => program
@@ -129,6 +136,19 @@ pub(crate) fn compile_script(options: &CompilerOptions, text: &str) -> Compiled 
         ))]),
         dependencies: Vec::new(),
     })
+}
+
+/// The scenes in Rascal's form (first frames above 65535 cannot exist in a
+/// SWF and are clamped).
+fn rascal_scenes(scenes: &SceneContext) -> rascal::Scenes {
+    rascal::Scenes::new(
+        scenes
+            .scenes
+            .iter()
+            .map(|(name, first)| (name.clone(), u16::try_from(*first).unwrap_or(u16::MAX)))
+            .collect(),
+        scenes.current,
+    )
 }
 
 /// A compiled class or interface: the DoInitAction payload of its

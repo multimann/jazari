@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<DOMSymbolItem itemID="6ae20ac4-00000010" lastModified="1793198789" lastUniqueIdentifier="1" name="MaskedClip" symbolType="movie clip" xmlns="http://ns.adobe.com/xfl/2008/">
+    <timeline>
+        <DOMTimeline currentFrame="0" name="MaskedClip">
+            <layers>
+                <DOMLayer autoNamed="false" color="#FFFF4F" current="true" heightMultiplier="1" isSelected="true" layerType="mask" locked="false" name="mask" open="true" outline="false" useOutlineView="false" visible="true">
+                    <frames>
+                        <DOMFrame acceleration="0" duration="1" index="0" keyMode="1536" motionTweenRotate="auto" motionTweenRotateTimes="0" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMShape selected="false">
+                                    <matrix>
+                                        <Matrix a="1" b="0" c="0" d="1" tx="0" ty="0"/>
+                                    </matrix>
+                                    <fills>
+                                        <FillStyle index="1">
+                                            <SolidColor alpha="1" color="#000000"/>
+                                        </FillStyle>
+                                    </fills>
+                                    <edges>
+                                        <Edge edges="!707 -990[1000 -580 1000 0" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!1000 0[1000 580 707 990" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!707 990[414 1400 0 1400" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!0 1400[-414 1400 -707 990" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!-707 990[-1000 580 -1000 0" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!-1000 0[-1000 -580 -707 -990" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!-707 -990[-414 -1400 0 -1400" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!0 -1400[414 -1400 707 -990" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                    </edges>
+                                </DOMShape>
+                            </elements>
+                        </DOMFrame>
+                    </frames>
+                </DOMLayer>
+                <DOMLayer autoNamed="false" color="#9933CC" current="false" heightMultiplier="1" isSelected="false" locked="false" name="box" open="true" outline="false" parentLayerIndex="0" useOutlineView="false" visible="true">
+                    <frames>
+                        <DOMFrame acceleration="0" duration="1" index="0" keyMode="1536" motionTweenRotate="auto" motionTweenRotateTimes="0" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMSymbolInstance blendMode="normal" cacheAsBitmap="false" isExtensible="false" libraryItemName="Box" locked="false" name="inner_box_mc" selected="false" symbolType="movie clip">
+                                    <matrix>
+                                        <Matrix a="1.5" b="0" c="0" d="1.5" tx="25" ty="30"/>
+                                    </matrix>
+                                    <transformationPoint>
+                                        <Point x="0" y="0"/>
+                                    </transformationPoint>
+                                </DOMSymbolInstance>
+                            </elements>
+                        </DOMFrame>
+                    </frames>
+                </DOMLayer>
+                <DOMLayer autoNamed="false" color="#4FFF4F" current="false" heightMultiplier="1" isSelected="false" locked="false" name="bars" open="true" outline="false" parentLayerIndex="0" useOutlineView="false" visible="true">
+                    <frames>
+                        <DOMFrame acceleration="0" duration="1" index="0" keyMode="1536" motionTweenRotate="auto" motionTweenRotateTimes="0" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMShape selected="false">
+                                    <matrix>
+                                        <Matrix a="1" b="0" c="0" d="1" tx="0" ty="0"/>
+                                    </matrix>
+                                    <fills>
+                                        <FillStyle index="1">
+                                            <SolidColor alpha="1" color="#911EB4"/>
+                                        </FillStyle>
+                                        <FillStyle index="2">
+                                            <SolidColor alpha="1" color="#46F0F0"/>
+                                        </FillStyle>
+                                    </fills>
+                                    <edges>
+                                        <Edge edges="!-1200 -1200|-1200 -1600" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!-1200 -1600|1200 -1600" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!1200 -1600|1200 -1200" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!1200 -1200|1200 -800" fillStyle0="0" fillStyle1="2" strokeStyle="0"/>
+                                        <Edge edges="!1200 -800|1200 -400" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!1200 -400|1200 0" fillStyle0="0" fillStyle1="2" strokeStyle="0"/>
+                                        <Edge edges="!1200 0|1200 400" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!1200 400|1200 800" fillStyle0="0" fillStyle1="2" strokeStyle="0"/>
+                                        <Edge edges="!1200 800|1200 1200" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!1200 1200|1200 1600" fillStyle0="0" fillStyle1="2" strokeStyle="0"/>
+                                        <Edge edges="!1200 1600|-1200 1600" fillStyle0="0" fillStyle1="2" strokeStyle="0"/>
+                                        <Edge edges="!-1200 1600|-1200 1200" fillStyle0="0" fillStyle1="2" strokeStyle="0"/>
+                                        <Edge edges="!-1200 1200|-1200 800" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!-1200 800|-1200 400" fillStyle0="0" fillStyle1="2" strokeStyle="0"/>
+                                        <Edge edges="!-1200 400|-1200 0" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!-1200 0|-1200 -400" fillStyle0="0" fillStyle1="2" strokeStyle="0"/>
+                                        <Edge edges="!-1200 -400|-1200 -800" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!-1200 -800|-1200 -1200" fillStyle0="0" fillStyle1="2" strokeStyle="0"/>
+                                        <Edge edges="!1200 1200|-1200 1200" fillStyle0="2" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!1200 800|-1200 800" fillStyle0="1" fillStyle1="2" strokeStyle="0"/>
+                                        <Edge edges="!1200 400|-1200 400" fillStyle0="2" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!1200 0|-1200 0" fillStyle0="1" fillStyle1="2" strokeStyle="0"/>
+                                        <Edge edges="!1200 -400|-1200 -400" fillStyle0="2" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!1200 -800|-1200 -800" fillStyle0="1" fillStyle1="2" strokeStyle="0"/>
+                                        <Edge edges="!1200 -1200|-1200 -1200" fillStyle0="2" fillStyle1="1" strokeStyle="0"/>
+                                    </edges>
+                                </DOMShape>
+                            </elements>
+                        </DOMFrame>
+                    </frames>
+                </DOMLayer>
+            </layers>
+        </DOMTimeline>
+    </timeline>
+</DOMSymbolItem>

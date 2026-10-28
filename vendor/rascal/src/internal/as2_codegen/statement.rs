@@ -535,6 +535,32 @@ pub fn gen_expr(
         ExprKind::GetTime => {
             builder.action(Action::GetTime);
         }
+        ExprKind::GotoSceneFrame { frame, play, bias } => match &frame.value {
+            ExprKind::Constant(ConstantKind::String(label)) => {
+                builder.action(Action::GotoLabel(label.to_string()));
+                if *play {
+                    builder.action(Action::Play);
+                }
+            }
+            ExprKind::Constant(ConstantKind::Integer(frame_number)) => {
+                let mut frame_number = *frame_number;
+                if frame_number != 0 {
+                    frame_number = frame_number.wrapping_sub(1);
+                }
+                let frame_number = frame_number.wrapping_add(i32::from(*bias));
+                builder.action(Action::GotoFrame((frame_number & 0xFFFF) as u16));
+                if *play {
+                    builder.action(Action::Play);
+                }
+            }
+            _ => {
+                gen_expr(context, builder, frame, false);
+                builder.action(Action::GotoFrame2 {
+                    scene_bias: *bias,
+                    play: *play,
+                });
+            }
+        },
         ExprKind::GotoFrame(frame, play) => match &frame.value {
             ExprKind::Constant(ConstantKind::String(label)) => {
                 builder.action(Action::GotoLabel(label.to_string()));

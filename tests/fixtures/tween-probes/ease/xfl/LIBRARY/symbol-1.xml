@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<DOMSymbolItem itemID="6ae2169e-0000000c" lastModified="1793201822" lastUniqueIdentifier="0" name="Arrow" symbolType="movie clip" xmlns="http://ns.adobe.com/xfl/2008/">
+    <timeline>
+        <DOMTimeline currentFrame="0" name="Arrow">
+            <layers>
+                <DOMLayer autoNamed="true" color="#4FFF4F" current="true" heightMultiplier="1" isSelected="true" locked="false" name="Layer 1" open="true" outline="false" useOutlineView="false" visible="true">
+                    <frames>
+                        <DOMFrame acceleration="0" duration="1" index="0" keyMode="1536" motionTweenRotate="auto" motionTweenRotateTimes="0" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMShape selected="false">
+                                    <matrix>
+                                        <Matrix a="1" b="0" c="0" d="1" tx="0" ty="0"/>
+                                    </matrix>
+                                    <fills>
+                                        <FillStyle index="1">
+                                            <SolidColor alpha="1" color="#3366CC"/>
+                                        </FillStyle>
+                                        <FillStyle index="2">
+                                            <SolidColor alpha="1" color="#FF0000"/>
+                                        </FillStyle>
+                                    </fills>
+                                    <edges>
+                                        <Edge edges="!400 -100|600 -100" fillStyle0="0" fillStyle1="2" strokeStyle="0"/>
+                                        <Edge edges="!600 -100|600 100" fillStyle0="0" fillStyle1="2" strokeStyle="0"/>
+                                        <Edge edges="!600 100|400 100" fillStyle0="0" fillStyle1="2" strokeStyle="0"/>
+                                        <Edge edges="!400 100|400 200" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!400 200|-600 200" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!-600 200|-600 -200" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!-600 -200|400 -200" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!400 -200|400 -100" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!400 100|400 -100" fillStyle0="1" fillStyle1="2" strokeStyle="0"/>
+                                    </edges>
+                                </DOMShape>
+                            </elements>
+                        </DOMFrame>
+                    </frames>
+                </DOMLayer>
+            </layers>
+        </DOMTimeline>
+    </timeline>
+</DOMSymbolItem>

@@ -67,6 +67,8 @@ impl SwfOptions {
 pub struct CompileOptions {
     pub(crate) swf_version: u8,
     pub(crate) optimizations: OptimizationOptions,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub(crate) scenes: Option<Scenes>,
 }
 
 impl Default for CompileOptions {
@@ -74,7 +76,42 @@ impl Default for CompileOptions {
         Self {
             swf_version: 15,
             optimizations: OptimizationOptions::full(),
+            scenes: None,
         }
+    }
+}
+
+/// The scenes of the document a script belongs to, so that scene gotos
+/// (`nextScene()`, `prevScene()`, `gotoAndPlay("Scene", n)` and a bare
+/// `gotoAndPlay(n)` in a later scene) resolve at compile time, as Flash does.
+/// Scenes are concatenated into one timeline; each is given by its name and
+/// its first frame (0-based) in that timeline.
+#[derive(Debug, Clone, Serialize, PartialEq, Eq)]
+pub struct Scenes {
+    pub(crate) scenes: Vec<(String, u16)>,
+    pub(crate) current: usize,
+}
+
+impl Scenes {
+    /// `scenes` lists every scene in order as (name, first frame, 0-based);
+    /// `current` is the index of the scene the scripts belong to.
+    pub fn new(scenes: Vec<(String, u16)>, current: usize) -> Self {
+        Self { scenes, current }
+    }
+
+    /// The first frame of scene `index`.
+    pub(crate) fn first_frame(&self, index: usize) -> Option<u16> {
+        self.scenes.get(index).map(|(_, first)| *first)
+    }
+
+    /// The first frame of the scene named `name` (exact match first, then
+    /// ignoring ASCII case).
+    pub(crate) fn find(&self, name: &str) -> Option<u16> {
+        self.scenes
+            .iter()
+            .find(|(n, _)| n == name)
+            .or_else(|| self.scenes.iter().find(|(n, _)| n.eq_ignore_ascii_case(name)))
+            .map(|(_, first)| *first)
     }
 }
 
@@ -86,6 +123,12 @@ impl CompileOptions {
 
     pub fn with_optimizations(mut self, optimizations: OptimizationOptions) -> Self {
         self.optimizations = optimizations;
+        self
+    }
+
+    /// Resolves scene gotos in scripts (not classes) against `scenes`.
+    pub fn with_scenes(mut self, scenes: Scenes) -> Self {
+        self.scenes = Some(scenes);
         self
     }
 }
@@ -278,6 +321,7 @@ impl<P: SourceProvider> ProgramBuilder<P> {
                 is_script,
                 type_name,
                 known_script_paths,
+                compile_options.scenes.as_ref().filter(|_| is_script),
             );
             for error in hir_errors {
                 errors.add_parsing_error(error);
