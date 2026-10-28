@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<DOMSymbolItem itemID="6ae1b1a4-0000000c" lastModified="1793175972" lastUniqueIdentifier="0" name="Inner" symbolType="movie clip" xmlns="http://ns.adobe.com/xfl/2008/">
+    <timeline>
+        <DOMTimeline currentFrame="0" name="Inner">
+            <layers>
+                <DOMLayer autoNamed="true" color="#4FFF4F" current="true" heightMultiplier="1" isSelected="true" locked="false" name="Layer 1" open="true" outline="false" useOutlineView="false" visible="true">
+                    <frames>
+                        <DOMFrame acceleration="0" duration="1" index="0" keyMode="1536" motionTweenRotate="auto" motionTweenRotateTimes="0" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMShape selected="false">
+                                    <matrix>
+                                        <Matrix a="1" b="0" c="0" d="1" tx="0" ty="0"/>
+                                    </matrix>
+                                    <fills>
+                                        <FillStyle index="1">
+                                            <SolidColor alpha="1" color="#FF9900"/>
+                                        </FillStyle>
+                                        <FillStyle index="2">
+                                            <SolidColor alpha="1" color="#000000"/>
+                                        </FillStyle>
+                                    </fills>
+                                    <edges>
+                                        <Edge edges="!360 -80|360 80" fillStyle0="1" fillStyle1="2" strokeStyle="0"/>
+                                        <Edge edges="!360 80|200 80" fillStyle0="1" fillStyle1="2" strokeStyle="0"/>
+                                        <Edge edges="!200 80|200 -80" fillStyle0="1" fillStyle1="2" strokeStyle="0"/>
+                                        <Edge edges="!200 -80|360 -80" fillStyle0="1" fillStyle1="2" strokeStyle="0"/>
+                                        <Edge edges="!283 -283[400 -166 400 0" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!400 0[400 166 283 283" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!283 283[166 400 0 400" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!0 400[-166 400 -283 283" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!-283 283[-400 166 -400 0" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!-400 0[-400 -166 -283 -283" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!-283 -283[-166 -400 0 -400" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!0 -400[166 -400 283 -283" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                    </edges>
+                                </DOMShape>
+                            </elements>
+                        </DOMFrame>
+                    </frames>
+                </DOMLayer>
+            </layers>
+        </DOMTimeline>
+    </timeline>
+</DOMSymbolItem>

@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<DOMSymbolItem itemID="6ae1b1cd-0000000e" lastModified="1793176014" lastUniqueIdentifier="0" name="Counter" symbolType="graphic" xmlns="http://ns.adobe.com/xfl/2008/">
+    <timeline>
+        <DOMTimeline currentFrame="9" name="Counter">
+            <layers>
+                <DOMLayer autoNamed="true" color="#4FFF4F" current="true" heightMultiplier="1" isSelected="true" locked="false" name="Layer 1" open="true" outline="false" useOutlineView="false" visible="true">
+                    <frames>
+                        <DOMFrame acceleration="0" duration="1" index="0" keyMode="1536" motionTweenRotate="auto" motionTweenRotateTimes="0" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMShape selected="false">
+                                    <matrix>
+                                        <Matrix a="1" b="0" c="0" d="1" tx="0" ty="0"/>
+                                    </matrix>
+                                    <fills>
+                                        <FillStyle index="1">
+                                            <SolidColor alpha="1" color="#E6194B"/>
+                                        </FillStyle>
+                                    </fills>
+                                    <edges>
+                                        <Edge edges="!-640 -160|-640 160" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!-640 160|-800 160" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!-800 160|-800 -160" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!-800 -160|-640 -160" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                    </edges>
+                                </DOMShape>
+                            </elements>
+                        </DOMFrame>
+                        <DOMFrame acceleration="0" duration="1" index="1" keyMode="1536" motionTweenRotate="auto" motionTweenRotateTimes="0" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMShape selected="false">
+                                    <matrix>
+                                        <Matrix a="1" b="0" c="0" d="1" tx="0" ty="0"/>
+                                    </matrix>
+                                    <fills>
+                                        <FillStyle index="1">
+                                            <SolidColor alpha="1" color="#3CB44B"/>
+                                        </FillStyle>
+                                    </fills>
+                                    <edges>
+                                        <Edge edges="!-480 -160|-480 160" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!-480 160|-800 160" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!-800 160|-800 -160" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!-800 -160|-480 -160" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                    </edges>
+                                </DOMShape>
+                            </elements>
+                        </DOMFrame>
+                        <DOMFrame acceleration="0" duration="1" index="2" keyMode="1536" motionTweenRotate="auto" motionTweenRotateTimes="0" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMShape selected="false">
+                                    <matrix>
+                                        <Matrix a="1" b="0" c="0" d="1" tx="0" ty="0"/>
+                                    </matrix>
+                                    <fills>
+                                        <FillStyle index="1">
+                                            <SolidColor alpha="1" color="#FFE119"/>
+                                        </FillStyle>
+                                    </fills>
+                                    <edges>
+                                        <Edge edges="!-320 -160|-320 160" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!-320 160|-800 160" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!-800 160|-800 -160" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!-800 -160|-320 -160" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                    </edges>
+                                </DOMShape>
+                            </elements>
+                        </DOMFrame>
+                        <DOMFrame acceleration="0" duration="1" index="3" keyMode="1536" motionTweenRotate="auto" motionTweenRotateTimes="0" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMShape selected="false">
+                                    <matrix>
+                                        <Matrix a="1" b="0" c="0" d="1" tx="0" ty="0"/>
+                                    </matrix>
+                                    <fills>
+                                        <FillStyle index="1">
+                                            <SolidColor alpha="1" color="#4363D8"/>
+                                        </FillStyle>
+                                    </fills>
+                                    <edges>
+                                        <Edge edges="!-160 -160|-160 160" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!-160 160|-800 160" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!-800 160|-800 -160" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!-800 -160|-160 -160" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                    </edges>
+                                </DOMShape>
+                            </elements>
+                        </DOMFrame>
+                        <DOMFrame acceleration="0" duration="1" index="4" keyMode="1536" motionTweenRotate="auto" motionTweenRotateTimes="0" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMShape selected="false">
+                                    <matrix>
+                                        <Matrix a="1" b="0" c="0" d="1" tx="0" ty="0"/>
+                                    </matrix>
+                                    <fills>
+                                        <FillStyle index="1">
+                                            <SolidColor alpha="1" color="#F58231"/>
+                                        </FillStyle>
+                                    </fills>
+                                    <edges>
+                                        <Edge edges="!0 -160|0 160" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!0 160|-800 160" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!-800 160|-800 -160" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!-800 -160|0 -160" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                    </edges>
+                                </DOMShape>
+                            </elements>
+                        </DOMFrame>
+                        <DOMFrame acceleration="0" duration="1" index="5" keyMode="1536" motionTweenRotate="auto" motionTweenRotateTimes="0" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMShape selected="false">
+                                    <matrix>
+                                        <Matrix a="1" b="0" c="0" d="1" tx="0" ty="0"/>
+                                    </matrix>
+                                    <fills>
+                                        <FillStyle index="1">
+                                            <SolidColor alpha="1" color="#911EB4"/>
+                                        </FillStyle>
+                                    </fills>
+                                    <edges>
+                                        <Edge edges="!160 -160|160 160" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!160 160|-800 160" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!-800 160|-800 -160" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!-800 -160|160 -160" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                    </edges>
+                                </DOMShape>
+                            </elements>
+                        </DOMFrame>
+                        <DOMFrame acceleration="0" duration="1" index="6" keyMode="1536" motionTweenRotate="auto" motionTweenRotateTimes="0" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMShape selected="false">
+                                    <matrix>
+                                        <Matrix a="1" b="0" c="0" d="1" tx="0" ty="0"/>
+                                    </matrix>
+                                    <fills>
+                                        <FillStyle index="1">
+                                            <SolidColor alpha="1" color="#46F0F0"/>
+                                        </FillStyle>
+                                    </fills>
+                                    <edges>
+                                        <Edge edges="!320 -160|320 160" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!320 160|-800 160" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!-800 160|-800 -160" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!-800 -160|320 -160" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                    </edges>
+                                </DOMShape>
+                            </elements>
+                        </DOMFrame>
+                        <DOMFrame acceleration="0" duration="1" index="7" keyMode="1536" motionTweenRotate="auto" motionTweenRotateTimes="0" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMShape selected="false">
+                                    <matrix>
+                                        <Matrix a="1" b="0" c="0" d="1" tx="0" ty="0"/>
+                                    </matrix>
+                                    <fills>
+                                        <FillStyle index="1">
+                                            <SolidColor alpha="1" color="#F032E6"/>
+                                        </FillStyle>
+                                    </fills>
+                                    <edges>
+                                        <Edge edges="!480 -160|480 160" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!480 160|-800 160" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!-800 160|-800 -160" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!-800 -160|480 -160" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                    </edges>
+                                </DOMShape>
+                            </elements>
+                        </DOMFrame>
+                        <DOMFrame acceleration="0" duration="1" index="8" keyMode="1536" motionTweenRotate="auto" motionTweenRotateTimes="0" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMShape selected="false">
+                                    <matrix>
+                                        <Matrix a="1" b="0" c="0" d="1" tx="0" ty="0"/>
+                                    </matrix>
+                                    <fills>
+                                        <FillStyle index="1">
+                                            <SolidColor alpha="1" color="#BCF60C"/>
+                                        </FillStyle>
+                                    </fills>
+                                    <edges>
+                                        <Edge edges="!640 -160|640 160" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!640 160|-800 160" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!-800 160|-800 -160" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!-800 -160|640 -160" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                    </edges>
+                                </DOMShape>
+                            </elements>
+                        </DOMFrame>
+                        <DOMFrame acceleration="0" duration="1" index="9" keyMode="1536" motionTweenRotate="auto" motionTweenRotateTimes="0" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMShape selected="false">
+                                    <matrix>
+                                        <Matrix a="1" b="0" c="0" d="1" tx="0" ty="0"/>
+                                    </matrix>
+                                    <fills>
+                                        <FillStyle index="1">
+                                            <SolidColor alpha="1" color="#000000"/>
+                                        </FillStyle>
+                                    </fills>
+                                    <edges>
+                                        <Edge edges="!800 -160|800 160" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!800 160|-800 160" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!-800 160|-800 -160" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!-800 -160|800 -160" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                    </edges>
+                                </DOMShape>
+                            </elements>
+                        </DOMFrame>
+                    </frames>
+                </DOMLayer>
+            </layers>
+        </DOMTimeline>
+    </timeline>
+</DOMSymbolItem>

@@ -1,0 +1,2 @@
+﻿tweens: frame 1
+tweens: frame 60

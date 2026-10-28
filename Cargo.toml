@@ -1,0 +1,90 @@
+[workspace]
+members = ["crates/*"]
+# vendor/ holds third-party packages reached through [patch.crates-io]. They are
+# not workspace members: their tests are not ours, and they build with the
+# optimised dependency profile below.
+exclude = ["vendor"]
+resolver = "3"
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+license = "Unlicense"
+rust-version = "1.95"
+publish = false
+
+# Every dependency of every crate is declared here, so the crates only say
+# `workspace = true`. Versions follow docs/ARCHITECTURE.md, section 4, and the
+# Cargo.lock was seeded from Ruffle's lock at the pinned revision.
+[workspace.dependencies]
+# Our crates.
+jazari-xfl = { path = "crates/jazari-xfl" }
+jazari-as2 = { path = "crates/jazari-as2" }
+jazari-text = { path = "crates/jazari-text" }
+jazari-publish = { path = "crates/jazari-publish" }
+jazari-preview = { path = "crates/jazari-preview" }
+
+# Ruffle, pinned to one git revision. Never use ruffle_frontend_utils
+# (reqwest/OpenSSL) or ruffle_desktop.
+ruffle_core = { git = "https://github.com/ruffle-rs/ruffle", rev = "07d3e430631333f80f754df01a968bdcd80d98c5", features = ["default_font", "audio", "mp3", "nellymoser"] }
+ruffle_render = { git = "https://github.com/ruffle-rs/ruffle", rev = "07d3e430631333f80f754df01a968bdcd80d98c5" }
+ruffle_render_wgpu = { git = "https://github.com/ruffle-rs/ruffle", rev = "07d3e430631333f80f754df01a968bdcd80d98c5" }
+# The same revision's swf crate; [patch.crates-io] below makes Rascal use it too.
+swf = { git = "https://github.com/ruffle-rs/ruffle", rev = "07d3e430631333f80f754df01a968bdcd80d98c5" }
+# AS2 compiler; patched to vendor/rascal below.
+rascal = "=0.3.6"
+
+# GUI. eframe stays on 0.36 (egui_dock 0.21 and Ruffle's lock need it), with
+# wgpu 30. There must be exactly one wgpu in the tree: `cargo tree -i wgpu`.
+eframe = { version = "0.36.2", features = ["persistence"] }
+egui_dock = { version = "0.21.1", features = ["serde"] }
+wgpu = "30.0.1"
+rfd = { version = "0.17.2", default-features = false, features = ["xdg-portal", "wayland"] }
+dirs = "6"
+serde = { version = "1.0.228", features = ["derive"] }
+toml = "1.1"
+
+# XFL containers and media.
+quick-xml = "0.37"
+zip = { version = "9", default-features = false, features = ["deflate"] }
+flate2 = "1"
+image = { version = "0.25", default-features = false, features = ["png"] }
+indexmap = "2.14"
+
+# Text.
+harfrust = "=0.12.0"
+skrifa = "0.44"
+fontdb = "0.24"
+unicode-bidi = "0.3.18"
+unicode-linebreak = "0.1.5"
+unicode-script = "0.5"
+kurbo = "0.13"
+
+# Errors, logging and caches. anyhow is for binaries (and jazari-preview's
+# API, which wraps Ruffle's non-Send errors).
+thiserror = "2.0.18"
+anyhow = "1.0"
+log = "0.4"
+tracing = "0.1.43"
+tracing-subscriber = { version = "0.3.23", features = ["env-filter"] }
+sha2 = "0.10.9"
+
+[patch.crates-io]
+# One copy of swf for Rascal, jazari-publish and ruffle_core.
+swf = { git = "https://github.com/ruffle-rs/ruffle", rev = "07d3e430631333f80f754df01a968bdcd80d98c5" }
+# Our patched Rascal 0.3.6; see vendor/rascal/PATCHES.md. This also replaces
+# the copy Ruffle's build script uses to compile its AVM1 playerglobal.
+rascal = { path = "vendor/rascal" }
+
+# The AS2 compiler and Ruffle are wrapped in catch_unwind: unwind everywhere.
+[profile.dev]
+panic = "unwind"
+
+# Optimise dependencies (Ruffle, Rascal, wgpu) so debug builds stay usable;
+# our own crates stay at opt-level 0.
+[profile.dev.package."*"]
+opt-level = 2
+
+[profile.release]
+panic = "unwind"
+lto = "thin"

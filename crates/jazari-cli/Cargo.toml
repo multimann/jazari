@@ -1,0 +1,26 @@
+[package]
+name = "jazari-cli"
+description = "Al-Jazari command line: dump, publish, render and compare"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+publish.workspace = true
+
+[[bin]]
+name = "jazari-cli"
+path = "src/main.rs"
+
+[dependencies]
+jazari-xfl = { workspace = true }
+jazari-as2 = { workspace = true }
+jazari-text = { workspace = true }
+jazari-publish = { workspace = true }
+jazari-preview = { workspace = true }
+# Reads SWFs back (validation, compare) and writes PNG frames.
+swf = { workspace = true }
+image = { workspace = true }
+anyhow = { workspace = true }
+log = { workspace = true }
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }

@@ -1,0 +1,92 @@
+{
+ "frames": [
+  "var o = {a:1};\nvar arr = [5, 6];\nvar i = 0;\no.a++;\no.a--;\nvar x = o.a++;\nvar y = o.a--;\narr[i]++;\nvar z = arr[i++]++;\nthis._x++;\n++o.a;\n_x++;\ntrace(o.a + \" \" + x + \" \" + y + \" \" + arr + \" \" + z + \" \" + i);\n",
+  "var n = 0;\ndo {\n\tn++;\n\tif (n == 2) continue;\n\tif (n > 5) break;\n} while (n < 3);\ndo n++; while (n < 10)\ntrace(n);\n",
+  "var s = \"\\u0645\\u0631\\u062D\\u0628\\u0627\";\n",
+  "var s = \"\\xE9\";\n",
+  "var s = \"\\xC3\\xA9\";\n",
+  "var s = \"a\\bb\\fc\";\n",
+  "var s = \"\\101\\60x\";\n",
+  "var s = \"\\0end\";\n",
+  "var s = \"\\q\\z\";\n",
+  "var s = \"\\uD83D\\uDE00\";\n",
+  "var s = \"\\u00e9\\u00E9\";\n",
+  "var s = \"\\x41\\x4a\";\n",
+  "var s = \"\\u12\";\n",
+  "var s = \"\\x4\";\n",
+  "var s = \"\\8\\9\";\n",
+  "var s = \"\\377\\400\";\n",
+  "\"abc\" = 5;\n",
+  "5++;\n",
+  "trace(1;\n",
+  "on (press) { trace(1); }\n",
+  "var a = 1;\n@foo;\n",
+  "do { } while (false) trace(\"after\");\n",
+  "getTimer()++;\n",
+  "onClipEvent (load) { }\n",
+  "var q = 1;\nvar w = q +* 2;\n",
+  "var t = \"\\u0645\";\nvar u = '\\x41';\n"
+ ],
+ "instances": [
+  [
+   "button",
+   "btn_all",
+   "on (press, release, releaseOutside, rollOver, rollOut, dragOver, dragOut) {\n\ttrace(\"all\");\n}\non (keyPress \"<Enter>\") { trace(\"enter\"); }\non (keyPress \"a\") { trace(\"a\"); }\non (keyPress \"<Left>\") { trace(\"left\"); }\non (keyPress \"<PageUp>\") {}\non (keyPress \"<Space>\") { trace(\"space\"); }\non (keyPress \"<Escape>\") { trace(\"esc\"); }\non (keyPress \"A\") { trace(\"A\"); }\non (keyPress \"<Home>\") {} on (keyPress \"<End>\") {} on (keyPress \"<Insert>\") {}\non (keyPress \"<Delete>\") {} on (keyPress \"<Backspace>\") {} on (keyPress \"<Up>\") {}\non (keyPress \"<Down>\") {} on (keyPress \"<PageDown>\") {} on (keyPress \"<Tab>\") {}\non (keyPress \"<Right>\") {}\n"
+  ],
+  [
+   "button",
+   "btn_case",
+   "on (Press) { trace(1); }\n"
+  ],
+  [
+   "button",
+   "btn_mixed",
+   "on (release, keyPress \"<Tab>\") { trace(2); }\n"
+  ],
+  [
+   "button",
+   "btn_clipev",
+   "onClipEvent (load) { trace(3); }\n"
+  ],
+  [
+   "button",
+   "btn_outside",
+   "trace(\"x\");\non (release) { trace(4); }\n"
+  ],
+  [
+   "button",
+   "btn_keycase",
+   "on (keyPress \"<enter>\") { trace(5); }\n"
+  ],
+  [
+   "movie clip",
+   "mc_all",
+   "onClipEvent (load) { trace(\"load\"); }\nonClipEvent (enterFrame) { }\nonClipEvent (unload) { trace(1); }\nonClipEvent (mouseMove) { trace(2); }\nonClipEvent (mouseDown) { trace(3); }\nonClipEvent (mouseUp) { trace(4); }\nonClipEvent (keyDown) { trace(5); }\nonClipEvent (keyUp) { trace(6); }\nonClipEvent (data) { trace(7); }\nonClipEvent (initialize) { trace(8); }\nonClipEvent (construct) { trace(9); }\non (press) { trace(10); }\non (release, releaseOutside) { trace(11); }\non (rollOver) {} on (rollOut) {} on (dragOver) {} on (dragOut) {}\non (keyPress \"<Space>\") { trace(12); }\non (keyPress \"x\") { trace(13); }\n"
+  ],
+  [
+   "movie clip",
+   "mc_multi",
+   "onClipEvent (load, enterFrame) { trace(1); }\n"
+  ],
+  [
+   "movie clip",
+   "mc_case",
+   "onClipEvent (Load) { trace(1); }\n"
+  ],
+  [
+   "movie clip",
+   "mc_nested",
+   "// a comment with } brace\nonClipEvent (load) {\n\tvar s = \"}{\"; /* } */\n\tif (true) { trace(s); }\n\ttrace('it\\'s }');\n}\n"
+  ],
+  [
+   "movie clip",
+   "mc_two_keys",
+   "on (keyPress \"a\", keyPress \"b\") { trace(1); }\n"
+  ],
+  [
+   "movie clip",
+   "mc_onkey_frame",
+   "on (keyPress \"<Enter>\", press) { trace(2); }\n"
+  ]
+ ]
+}

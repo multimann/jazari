@@ -1,0 +1,18 @@
+[package]
+name = "jazari-as2"
+description = "ActionScript 2 front-end over Rascal: handlers, diagnostics, panic isolation"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+publish.workspace = true
+
+[dependencies]
+# Patched to vendor/rascal through the workspace [patch.crates-io].
+rascal = { workspace = true }
+# ButtonActionCondition, ClipEventFlag, and parsing Rascal's SWF output.
+swf = { workspace = true }
+thiserror = { workspace = true }
+log = { workspace = true }
+# Cache key: hash of a snippet and its includes.
+sha2 = { workspace = true }

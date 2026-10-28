@@ -1,0 +1,41 @@
+﻿**Error** Scene=Scene 1, layer=L_btn_clipev, frame=1:Line 1: Clip events are permitted only for movie clip instances
+     onClipEvent (load) { trace(3); }
+
+**Error** Scene=Scene 1, layer=L_btn_outside, frame=1:Line 1: Statement must appear within on handler
+     trace("x");
+
+**Error** Scene=Scene 1, layer=L_mc_multi, frame=1:Line 1: ')' expected
+     onClipEvent (load, enterFrame) { trace(1); }
+
+**Error** Scene=Scene 1, layer=L_mc_two_keys, frame=1:Line 1: Duplicate in event list
+     on (keyPress "a", keyPress "b") { trace(1); }
+
+**Error** Scene=Scene 1, layer=actions, frame=17:Line 1: Left side of assignment operator must be variable or property.
+     "abc" = 5;
+
+**Error** Scene=Scene 1, layer=actions, frame=18:Line 1: Left side of assignment operator must be variable or property.
+     5++;
+
+**Error** Scene=Scene 1, layer=actions, frame=19:Line 1: ')' or ',' expected
+     trace(1;
+
+**Error** Scene=Scene 1, layer=actions, frame=20:Line 1: Mouse events are permitted only for button instances
+     on (press) { trace(1); }
+
+**Error** Scene=Scene 1, layer=actions, frame=21:Line 2: Unexpected '@' encountered
+     @foo;
+
+**Error** Scene=Scene 1, layer=actions, frame=22:Line 1: Syntax error.
+     do { } while (false) trace("after");
+
+**Error** Scene=Scene 1, layer=actions, frame=23:Line 1: Left side of assignment operator must be variable or property.
+     getTimer()++;
+
+**Error** Scene=Scene 1, layer=actions, frame=24:Line 1: Clip events are permitted only for movie clip instances
+     onClipEvent (load) { }
+
+**Error** Scene=Scene 1, layer=actions, frame=25:Line 2: Operator '+' must be followed by an operand
+     var w = q +* 2;
+
+Total ActionScript Errors: 13 	 Reported Errors: 13
+

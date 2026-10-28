@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<DOMSymbolItem itemID="6ae1b1fa-0000000e" lastModified="1793176058" lastUniqueIdentifier="0" name="Ticker" symbolType="movie clip" xmlns="http://ns.adobe.com/xfl/2008/">
+    <timeline>
+        <DOMTimeline currentFrame="0" name="Ticker">
+            <layers>
+                <DOMLayer autoNamed="true" color="#4FFF4F" current="true" heightMultiplier="1" isSelected="true" locked="false" name="Layer 1" open="true" outline="false" useOutlineView="false" visible="true">
+                    <frames>
+                        <DOMFrame acceleration="0" duration="1" index="0" keyMode="1536" motionTweenRotate="auto" motionTweenRotateTimes="0" useSingleEaseCurve="true">
+                            <elements>
+                                <DOMShape selected="false">
+                                    <matrix>
+                                        <Matrix a="1" b="0" c="0" d="1" tx="0" ty="0"/>
+                                    </matrix>
+                                    <fills>
+                                        <FillStyle index="1">
+                                            <SolidColor alpha="1" color="#9933CC"/>
+                                        </FillStyle>
+                                    </fills>
+                                    <edges>
+                                        <Edge edges="!353 -354[500 -207 500 0" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!500 0[500 207 353 353" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!353 353[207 500 0 500" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!0 500[-207 500 -354 353" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!-354 353[-500 207 -500 0" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!-500 0[-500 -207 -354 -354" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!-354 -354[-207 -500 0 -500" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                        <Edge edges="!0 -500[207 -500 353 -354" fillStyle0="0" fillStyle1="1" strokeStyle="0"/>
+                                    </edges>
+                                </DOMShape>
+                            </elements>
+                        </DOMFrame>
+                    </frames>
+                </DOMLayer>
+            </layers>
+        </DOMTimeline>
+    </timeline>
+</DOMSymbolItem>

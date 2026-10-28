@@ -1,0 +1,19 @@
+[package]
+name = "jazari-xfl"
+description = "XFL reader and the in-memory authoring document model of Al-Jazari"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+publish.workspace = true
+
+# No swf, no GUI, no Ruffle: this crate must stay fast to build and test.
+[dependencies]
+quick-xml = { workspace = true }
+zip = { workspace = true }
+flate2 = { workspace = true }
+# Decodes PNG files stored raw in bin/ (JPEG bytes are passed through).
+image = { workspace = true }
+indexmap = { workspace = true }
+thiserror = { workspace = true }
+log = { workspace = true }

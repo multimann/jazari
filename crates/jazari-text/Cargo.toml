@@ -1,0 +1,21 @@
+[package]
+name = "jazari-text"
+description = "Fonts, shaping (harfrust), bidi, line breaking and glyph outlines for Al-Jazari"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+publish.workspace = true
+
+[dependencies]
+# Model types: TextRun, TextAttrs, LineType, PathCmd, Pt, Rgba.
+jazari-xfl = { workspace = true }
+harfrust = { workspace = true }
+skrifa = { workspace = true }
+fontdb = { workspace = true }
+unicode-bidi = { workspace = true }
+unicode-linebreak = { workspace = true }
+unicode-script = { workspace = true }
+kurbo = { workspace = true }
+thiserror = { workspace = true }
+log = { workspace = true }

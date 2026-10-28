@@ -1,0 +1,9 @@
+﻿symbols: frame 1
+nested: innerA_mc, innerB_mc
+innerB_mc._xscale = 50
+alpha_mc._alpha = 40
+drop_mc.filters.length = 1
+multi_mc.filters.length = 2
+multiply_mc.blendMode = multiply
+add_mc.blendMode = add
+cache_mc.cacheAsBitmap = true

@@ -1,0 +1,4 @@
+# Windows builds link the C runtime statically, so the executable needs no
+# VC++ redistributable (docs/ARCHITECTURE.md, section 2).
+[target.x86_64-pc-windows-msvc]
+rustflags = ["-C", "target-feature=+crt-static"]

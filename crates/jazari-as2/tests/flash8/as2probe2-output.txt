@@ -1,0 +1,45 @@
+﻿**Error** Scene=Scene 1, layer=L_b_multichar_key, frame=1:Line 1: Invalid key code
+     on (keyPress "ab") { trace(1); }
+
+**Error** Scene=Scene 1, layer=L_b_bad_key, frame=1:Line 1: Invalid key code
+     on (keyPress "<Foo>") { trace(1); }
+
+**Error** Scene=Scene 1, layer=L_b_bad_event, frame=1:Line 1: Invalid mouse event specified.
+     on (foo) { trace(1); }
+
+**Error** Scene=Scene 1, layer=L_b_dup_event, frame=1:Line 1: Duplicate in event list
+     on (press, press) { trace(1); }
+
+**Error** Scene=Scene 1, layer=L_b_unbalanced, frame=1:Line 1: Statement block must be terminated by '}'
+     on (press) { trace(1);
+
+**Error** Scene=Scene 1, layer=L_b_unbalanced, frame=1:Line 2: Syntax error.
+
+**Error** Scene=Scene 1, layer=L_b_nested_on, frame=1:Line 2: on handlers may not nest within other on handlers
+     	on (release) { trace(1); }
+
+**Error** Scene=Scene 1, layer=L_b_no_braces, frame=1:Line 1: '{' expected
+     on (release) trace(1);
+
+**Error** Scene=Scene 1, layer=L_b_no_braces, frame=1:Line 2: Syntax error.
+
+**Error** Scene=Scene 1, layer=L_b_syntax_err, frame=1:Line 2: ')' or ',' expected
+     	trace(1;
+
+**Error** Scene=Scene 1, layer=L_b_empty_parens, frame=1:Line 1: Mouse event expected
+     on () { trace(1); }
+
+**Error** Scene=Scene 1, layer=L_m_bad_event, frame=1:Line 1: Invalid movie clip event specified.
+     onClipEvent (foo) { trace(1); }
+
+**Error** Scene=Scene 1, layer=L_m_outside, frame=1:Line 1: Statement must appear within on/onClipEvent handler
+     trace("x");
+
+**Error** Scene=Scene 1, layer=L_m_mouse_on_clip_ev, frame=1:Line 1: Invalid movie clip event specified.
+     onClipEvent (press) { trace(1); }
+
+**Error** Scene=Scene 1, layer=L_m_semicolon, frame=1:Line 1: Statement must appear within on/onClipEvent handler
+     onClipEvent (load) { trace(1); };
+
+Total ActionScript Errors: 15 	 Reported Errors: 15
+

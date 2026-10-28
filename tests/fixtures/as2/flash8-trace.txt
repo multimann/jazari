@@ -1,0 +1,12 @@
+﻿frame 1: Hello, Flash 8!
+frame 1: add(2, 3) = 5
+frame 1: typeof my_btn = object, ticker_mc._name = ticker_mc
+ticker_mc: load
+ticker_mc: enterFrame 1
+ticker_mc: enterFrame 2
+ticker_mc: enterFrame 3
+frame 5 [loop]: pass 1
+frame 8: gotoAndPlay("loop")
+frame 5 [loop]: pass 2
+frame 8: continue
+frame 12 [end]: _currentframe = 12, scoreText = score: 20

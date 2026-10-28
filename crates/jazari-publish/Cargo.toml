@@ -1,0 +1,20 @@
+[package]
+name = "jazari-publish"
+description = "Publishes an Al-Jazari document as SWF 8 bytes (release and stage builds)"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+publish.workspace = true
+
+# Never depend on Ruffle here: this crate must stay fast to build and test.
+[dependencies]
+jazari-xfl = { workspace = true }
+jazari-as2 = { workspace = true }
+jazari-text = { workspace = true }
+swf = { workspace = true }
+# zlib for DefineBitsLossless2 and JPEG3 alpha planes.
+flate2 = { workspace = true }
+indexmap = { workspace = true }
+thiserror = { workspace = true }
+log = { workspace = true }

@@ -1,0 +1,23 @@
+[package]
+name = "jazari-preview"
+description = "Embedded Ruffle player for Al-Jazari: shared-device preview and offscreen renderer"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+publish.workspace = true
+
+# Depends on Ruffle only (no other jazari crate). Building ruffle_core needs
+# `java` on PATH (source tools/env.sh or tools/env.ps1 first).
+[dependencies]
+ruffle_core = { workspace = true }
+ruffle_render = { workspace = true }
+ruffle_render_wgpu = { workspace = true }
+eframe = { workspace = true }
+wgpu = { workspace = true }
+image = { workspace = true }
+anyhow = { workspace = true }
+thiserror = { workspace = true }
+log = { workspace = true }
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }

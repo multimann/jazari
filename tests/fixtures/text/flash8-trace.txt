@@ -1,0 +1,2 @@
+﻿text: frame 1
+dyn_txt.text = Dynamic text field

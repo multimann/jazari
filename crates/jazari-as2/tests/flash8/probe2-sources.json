@@ -1,0 +1,157 @@
+{
+ "frames": [
+  "trace(\"p2\");\n"
+ ],
+ "instances": [
+  [
+   "button",
+   "b_press",
+   "on (press) { trace(1); }\n"
+  ],
+  [
+   "button",
+   "b_release",
+   "on (release) { trace(1); }\n"
+  ],
+  [
+   "button",
+   "b_relout",
+   "on (releaseOutside) { trace(1); }\n"
+  ],
+  [
+   "button",
+   "b_rollover",
+   "on (rollOver) { trace(1); }\n"
+  ],
+  [
+   "button",
+   "b_rollout",
+   "on (rollOut) { trace(1); }\n"
+  ],
+  [
+   "button",
+   "b_dragover",
+   "on (dragOver) { trace(1); }\n"
+  ],
+  [
+   "button",
+   "b_dragout",
+   "on (dragOut) { trace(1); }\n"
+  ],
+  [
+   "button",
+   "b_comment_only",
+   "on (press) {\n\t// nothing\n}\non (release) { /* x */ }\n"
+  ],
+  [
+   "button",
+   "b_arabic_key",
+   "on (keyPress \"\u0645\") { trace(1); }\n"
+  ],
+  [
+   "button",
+   "b_multichar_key",
+   "on (keyPress \"ab\") { trace(1); }\n"
+  ],
+  [
+   "button",
+   "b_bad_key",
+   "on (keyPress \"<Foo>\") { trace(1); }\n"
+  ],
+  [
+   "button",
+   "b_bad_event",
+   "on (foo) { trace(1); }\n"
+  ],
+  [
+   "button",
+   "b_dup_handlers",
+   "on (press) { trace(1); }\non (press) { trace(2); }\n"
+  ],
+  [
+   "button",
+   "b_dup_event",
+   "on (press, press) { trace(1); }\n"
+  ],
+  [
+   "button",
+   "b_only_comments",
+   "// just a comment\n/* and another */\n"
+  ],
+  [
+   "button",
+   "b_unbalanced",
+   "on (press) { trace(1);\n"
+  ],
+  [
+   "button",
+   "b_nested_on",
+   "on (press) {\n\ton (release) { trace(1); }\n}\n"
+  ],
+  [
+   "button",
+   "b_no_braces",
+   "on (release) trace(1);\n"
+  ],
+  [
+   "button",
+   "b_syntax_err",
+   "on (release) {\n\ttrace(1;\n}\n"
+  ],
+  [
+   "button",
+   "b_key_quote",
+   "on (keyPress '<Enter>') { trace(1); }\n"
+  ],
+  [
+   "button",
+   "b_key_space",
+   "on (keyPress \" \") { trace(1); }\n"
+  ],
+  [
+   "button",
+   "b_space_names",
+   "on ( press ,\n release ) { trace(1); }\n"
+  ],
+  [
+   "button",
+   "b_empty_parens",
+   "on () { trace(1); }\n"
+  ],
+  [
+   "movie clip",
+   "m_bad_event",
+   "onClipEvent (foo) { trace(1); }\n"
+  ],
+  [
+   "movie clip",
+   "m_outside",
+   "trace(\"x\");\nonClipEvent (load) { trace(1); }\n"
+  ],
+  [
+   "movie clip",
+   "m_mouse_on_clip_ev",
+   "onClipEvent (press) { trace(1); }\n"
+  ],
+  [
+   "movie clip",
+   "m_clip_ev_in_on",
+   "on (load) { trace(1); }\n"
+  ],
+  [
+   "movie clip",
+   "m_semicolon",
+   "onClipEvent (load) { trace(1); };\n"
+  ],
+  [
+   "movie clip",
+   "m_dragover",
+   "on (dragOver, dragOut) { trace(1); }\n"
+  ],
+  [
+   "movie clip",
+   "m_empty_on",
+   "on (press) { }\n"
+  ]
+ ]
+}
